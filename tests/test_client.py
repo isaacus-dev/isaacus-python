@@ -23,6 +23,7 @@ from pydantic import ValidationError
 
 from isaacus import Isaacus, AsyncIsaacus, APIResponseValidationError
 from isaacus._types import Omit
+from isaacus._utils import maybe_transform
 from isaacus._models import BaseModel, FinalRequestOptions
 from isaacus._constants import RAW_RESPONSE_HEADER
 from isaacus._exceptions import APIStatusError, APITimeoutError, APIResponseValidationError
@@ -32,6 +33,7 @@ from isaacus._base_client import (
     BaseClient,
     make_request_options,
 )
+from isaacus.types.classify_universal_create_params import ClassifyUniversalCreateParams
 
 from .utils import update_env
 
@@ -677,7 +679,10 @@ class TestIsaacus:
         with pytest.raises(APITimeoutError):
             self.client.post(
                 "/classify/universal",
-                body=cast(object, dict(model="model", query="query", text="text")),
+                body=cast(
+                    object,
+                    maybe_transform(dict(model="model", query="query", text="text"), ClassifyUniversalCreateParams),
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -692,7 +697,10 @@ class TestIsaacus:
         with pytest.raises(APIStatusError):
             self.client.post(
                 "/classify/universal",
-                body=cast(object, dict(model="model", query="query", text="text")),
+                body=cast(
+                    object,
+                    maybe_transform(dict(model="model", query="query", text="text"), ClassifyUniversalCreateParams),
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1408,7 +1416,10 @@ class TestAsyncIsaacus:
         with pytest.raises(APITimeoutError):
             await self.client.post(
                 "/classify/universal",
-                body=cast(object, dict(model="model", query="query", text="text")),
+                body=cast(
+                    object,
+                    maybe_transform(dict(model="model", query="query", text="text"), ClassifyUniversalCreateParams),
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1423,7 +1434,10 @@ class TestAsyncIsaacus:
         with pytest.raises(APIStatusError):
             await self.client.post(
                 "/classify/universal",
-                body=cast(object, dict(model="model", query="query", text="text")),
+                body=cast(
+                    object,
+                    maybe_transform(dict(model="model", query="query", text="text"), ClassifyUniversalCreateParams),
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
