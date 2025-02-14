@@ -1,0 +1,56 @@
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from __future__ import annotations
+
+from typing import Optional
+from typing_extensions import Literal, Required, TypedDict
+
+__all__ = ["UniversalCreateParams", "ChunkingOptions"]
+
+
+class UniversalCreateParams(TypedDict, total=False):
+    model: Required[Literal["kanon-uniclassifier", "kanon-uniclassifier-mini"]]
+    """The ID of the model to use for universal classification."""
+
+    query: Required[str]
+    """
+    The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
+    evaluate the text against.
+    """
+
+    text: Required[str]
+    """The text to classify."""
+
+    chunking_options: Optional[ChunkingOptions]
+    """Options for how to split text into smaller chunks."""
+
+    is_iql: bool
+    """
+    Whether the query should be interpreted as an Isaacus Query Language (IQL) query
+    or else as a statement.
+    """
+
+    scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"]
+    """The method to use for producing an overall confidence score.
+
+    `auto` is the default scoring method and is recommended for most use cases.
+    Currently, it is equivalent to `chunk_max`. In the future, it will automatically
+    select the best method based on the model and input.
+
+    `chunk_max` uses the highest confidence score of all of the text's chunks.
+
+    `chunk_avg` averages the confidence scores of all of the text's chunks.
+
+    `chunk_min` uses the lowest confidence score of all of the text's chunks.
+    """
+
+
+class ChunkingOptions(TypedDict, total=False):
+    overlap_ratio: Optional[float]
+    """A number greater than or equal to 0 and less than 1."""
+
+    overlap_tokens: Optional[int]
+    """A whole number greater than -1."""
+
+    size: Optional[int]
+    """A whole number greater than or equal to 1."""

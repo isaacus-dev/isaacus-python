@@ -15,8 +15,8 @@ The REST API documentation can be found on [docs.isaacus.com](https://docs.isaac
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/isaacus-python.git
+# install from the production repo
+pip install git+ssh://git@github.com/isaacus-dev/isaacus-python.git
 ```
 
 > [!NOTE]
@@ -27,36 +27,47 @@ pip install git+ssh://git@github.com/stainless-sdks/isaacus-python.git
 The full API of this library can be found in [api.md](api.md).
 
 ```python
+import os
 from isaacus import Isaacus
 
-client = Isaacus()
-
-classify_universal = client.classify_universal.create(
-    model="model",
-    query="query",
-    text="text",
+client = Isaacus(
+    bearer_token=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
 )
-print(classify_universal.chunks)
+
+universal_classification = client.classifications.universal.create(
+    model="kanon-uniclassifier",
+    query="This is a confidentiality clause.",
+    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+)
+print(universal_classification.chunks)
 ```
+
+While you can provide a `bearer_token` keyword argument,
+we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
+to add `ISAACUS_API_KEY="My Bearer Token"` to your `.env` file
+so that your Bearer Token is not stored in source control.
 
 ## Async usage
 
 Simply import `AsyncIsaacus` instead of `Isaacus` and use `await` with each API call:
 
 ```python
+import os
 import asyncio
 from isaacus import AsyncIsaacus
 
-client = AsyncIsaacus()
+client = AsyncIsaacus(
+    bearer_token=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
+)
 
 
 async def main() -> None:
-    classify_universal = await client.classify_universal.create(
-        model="model",
-        query="query",
-        text="text",
+    universal_classification = await client.classifications.universal.create(
+        model="kanon-uniclassifier",
+        query="This is a confidentiality clause.",
+        text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
     )
-    print(classify_universal.chunks)
+    print(universal_classification.chunks)
 
 
 asyncio.run(main())
@@ -89,10 +100,10 @@ from isaacus import Isaacus
 client = Isaacus()
 
 try:
-    client.classify_universal.create(
-        model="model",
-        query="query",
-        text="text",
+    client.classifications.universal.create(
+        model="kanon-uniclassifier",
+        query="This is a confidentiality clause.",
+        text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
     )
 except isaacus.APIConnectionError as e:
     print("The server could not be reached")
@@ -136,10 +147,10 @@ client = Isaacus(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).classify_universal.create(
-    model="model",
-    query="query",
-    text="text",
+client.with_options(max_retries=5).classifications.universal.create(
+    model="kanon-uniclassifier",
+    query="This is a confidentiality clause.",
+    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
 )
 ```
 
@@ -163,10 +174,10 @@ client = Isaacus(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).classify_universal.create(
-    model="model",
-    query="query",
-    text="text",
+client.with_options(timeout=5.0).classifications.universal.create(
+    model="kanon-uniclassifier",
+    query="This is a confidentiality clause.",
+    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
 )
 ```
 
@@ -208,20 +219,20 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from isaacus import Isaacus
 
 client = Isaacus()
-response = client.classify_universal.with_raw_response.create(
-    model="model",
-    query="query",
-    text="text",
+response = client.classifications.universal.with_raw_response.create(
+    model="kanon-uniclassifier",
+    query="This is a confidentiality clause.",
+    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
 )
 print(response.headers.get('X-My-Header'))
 
-classify_universal = response.parse()  # get the object that `classify_universal.create()` would have returned
-print(classify_universal.chunks)
+universal = response.parse()  # get the object that `classifications.universal.create()` would have returned
+print(universal.chunks)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/isaacus-python/tree/main/src/isaacus/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/isaacus-dev/isaacus-python/tree/main/src/isaacus/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/isaacus-python/tree/main/src/isaacus/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/isaacus-dev/isaacus-python/tree/main/src/isaacus/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -230,10 +241,10 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.classify_universal.with_streaming_response.create(
-    model="model",
-    query="query",
-    text="text",
+with client.classifications.universal.with_streaming_response.create(
+    model="kanon-uniclassifier",
+    query="This is a confidentiality clause.",
+    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
 ) as response:
     print(response.headers.get("X-My-Header"))
 
@@ -329,7 +340,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/isaacus-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/isaacus-dev/isaacus-python/issues) with questions, bugs, or suggestions.
 
 ### Determining the installed version
 

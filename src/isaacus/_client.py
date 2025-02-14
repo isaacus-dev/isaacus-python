@@ -24,28 +24,30 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
-from .resources import classify_universal
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
-from ._exceptions import APIStatusError
+from ._exceptions import IsaacusError, APIStatusError
 from ._base_client import (
     DEFAULT_MAX_RETRIES,
     SyncAPIClient,
     AsyncAPIClient,
 )
+from .resources.classifications import classifications
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Isaacus", "AsyncIsaacus", "Client", "AsyncClient"]
 
 
 class Isaacus(SyncAPIClient):
-    classify_universal: classify_universal.ClassifyUniversalResource
+    classifications: classifications.ClassificationsResource
     with_raw_response: IsaacusWithRawResponse
     with_streaming_response: IsaacusWithStreamedResponse
 
     # client options
+    bearer_token: str
 
     def __init__(
         self,
         *,
+        bearer_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -65,11 +67,22 @@ class Isaacus(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous isaacus client instance."""
+        """Construct a new synchronous isaacus client instance.
+
+        This automatically infers the `bearer_token` argument from the `ISAACUS_API_KEY` environment variable if it is not provided.
+        """
+        if bearer_token is None:
+            bearer_token = os.environ.get("ISAACUS_API_KEY")
+        if bearer_token is None:
+            raise IsaacusError(
+                "The bearer_token client option must be set either by passing bearer_token to the client or by setting the ISAACUS_API_KEY environment variable"
+            )
+        self.bearer_token = bearer_token
+
         if base_url is None:
             base_url = os.environ.get("ISAACUS_BASE_URL")
         if base_url is None:
-            base_url = f"/"
+            base_url = f"https://api.isaacus.com/v1"
 
         super().__init__(
             version=__version__,
@@ -82,7 +95,7 @@ class Isaacus(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.classify_universal = classify_universal.ClassifyUniversalResource(self)
+        self.classifications = classifications.ClassificationsResource(self)
         self.with_raw_response = IsaacusWithRawResponse(self)
         self.with_streaming_response = IsaacusWithStreamedResponse(self)
 
@@ -90,6 +103,12 @@ class Isaacus(SyncAPIClient):
     @override
     def qs(self) -> Querystring:
         return Querystring(array_format="comma")
+
+    @property
+    @override
+    def auth_headers(self) -> dict[str, str]:
+        bearer_token = self.bearer_token
+        return {"Authorization": f"Bearer {bearer_token}"}
 
     @property
     @override
@@ -103,6 +122,7 @@ class Isaacus(SyncAPIClient):
     def copy(
         self,
         *,
+        bearer_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.Client | None = None,
@@ -136,6 +156,7 @@ class Isaacus(SyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
+            bearer_token=bearer_token or self.bearer_token,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -184,15 +205,17 @@ class Isaacus(SyncAPIClient):
 
 
 class AsyncIsaacus(AsyncAPIClient):
-    classify_universal: classify_universal.AsyncClassifyUniversalResource
+    classifications: classifications.AsyncClassificationsResource
     with_raw_response: AsyncIsaacusWithRawResponse
     with_streaming_response: AsyncIsaacusWithStreamedResponse
 
     # client options
+    bearer_token: str
 
     def __init__(
         self,
         *,
+        bearer_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -212,11 +235,22 @@ class AsyncIsaacus(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async isaacus client instance."""
+        """Construct a new async isaacus client instance.
+
+        This automatically infers the `bearer_token` argument from the `ISAACUS_API_KEY` environment variable if it is not provided.
+        """
+        if bearer_token is None:
+            bearer_token = os.environ.get("ISAACUS_API_KEY")
+        if bearer_token is None:
+            raise IsaacusError(
+                "The bearer_token client option must be set either by passing bearer_token to the client or by setting the ISAACUS_API_KEY environment variable"
+            )
+        self.bearer_token = bearer_token
+
         if base_url is None:
             base_url = os.environ.get("ISAACUS_BASE_URL")
         if base_url is None:
-            base_url = f"/"
+            base_url = f"https://api.isaacus.com/v1"
 
         super().__init__(
             version=__version__,
@@ -229,7 +263,7 @@ class AsyncIsaacus(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.classify_universal = classify_universal.AsyncClassifyUniversalResource(self)
+        self.classifications = classifications.AsyncClassificationsResource(self)
         self.with_raw_response = AsyncIsaacusWithRawResponse(self)
         self.with_streaming_response = AsyncIsaacusWithStreamedResponse(self)
 
@@ -237,6 +271,12 @@ class AsyncIsaacus(AsyncAPIClient):
     @override
     def qs(self) -> Querystring:
         return Querystring(array_format="comma")
+
+    @property
+    @override
+    def auth_headers(self) -> dict[str, str]:
+        bearer_token = self.bearer_token
+        return {"Authorization": f"Bearer {bearer_token}"}
 
     @property
     @override
@@ -250,6 +290,7 @@ class AsyncIsaacus(AsyncAPIClient):
     def copy(
         self,
         *,
+        bearer_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.AsyncClient | None = None,
@@ -283,6 +324,7 @@ class AsyncIsaacus(AsyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
+            bearer_token=bearer_token or self.bearer_token,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -332,28 +374,22 @@ class AsyncIsaacus(AsyncAPIClient):
 
 class IsaacusWithRawResponse:
     def __init__(self, client: Isaacus) -> None:
-        self.classify_universal = classify_universal.ClassifyUniversalResourceWithRawResponse(client.classify_universal)
+        self.classifications = classifications.ClassificationsResourceWithRawResponse(client.classifications)
 
 
 class AsyncIsaacusWithRawResponse:
     def __init__(self, client: AsyncIsaacus) -> None:
-        self.classify_universal = classify_universal.AsyncClassifyUniversalResourceWithRawResponse(
-            client.classify_universal
-        )
+        self.classifications = classifications.AsyncClassificationsResourceWithRawResponse(client.classifications)
 
 
 class IsaacusWithStreamedResponse:
     def __init__(self, client: Isaacus) -> None:
-        self.classify_universal = classify_universal.ClassifyUniversalResourceWithStreamingResponse(
-            client.classify_universal
-        )
+        self.classifications = classifications.ClassificationsResourceWithStreamingResponse(client.classifications)
 
 
 class AsyncIsaacusWithStreamedResponse:
     def __init__(self, client: AsyncIsaacus) -> None:
-        self.classify_universal = classify_universal.AsyncClassifyUniversalResourceWithStreamingResponse(
-            client.classify_universal
-        )
+        self.classifications = classifications.AsyncClassificationsResourceWithStreamingResponse(client.classifications)
 
 
 Client = Isaacus

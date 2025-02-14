@@ -20,7 +20,7 @@ or products provided by Isaacus please follow the respective company's security 
 
 ### Isaacus Terms and Policies
 
-Please contact dev-feedback@isaacus.com for any questions or concerns regarding security of our services.
+Please contact security@isaacus.com for any questions or concerns regarding security of our services.
 
 ---
 
