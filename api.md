@@ -1,11 +1,13 @@
-# ClassifyUniversal
+# Classifications
+
+## Universal
 
 Types:
 
 ```python
-from isaacus.types import ClassifyUniversalCreateResponse
+from isaacus.types.classifications import UniversalClassification
 ```
 
 Methods:
 
-- <code title="post /classify/universal">client.classify_universal.<a href="./src/isaacus/resources/classify_universal.py">create</a>(\*\*<a href="src/isaacus/types/classify_universal_create_params.py">params</a>) -> <a href="./src/isaacus/types/classify_universal_create_response.py">ClassifyUniversalCreateResponse</a></code>
+- <code title="post /classifications/universal">client.classifications.universal.<a href="./src/isaacus/resources/classifications/universal.py">create</a>(\*\*<a href="src/isaacus/types/classifications/universal_create_params.py">params</a>) -> <a href="./src/isaacus/types/classifications/universal_classification.py">UniversalClassification</a></code>
