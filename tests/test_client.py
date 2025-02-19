@@ -753,7 +753,7 @@ class TestIsaacus:
                         dict(
                             model="kanon-uniclassifier",
                             query="This is a confidentiality clause.",
-                            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+                            text="I agree not to tell anyone about the document.",
                         ),
                         UniversalCreateParams,
                     ),
@@ -778,7 +778,7 @@ class TestIsaacus:
                         dict(
                             model="kanon-uniclassifier",
                             query="This is a confidentiality clause.",
-                            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+                            text="I agree not to tell anyone about the document.",
                         ),
                         UniversalCreateParams,
                     ),
@@ -818,7 +818,7 @@ class TestIsaacus:
         response = client.classifications.universal.with_raw_response.create(
             model="kanon-uniclassifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
         )
 
         assert response.retries_taken == failures_before_success
@@ -846,7 +846,7 @@ class TestIsaacus:
         response = client.classifications.universal.with_raw_response.create(
             model="kanon-uniclassifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
             extra_headers={"x-stainless-retry-count": Omit()},
         )
 
@@ -874,7 +874,7 @@ class TestIsaacus:
         response = client.classifications.universal.with_raw_response.create(
             model="kanon-uniclassifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
             extra_headers={"x-stainless-retry-count": "42"},
         )
 
@@ -1581,7 +1581,7 @@ class TestAsyncIsaacus:
                         dict(
                             model="kanon-uniclassifier",
                             query="This is a confidentiality clause.",
-                            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+                            text="I agree not to tell anyone about the document.",
                         ),
                         UniversalCreateParams,
                     ),
@@ -1606,7 +1606,7 @@ class TestAsyncIsaacus:
                         dict(
                             model="kanon-uniclassifier",
                             query="This is a confidentiality clause.",
-                            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+                            text="I agree not to tell anyone about the document.",
                         ),
                         UniversalCreateParams,
                     ),
@@ -1647,7 +1647,7 @@ class TestAsyncIsaacus:
         response = await client.classifications.universal.with_raw_response.create(
             model="kanon-uniclassifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
         )
 
         assert response.retries_taken == failures_before_success
@@ -1676,7 +1676,7 @@ class TestAsyncIsaacus:
         response = await client.classifications.universal.with_raw_response.create(
             model="kanon-uniclassifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
             extra_headers={"x-stainless-retry-count": Omit()},
         )
 
@@ -1705,7 +1705,7 @@ class TestAsyncIsaacus:
         response = await client.classifications.universal.with_raw_response.create(
             model="kanon-uniclassifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
             extra_headers={"x-stainless-retry-count": "42"},
         )
 

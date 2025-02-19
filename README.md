@@ -37,7 +37,7 @@ client = Isaacus(
 universal_classification = client.classifications.universal.create(
     model="kanon-uniclassifier",
     query="This is a confidentiality clause.",
-    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+    text="I agree not to tell anyone about the document.",
 )
 print(universal_classification.chunks)
 ```
@@ -65,7 +65,7 @@ async def main() -> None:
     universal_classification = await client.classifications.universal.create(
         model="kanon-uniclassifier",
         query="This is a confidentiality clause.",
-        text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+        text="I agree not to tell anyone about the document.",
     )
     print(universal_classification.chunks)
 
@@ -103,7 +103,7 @@ try:
     client.classifications.universal.create(
         model="kanon-uniclassifier",
         query="This is a confidentiality clause.",
-        text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+        text="I agree not to tell anyone about the document.",
     )
 except isaacus.APIConnectionError as e:
     print("The server could not be reached")
@@ -150,7 +150,7 @@ client = Isaacus(
 client.with_options(max_retries=5).classifications.universal.create(
     model="kanon-uniclassifier",
     query="This is a confidentiality clause.",
-    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+    text="I agree not to tell anyone about the document.",
 )
 ```
 
@@ -177,7 +177,7 @@ client = Isaacus(
 client.with_options(timeout=5.0).classifications.universal.create(
     model="kanon-uniclassifier",
     query="This is a confidentiality clause.",
-    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+    text="I agree not to tell anyone about the document.",
 )
 ```
 
@@ -222,7 +222,7 @@ client = Isaacus()
 response = client.classifications.universal.with_raw_response.create(
     model="kanon-uniclassifier",
     query="This is a confidentiality clause.",
-    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+    text="I agree not to tell anyone about the document.",
 )
 print(response.headers.get('X-My-Header'))
 
@@ -244,7 +244,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 with client.classifications.universal.with_streaming_response.create(
     model="kanon-uniclassifier",
     query="This is a confidentiality clause.",
-    text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+    text="I agree not to tell anyone about the document.",
 ) as response:
     print(response.headers.get("X-My-Header"))
 
