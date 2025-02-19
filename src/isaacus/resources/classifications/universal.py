@@ -64,7 +64,8 @@ class UniversalResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UniversalClassification:
         """
-        Universal classification
+        Classify the relevance of a legal document to a query using an Isaacus universal
+        legal AI classifier.
 
         Args:
           model: The ID of the model to use for universal classification.
@@ -72,7 +73,11 @@ class UniversalResource(SyncAPIResource):
           query: The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
               evaluate the text against.
 
+              The query must contain at least one non-whitespace character.
+
           text: The text to classify.
+
+              The text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
@@ -156,7 +161,8 @@ class AsyncUniversalResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UniversalClassification:
         """
-        Universal classification
+        Classify the relevance of a legal document to a query using an Isaacus universal
+        legal AI classifier.
 
         Args:
           model: The ID of the model to use for universal classification.
@@ -164,7 +170,11 @@ class AsyncUniversalResource(AsyncAPIResource):
           query: The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
               evaluate the text against.
 
+              The query must contain at least one non-whitespace character.
+
           text: The text to classify.
+
+              The text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
