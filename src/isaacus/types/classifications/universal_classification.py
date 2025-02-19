@@ -49,4 +49,4 @@ class UniversalClassification(BaseModel):
     """
 
     usage: Usage
-    """Statistics about the usage of resources in the process of classifying a text."""
+    """Statistics about the usage of resources in the process of classifying the text."""

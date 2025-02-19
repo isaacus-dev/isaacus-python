@@ -16,10 +16,15 @@ class UniversalCreateParams(TypedDict, total=False):
     """
     The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
     evaluate the text against.
+
+    The query must contain at least one non-whitespace character.
     """
 
     text: Required[str]
-    """The text to classify."""
+    """The text to classify.
+
+    The text must contain at least one non-whitespace character.
+    """
 
     chunking_options: Optional[ChunkingOptions]
     """Options for how to split text into smaller chunks."""
