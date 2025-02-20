@@ -50,7 +50,7 @@ class UniversalResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-uniclassifier", "kanon-uniclassifier-mini"],
+        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         text: str,
         chunking_options: Optional[universal_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
@@ -147,7 +147,7 @@ class AsyncUniversalResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-uniclassifier", "kanon-uniclassifier-mini"],
+        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         text: str,
         chunking_options: Optional[universal_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
