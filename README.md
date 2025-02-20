@@ -31,7 +31,7 @@ import os
 from isaacus import Isaacus
 
 client = Isaacus(
-    bearer_token=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
 )
 
 universal_classification = client.classifications.universal.create(
@@ -42,10 +42,10 @@ universal_classification = client.classifications.universal.create(
 print(universal_classification.chunks)
 ```
 
-While you can provide a `bearer_token` keyword argument,
+While you can provide an `api_key` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `ISAACUS_API_KEY="My Bearer Token"` to your `.env` file
-so that your Bearer Token is not stored in source control.
+to add `ISAACUS_API_KEY="My API Key"` to your `.env` file
+so that your API Key is not stored in source control.
 
 ## Async usage
 
@@ -57,7 +57,7 @@ import asyncio
 from isaacus import AsyncIsaacus
 
 client = AsyncIsaacus(
-    bearer_token=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
+    api_key=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
 )
 
 
