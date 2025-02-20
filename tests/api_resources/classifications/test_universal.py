@@ -21,7 +21,7 @@ class TestUniversal:
     @parametrize
     def test_method_create(self, client: Isaacus) -> None:
         universal = client.classifications.universal.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
         )
@@ -31,7 +31,7 @@ class TestUniversal:
     @parametrize
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         universal = client.classifications.universal.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
             chunking_options={
@@ -48,7 +48,7 @@ class TestUniversal:
     @parametrize
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
         )
@@ -62,7 +62,7 @@ class TestUniversal:
     @parametrize
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.classifications.universal.with_streaming_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
         ) as response:
@@ -82,7 +82,7 @@ class TestAsyncUniversal:
     @parametrize
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         universal = await async_client.classifications.universal.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
         )
@@ -92,7 +92,7 @@ class TestAsyncUniversal:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         universal = await async_client.classifications.universal.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
             chunking_options={
@@ -109,7 +109,7 @@ class TestAsyncUniversal:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
         )
@@ -123,7 +123,7 @@ class TestAsyncUniversal:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.classifications.universal.with_streaming_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
         ) as response:

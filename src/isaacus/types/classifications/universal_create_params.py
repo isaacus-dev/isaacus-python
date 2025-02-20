@@ -9,7 +9,7 @@ __all__ = ["UniversalCreateParams", "ChunkingOptions"]
 
 
 class UniversalCreateParams(TypedDict, total=False):
-    model: Required[Literal["kanon-uniclassifier", "kanon-uniclassifier-mini"]]
+    model: Required[Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"]]
     """The ID of the model to use for universal classification."""
 
     query: Required[str]
