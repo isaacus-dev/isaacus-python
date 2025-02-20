@@ -35,7 +35,7 @@ client = Isaacus(
 )
 
 universal_classification = client.classifications.universal.create(
-    model="kanon-uniclassifier",
+    model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
     text="I agree not to tell anyone about the document.",
 )
@@ -63,7 +63,7 @@ client = AsyncIsaacus(
 
 async def main() -> None:
     universal_classification = await client.classifications.universal.create(
-        model="kanon-uniclassifier",
+        model="kanon-universal-classifier",
         query="This is a confidentiality clause.",
         text="I agree not to tell anyone about the document.",
     )
@@ -101,7 +101,7 @@ client = Isaacus()
 
 try:
     client.classifications.universal.create(
-        model="kanon-uniclassifier",
+        model="kanon-universal-classifier",
         query="This is a confidentiality clause.",
         text="I agree not to tell anyone about the document.",
     )
@@ -148,7 +148,7 @@ client = Isaacus(
 
 # Or, configure per-request:
 client.with_options(max_retries=5).classifications.universal.create(
-    model="kanon-uniclassifier",
+    model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
     text="I agree not to tell anyone about the document.",
 )
@@ -175,7 +175,7 @@ client = Isaacus(
 
 # Override per-request:
 client.with_options(timeout=5.0).classifications.universal.create(
-    model="kanon-uniclassifier",
+    model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
     text="I agree not to tell anyone about the document.",
 )
@@ -220,7 +220,7 @@ from isaacus import Isaacus
 
 client = Isaacus()
 response = client.classifications.universal.with_raw_response.create(
-    model="kanon-uniclassifier",
+    model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
     text="I agree not to tell anyone about the document.",
 )
@@ -242,7 +242,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 
 ```python
 with client.classifications.universal.with_streaming_response.create(
-    model="kanon-uniclassifier",
+    model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
     text="I agree not to tell anyone about the document.",
 ) as response:

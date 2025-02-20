@@ -751,7 +751,7 @@ class TestIsaacus:
                     object,
                     maybe_transform(
                         dict(
-                            model="kanon-uniclassifier",
+                            model="kanon-universal-classifier",
                             query="This is a confidentiality clause.",
                             text="I agree not to tell anyone about the document.",
                         ),
@@ -776,7 +776,7 @@ class TestIsaacus:
                     object,
                     maybe_transform(
                         dict(
-                            model="kanon-uniclassifier",
+                            model="kanon-universal-classifier",
                             query="This is a confidentiality clause.",
                             text="I agree not to tell anyone about the document.",
                         ),
@@ -816,7 +816,7 @@ class TestIsaacus:
         respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
 
         response = client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
         )
@@ -844,7 +844,7 @@ class TestIsaacus:
         respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
 
         response = client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
             extra_headers={"x-stainless-retry-count": Omit()},
@@ -872,7 +872,7 @@ class TestIsaacus:
         respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
 
         response = client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
             extra_headers={"x-stainless-retry-count": "42"},
@@ -1579,7 +1579,7 @@ class TestAsyncIsaacus:
                     object,
                     maybe_transform(
                         dict(
-                            model="kanon-uniclassifier",
+                            model="kanon-universal-classifier",
                             query="This is a confidentiality clause.",
                             text="I agree not to tell anyone about the document.",
                         ),
@@ -1604,7 +1604,7 @@ class TestAsyncIsaacus:
                     object,
                     maybe_transform(
                         dict(
-                            model="kanon-uniclassifier",
+                            model="kanon-universal-classifier",
                             query="This is a confidentiality clause.",
                             text="I agree not to tell anyone about the document.",
                         ),
@@ -1645,7 +1645,7 @@ class TestAsyncIsaacus:
         respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
 
         response = await client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
         )
@@ -1674,7 +1674,7 @@ class TestAsyncIsaacus:
         respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
 
         response = await client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
             extra_headers={"x-stainless-retry-count": Omit()},
@@ -1703,7 +1703,7 @@ class TestAsyncIsaacus:
         respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
 
         response = await client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             text="I agree not to tell anyone about the document.",
             extra_headers={"x-stainless-retry-count": "42"},
