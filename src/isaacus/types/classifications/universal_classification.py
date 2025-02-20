@@ -8,7 +8,10 @@ __all__ = ["UniversalClassification", "Chunk", "Usage"]
 
 
 class Chunk(BaseModel):
-    confidence: float
+    end: int
+    """The end index of the chunk in the original text."""
+
+    score: float
     """
     The model's score of the likelihood that the query expressed about the chunk is
     supported by the chunk.
@@ -16,9 +19,6 @@ class Chunk(BaseModel):
     A score greater than `0.5` indicates that the chunk supports the query, while a
     score less than `0.5` indicates that the chunk does not support the query.
     """
-
-    end: int
-    """The end index of the chunk in the original text."""
 
     start: int
     """The start index of the chunk in the original text."""
