@@ -34,7 +34,10 @@ class Usage(BaseModel):
 
 class UniversalClassification(BaseModel):
     chunks: Optional[List[Chunk]] = None
-    """The text broken into chunks, each with their own confidence score.
+    """
+    The text as broken into chunks by
+    [semchunk](https://github.com/isaacus-dev/semchunk), each chunk with its own
+    confidence score.
 
     If no chunking occurred, this will be `null`.
     """
