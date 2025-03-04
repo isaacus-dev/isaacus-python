@@ -50,7 +50,7 @@ class UniversalResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-uniclassifier", "kanon-uniclassifier-mini"],
+        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         text: str,
         chunking_options: Optional[universal_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
@@ -64,7 +64,8 @@ class UniversalResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UniversalClassification:
         """
-        Universal classification
+        Classify the relevance of a legal document to a query using an Isaacus universal
+        legal AI classifier.
 
         Args:
           model: The ID of the model to use for universal classification.
@@ -72,7 +73,14 @@ class UniversalResource(SyncAPIResource):
           query: The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
               evaluate the text against.
 
+              The query must contain at least one non-whitespace character.
+
+              Unlike the text being classified, the query cannot be so long that it exceeds
+              the maximum input length of the universal classifier.
+
           text: The text to classify.
+
+              The text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
@@ -142,7 +150,7 @@ class AsyncUniversalResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-uniclassifier", "kanon-uniclassifier-mini"],
+        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         text: str,
         chunking_options: Optional[universal_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
@@ -156,7 +164,8 @@ class AsyncUniversalResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UniversalClassification:
         """
-        Universal classification
+        Classify the relevance of a legal document to a query using an Isaacus universal
+        legal AI classifier.
 
         Args:
           model: The ID of the model to use for universal classification.
@@ -164,7 +173,14 @@ class AsyncUniversalResource(AsyncAPIResource):
           query: The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
               evaluate the text against.
 
+              The query must contain at least one non-whitespace character.
+
+              Unlike the text being classified, the query cannot be so long that it exceeds
+              the maximum input length of the universal classifier.
+
           text: The text to classify.
+
+              The text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 

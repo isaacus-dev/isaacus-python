@@ -8,7 +8,10 @@ __all__ = ["UniversalClassification", "Chunk", "Usage"]
 
 
 class Chunk(BaseModel):
-    confidence: float
+    end: int
+    """The end index of the chunk in the original text."""
+
+    score: float
     """
     The model's score of the likelihood that the query expressed about the chunk is
     supported by the chunk.
@@ -16,9 +19,6 @@ class Chunk(BaseModel):
     A score greater than `0.5` indicates that the chunk supports the query, while a
     score less than `0.5` indicates that the chunk does not support the query.
     """
-
-    end: int
-    """The end index of the chunk in the original text."""
 
     start: int
     """The start index of the chunk in the original text."""
@@ -34,7 +34,10 @@ class Usage(BaseModel):
 
 class UniversalClassification(BaseModel):
     chunks: Optional[List[Chunk]] = None
-    """The text broken into chunks, each with their own confidence score.
+    """
+    The text as broken into chunks by
+    [semchunk](https://github.com/isaacus-dev/semchunk), each chunk with its own
+    confidence score.
 
     If no chunking occurred, this will be `null`.
     """
@@ -49,4 +52,4 @@ class UniversalClassification(BaseModel):
     """
 
     usage: Usage
-    """Statistics about the usage of resources in the process of classifying a text."""
+    """Statistics about the usage of resources in the process of classifying the text."""

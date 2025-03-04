@@ -9,17 +9,25 @@ __all__ = ["UniversalCreateParams", "ChunkingOptions"]
 
 
 class UniversalCreateParams(TypedDict, total=False):
-    model: Required[Literal["kanon-uniclassifier", "kanon-uniclassifier-mini"]]
+    model: Required[Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"]]
     """The ID of the model to use for universal classification."""
 
     query: Required[str]
     """
     The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
     evaluate the text against.
+
+    The query must contain at least one non-whitespace character.
+
+    Unlike the text being classified, the query cannot be so long that it exceeds
+    the maximum input length of the universal classifier.
     """
 
     text: Required[str]
-    """The text to classify."""
+    """The text to classify.
+
+    The text must contain at least one non-whitespace character.
+    """
 
     chunking_options: Optional[ChunkingOptions]
     """Options for how to split text into smaller chunks."""

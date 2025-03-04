@@ -21,9 +21,9 @@ class TestUniversal:
     @parametrize
     def test_method_create(self, client: Isaacus) -> None:
         universal = client.classifications.universal.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
         )
         assert_matches_type(UniversalClassification, universal, path=["response"])
 
@@ -31,9 +31,9 @@ class TestUniversal:
     @parametrize
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         universal = client.classifications.universal.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
             chunking_options={
                 "overlap_ratio": 0.1,
                 "overlap_tokens": 0,
@@ -48,9 +48,9 @@ class TestUniversal:
     @parametrize
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
         )
 
         assert response.is_closed is True
@@ -62,9 +62,9 @@ class TestUniversal:
     @parametrize
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.classifications.universal.with_streaming_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -82,9 +82,9 @@ class TestAsyncUniversal:
     @parametrize
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         universal = await async_client.classifications.universal.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
         )
         assert_matches_type(UniversalClassification, universal, path=["response"])
 
@@ -92,9 +92,9 @@ class TestAsyncUniversal:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         universal = await async_client.classifications.universal.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
             chunking_options={
                 "overlap_ratio": 0.1,
                 "overlap_tokens": 0,
@@ -109,9 +109,9 @@ class TestAsyncUniversal:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.classifications.universal.with_raw_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
         )
 
         assert response.is_closed is True
@@ -123,9 +123,9 @@ class TestAsyncUniversal:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.classifications.universal.with_streaming_response.create(
-            model="kanon-uniclassifier",
+            model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="The Supplier agrees not to disclose to any person, other than the Customer, any Confidential Information relating to the Contract or the Goods and/or Services, without prior written approval from the Customer.",
+            text="I agree not to tell anyone about the document.",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
