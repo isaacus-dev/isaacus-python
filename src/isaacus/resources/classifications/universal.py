@@ -75,6 +75,9 @@ class UniversalResource(SyncAPIResource):
 
               The query must contain at least one non-whitespace character.
 
+              Unlike the text being classified, the query cannot be so long that it exceeds
+              the maximum input length of the universal classifier.
+
           text: The text to classify.
 
               The text must contain at least one non-whitespace character.
@@ -171,6 +174,9 @@ class AsyncUniversalResource(AsyncAPIResource):
               evaluate the text against.
 
               The query must contain at least one non-whitespace character.
+
+              Unlike the text being classified, the query cannot be so long that it exceeds
+              the maximum input length of the universal classifier.
 
           text: The text to classify.
 
