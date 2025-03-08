@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.1 (2025-03-08)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.0-alpha.1...v0.1.1)
+
+### Features
+
+* **api:** added latest OpenAPI specification ([#16](https://github.com/isaacus-dev/isaacus-python/issues/16)) ([219c568](https://github.com/isaacus-dev/isaacus-python/commit/219c5681bb2ad9219d66fc4d14f6787744ddd221))
+
+
+### Chores
+
+* update SDK settings ([#18](https://github.com/isaacus-dev/isaacus-python/issues/18)) ([a6f6958](https://github.com/isaacus-dev/isaacus-python/commit/a6f69580dd65ee3d6f1ba4f9cf6406e8cfed0998))
+
 ## 0.1.0-alpha.1 (2025-03-04)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)

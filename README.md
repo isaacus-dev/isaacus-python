@@ -16,7 +16,7 @@ The REST API documentation can be found on [docs.isaacus.com](https://docs.isaac
 
 ```sh
 # install from PyPI
-pip install --pre isaacus
+pip install isaacus
 ```
 
 ## Usage
