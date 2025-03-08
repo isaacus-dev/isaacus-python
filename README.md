@@ -15,12 +15,9 @@ The REST API documentation can be found on [docs.isaacus.com](https://docs.isaac
 ## Installation
 
 ```sh
-# install from the production repo
-pip install git+ssh://git@github.com/isaacus-dev/isaacus-python.git
+# install from PyPI
+pip install --pre isaacus
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainless.com/docs/guides/publish), this will become: `pip install --pre isaacus`
 
 ## Usage
 
