@@ -1,6 +1,6 @@
 [project]
 name = "isaacus"
-version = "0.1.1"
+version = "0.1.2"
 description = "The official Python library for the isaacus API"
 dynamic = ["readme"]
 license = "Apache-2.0"
@@ -36,7 +36,6 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/isaacus-dev/isaacus-python"
 Repository = "https://github.com/isaacus-dev/isaacus-python"
-
 
 
 [tool.rye]
@@ -151,7 +150,6 @@ reportImplicitOverride = true
 
 reportImportCycles = false
 reportPrivateUsage = false
-
 
 [tool.ruff]
 line-length = 120
