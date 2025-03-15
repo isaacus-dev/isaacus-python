@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.4 (2025-03-15)
+
+Full Changelog: [v0.1.3...v0.1.4](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.3...v0.1.4)
+
+### Features
+
+* **api:** added latest OpenAPI specification ([#29](https://github.com/isaacus-dev/isaacus-python/issues/29)) ([411d83f](https://github.com/isaacus-dev/isaacus-python/commit/411d83f2da5913573e8e09c281a5dfb949670bf9))
+* **api:** added latest OpenAPI specification ([#33](https://github.com/isaacus-dev/isaacus-python/issues/33)) ([b053a4a](https://github.com/isaacus-dev/isaacus-python/commit/b053a4a60f48d9d3197d384fe6e3a57723216ac9))
+* **api:** added latest OpenAPI specification ([#34](https://github.com/isaacus-dev/isaacus-python/issues/34)) ([d9aef7f](https://github.com/isaacus-dev/isaacus-python/commit/d9aef7fa1d6f5283bdd3afd1962f52d2ed072499))
+
+
+### Bug Fixes
+
+* **types:** handle more discriminated union shapes ([#32](https://github.com/isaacus-dev/isaacus-python/issues/32)) ([0644ad3](https://github.com/isaacus-dev/isaacus-python/commit/0644ad39f602b43ee03e4eb4ec58b05cb5ff28aa))
+
+
+### Chores
+
+* **internal:** bump rye to 0.44.0 ([#31](https://github.com/isaacus-dev/isaacus-python/issues/31)) ([371c249](https://github.com/isaacus-dev/isaacus-python/commit/371c2490695cd773b8202c8cd016360535609923))
+
 ## 0.1.3 (2025-03-15)
 
 Full Changelog: [v0.1.2...v0.1.3](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.2...v0.1.3)

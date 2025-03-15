@@ -15,9 +15,12 @@ The REST API documentation can be found on [docs.isaacus.com](https://docs.isaac
 ## Installation
 
 ```sh
-# install from PyPI
-pip install isaacus
+# install from the production repo
+pip install git+ssh://git@github.com/isaacus-dev/isaacus-python.git
 ```
+
+> [!NOTE]
+> Once this package is [published to PyPI](https://app.stainless.com/docs/guides/publish), this will become: `pip install isaacus`
 
 ## Usage
 
@@ -96,7 +99,7 @@ universal_classification = client.classifications.universal.create(
     text="I agree not to tell anyone about the document.",
     chunking_options={
         "overlap_ratio": 0.1,
-        "overlap_tokens": 0,
+        "overlap_tokens": None,
         "size": 512,
     },
 )
