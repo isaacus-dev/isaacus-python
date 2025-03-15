@@ -99,11 +99,11 @@ universal_classification = client.classifications.universal.create(
     text="I agree not to tell anyone about the document.",
     chunking_options={
         "overlap_ratio": 0.1,
-        "overlap_tokens": 0,
+        "overlap_tokens": None,
         "size": 512,
     },
 )
-print(universal_classification.chunking_options)
+print(universal_classification.chunks)
 ```
 
 ## Handling errors
