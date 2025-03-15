@@ -68,10 +68,11 @@ class UniversalResource(SyncAPIResource):
         legal AI classifier.
 
         Args:
-          model: The ID of the model to use for universal classification.
+          model: The ID of the [model](https://docs.isaacus.com/models#universal-classification)
+              to use for universal classification.
 
-          query: The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
-              evaluate the text against.
+          query: The [Isaacus Query Language (IQL)](https://docs.isaacus.com/iql) query or, if
+              IQL is disabled, the statement, to evaluate the text against.
 
               The query must contain at least one non-whitespace character.
 
@@ -84,8 +85,8 @@ class UniversalResource(SyncAPIResource):
 
           chunking_options: Options for how to split text into smaller chunks.
 
-          is_iql: Whether the query should be interpreted as an Isaacus Query Language (IQL) query
-              or else as a statement.
+          is_iql: Whether the query should be interpreted as an
+              [IQL](https://docs.isaacus.com/iql) query or else as a statement.
 
           scoring_method: The method to use for producing an overall confidence score.
 
@@ -168,10 +169,11 @@ class AsyncUniversalResource(AsyncAPIResource):
         legal AI classifier.
 
         Args:
-          model: The ID of the model to use for universal classification.
+          model: The ID of the [model](https://docs.isaacus.com/models#universal-classification)
+              to use for universal classification.
 
-          query: The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
-              evaluate the text against.
+          query: The [Isaacus Query Language (IQL)](https://docs.isaacus.com/iql) query or, if
+              IQL is disabled, the statement, to evaluate the text against.
 
               The query must contain at least one non-whitespace character.
 
@@ -184,8 +186,8 @@ class AsyncUniversalResource(AsyncAPIResource):
 
           chunking_options: Options for how to split text into smaller chunks.
 
-          is_iql: Whether the query should be interpreted as an Isaacus Query Language (IQL) query
-              or else as a statement.
+          is_iql: Whether the query should be interpreted as an
+              [IQL](https://docs.isaacus.com/iql) query or else as a statement.
 
           scoring_method: The method to use for producing an overall confidence score.
 

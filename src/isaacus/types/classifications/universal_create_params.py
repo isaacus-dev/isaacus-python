@@ -10,12 +10,15 @@ __all__ = ["UniversalCreateParams", "ChunkingOptions"]
 
 class UniversalCreateParams(TypedDict, total=False):
     model: Required[Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"]]
-    """The ID of the model to use for universal classification."""
+    """
+    The ID of the [model](https://docs.isaacus.com/models#universal-classification)
+    to use for universal classification.
+    """
 
     query: Required[str]
     """
-    The Isaacus Query Language (IQL) query or, if IQL is disabled, the statement, to
-    evaluate the text against.
+    The [Isaacus Query Language (IQL)](https://docs.isaacus.com/iql) query or, if
+    IQL is disabled, the statement, to evaluate the text against.
 
     The query must contain at least one non-whitespace character.
 
@@ -34,8 +37,8 @@ class UniversalCreateParams(TypedDict, total=False):
 
     is_iql: bool
     """
-    Whether the query should be interpreted as an Isaacus Query Language (IQL) query
-    or else as a statement.
+    Whether the query should be interpreted as an
+    [IQL](https://docs.isaacus.com/iql) query or else as a statement.
     """
 
     scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"]
