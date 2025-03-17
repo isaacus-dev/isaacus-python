@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.5 (2025-03-17)
+
+Full Changelog: [v0.1.4...v0.1.5](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.4...v0.1.5)
+
+### Bug Fixes
+
+* **ci:** ensure pip is always available ([#36](https://github.com/isaacus-dev/isaacus-python/issues/36)) ([36a0c57](https://github.com/isaacus-dev/isaacus-python/commit/36a0c57afe1ebeab214bd06072ece3710472a591))
+* **ci:** remove publishing patch ([#38](https://github.com/isaacus-dev/isaacus-python/issues/38)) ([ff4ced3](https://github.com/isaacus-dev/isaacus-python/commit/ff4ced35d19f34c531b25eef905133f4489e265c))
+
 ## 0.1.4 (2025-03-15)
 
 Full Changelog: [v0.1.3...v0.1.4](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.3...v0.1.4)
