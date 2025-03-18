@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.6 (2025-03-18)
+
+Full Changelog: [v0.1.5...v0.1.6](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.5...v0.1.6)
+
+### Chores
+
+* update SDK settings ([#40](https://github.com/isaacus-dev/isaacus-python/issues/40)) ([6423efc](https://github.com/isaacus-dev/isaacus-python/commit/6423efc8ef532dabfe1f7213da5a9e27860a63a9))
+
 ## 0.1.5 (2025-03-17)
 
 Full Changelog: [v0.1.4...v0.1.5](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.4...v0.1.5)
