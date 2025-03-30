@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.0 (2025-03-30)
+
+Full Changelog: [v0.1.6...v0.2.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.6...v0.2.0)
+
+### ⚠ BREAKING CHANGES
+
+* **api:** started sorting chunks by score and added `index` field ([#45](https://github.com/isaacus-dev/isaacus-python/issues/45))
+
+### Features
+
+* **api:** started sorting chunks by score and added `index` field ([#45](https://github.com/isaacus-dev/isaacus-python/issues/45)) ([c9999cd](https://github.com/isaacus-dev/isaacus-python/commit/c9999cd77abfe0101a3d30536261a43404cfef6d))
+
+
+### Chores
+
+* fix typos ([#43](https://github.com/isaacus-dev/isaacus-python/issues/43)) ([0667577](https://github.com/isaacus-dev/isaacus-python/commit/066757702f47e403a06cf057f20faa5fa955b135))
+
 ## 0.1.6 (2025-03-18)
 
 Full Changelog: [v0.1.5...v0.1.6](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.5...v0.1.6)
