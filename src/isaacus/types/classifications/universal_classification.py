@@ -11,6 +11,9 @@ class Chunk(BaseModel):
     end: int
     """The end index of the chunk in the original text."""
 
+    index: int
+    """The index of the chunk in the list of chunks."""
+
     score: float
     """
     The model's score of the likelihood that the query expressed about the chunk is
@@ -37,7 +40,7 @@ class UniversalClassification(BaseModel):
     """
     The text as broken into chunks by
     [semchunk](https://github.com/isaacus-dev/semchunk), each chunk with its own
-    confidence score.
+    confidence score, ordered from highest to lowest score.
 
     If no chunking occurred, this will be `null`.
     """
