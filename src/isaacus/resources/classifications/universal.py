@@ -64,7 +64,7 @@ class UniversalResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UniversalClassification:
         """
-        Classify the relevance of a legal document to a query using an Isaacus universal
+        Classify the relevance of a legal document to a query with an Isaacus universal
         legal AI classifier.
 
         Args:
@@ -165,7 +165,7 @@ class AsyncUniversalResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UniversalClassification:
         """
-        Classify the relevance of a legal document to a query using an Isaacus universal
+        Classify the relevance of a legal document to a query with an Isaacus universal
         legal AI classifier.
 
         Args:
