@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 (2025-04-01)
+
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.3.0...v0.3.1)
+
+### Bug Fixes
+
+* **stainless:** added missing reranking endpoint to SDK API ([#50](https://github.com/isaacus-dev/isaacus-python/issues/50)) ([65bcc7c](https://github.com/isaacus-dev/isaacus-python/commit/65bcc7c274dc5609c1537e417c75e6b9942ac8fc))
+
 ## 0.3.0 (2025-04-01)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.2.0...v0.3.0)
