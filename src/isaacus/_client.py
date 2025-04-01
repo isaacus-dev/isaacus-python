@@ -24,6 +24,7 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
+from .resources import rerankings
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import IsaacusError, APIStatusError
 from ._base_client import (
@@ -38,6 +39,7 @@ __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Isaacus", 
 
 class Isaacus(SyncAPIClient):
     classifications: classifications.ClassificationsResource
+    rerankings: rerankings.RerankingsResource
     with_raw_response: IsaacusWithRawResponse
     with_streaming_response: IsaacusWithStreamedResponse
 
@@ -96,6 +98,7 @@ class Isaacus(SyncAPIClient):
         )
 
         self.classifications = classifications.ClassificationsResource(self)
+        self.rerankings = rerankings.RerankingsResource(self)
         self.with_raw_response = IsaacusWithRawResponse(self)
         self.with_streaming_response = IsaacusWithStreamedResponse(self)
 
@@ -206,6 +209,7 @@ class Isaacus(SyncAPIClient):
 
 class AsyncIsaacus(AsyncAPIClient):
     classifications: classifications.AsyncClassificationsResource
+    rerankings: rerankings.AsyncRerankingsResource
     with_raw_response: AsyncIsaacusWithRawResponse
     with_streaming_response: AsyncIsaacusWithStreamedResponse
 
@@ -264,6 +268,7 @@ class AsyncIsaacus(AsyncAPIClient):
         )
 
         self.classifications = classifications.AsyncClassificationsResource(self)
+        self.rerankings = rerankings.AsyncRerankingsResource(self)
         self.with_raw_response = AsyncIsaacusWithRawResponse(self)
         self.with_streaming_response = AsyncIsaacusWithStreamedResponse(self)
 
@@ -375,21 +380,25 @@ class AsyncIsaacus(AsyncAPIClient):
 class IsaacusWithRawResponse:
     def __init__(self, client: Isaacus) -> None:
         self.classifications = classifications.ClassificationsResourceWithRawResponse(client.classifications)
+        self.rerankings = rerankings.RerankingsResourceWithRawResponse(client.rerankings)
 
 
 class AsyncIsaacusWithRawResponse:
     def __init__(self, client: AsyncIsaacus) -> None:
         self.classifications = classifications.AsyncClassificationsResourceWithRawResponse(client.classifications)
+        self.rerankings = rerankings.AsyncRerankingsResourceWithRawResponse(client.rerankings)
 
 
 class IsaacusWithStreamedResponse:
     def __init__(self, client: Isaacus) -> None:
         self.classifications = classifications.ClassificationsResourceWithStreamingResponse(client.classifications)
+        self.rerankings = rerankings.RerankingsResourceWithStreamingResponse(client.rerankings)
 
 
 class AsyncIsaacusWithStreamedResponse:
     def __init__(self, client: AsyncIsaacus) -> None:
         self.classifications = classifications.AsyncClassificationsResourceWithStreamingResponse(client.classifications)
+        self.rerankings = rerankings.AsyncRerankingsResourceWithStreamingResponse(client.rerankings)
 
 
 Client = Isaacus
