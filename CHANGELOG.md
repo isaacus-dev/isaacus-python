@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (2025-04-01)
+
+Full Changelog: [v0.2.0...v0.3.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.2.0...v0.3.0)
+
+### Features
+
+* **api:** added reranking endpoint ([#47](https://github.com/isaacus-dev/isaacus-python/issues/47)) ([71ef52b](https://github.com/isaacus-dev/isaacus-python/commit/71ef52b1d23c2ea924f4d178aa1201d980030fe4))
+
 ## 0.2.0 (2025-03-30)
 
 Full Changelog: [v0.1.6...v0.2.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.1.6...v0.2.0)
