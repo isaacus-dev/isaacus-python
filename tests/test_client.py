@@ -1675,7 +1675,7 @@ class TestAsyncIsaacus:
         import threading
 
         from isaacus._utils import asyncify
-        from isaacus._base_client import get_platform 
+        from isaacus._base_client import get_platform
 
         async def test_main() -> None:
             result = await asyncify(get_platform)()
