@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2 (2025-04-04)
+
+Full Changelog: [v0.3.1...v0.3.2](https://github.com/isaacus-dev/isaacus-python/compare/v0.3.1...v0.3.2)
+
+### Chores
+
+* **internal:** remove trailing character ([#53](https://github.com/isaacus-dev/isaacus-python/issues/53)) ([1074f1e](https://github.com/isaacus-dev/isaacus-python/commit/1074f1e6817381f31f4f6b7329f596be19b0e918))
+
 ## 0.3.1 (2025-04-01)
 
 Full Changelog: [v0.3.0...v0.3.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.3.0...v0.3.1)
