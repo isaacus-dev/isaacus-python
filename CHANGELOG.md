@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.3.3 (2025-04-16)
+
+Full Changelog: [v0.3.2...v0.3.3](https://github.com/isaacus-dev/isaacus-python/compare/v0.3.2...v0.3.3)
+
+### Bug Fixes
+
+* **perf:** optimize some hot paths ([eee757b](https://github.com/isaacus-dev/isaacus-python/commit/eee757ba44a895fcf2052b9981783b6cf233653f))
+* **perf:** skip traversing types for NotGiven values ([7705a99](https://github.com/isaacus-dev/isaacus-python/commit/7705a99e0efd9724eb3260550b4b58081af85878))
+
+
+### Chores
+
+* **client:** minor internal fixes ([a8dad58](https://github.com/isaacus-dev/isaacus-python/commit/a8dad5881d0f3f5d1929574efba483a8fcdbc322))
+* **internal:** codegen related update ([93cdfa0](https://github.com/isaacus-dev/isaacus-python/commit/93cdfa0c0dfc947ec76f10291887b90324301b32))
+* **internal:** expand CI branch coverage ([cc5df77](https://github.com/isaacus-dev/isaacus-python/commit/cc5df7771a9ea699b0e37533070e1cb5569d7ad9))
+* **internal:** reduce CI branch coverage ([2cb8fb8](https://github.com/isaacus-dev/isaacus-python/commit/2cb8fb81f4cea76d12ae3feeb09e4b43b743e8c4))
+* **internal:** slight transform perf improvement ([6f47eaf](https://github.com/isaacus-dev/isaacus-python/commit/6f47eafa0ebcd31741f24bea539a4c54e88a758e))
+* **internal:** update pyright settings ([7dd9ad4](https://github.com/isaacus-dev/isaacus-python/commit/7dd9ad4a4a25825929a4916168a07d74bcc52fbe))
+
+
+### Documentation
+
+* **api:** removed description of certain objects due to Mintlify bug ([9099926](https://github.com/isaacus-dev/isaacus-python/commit/90999261a360fef3ba92c52e4ad5361b79b499e6))
+
 ## 0.3.2 (2025-04-04)
 
 Full Changelog: [v0.3.1...v0.3.2](https://github.com/isaacus-dev/isaacus-python/compare/v0.3.1...v0.3.2)
