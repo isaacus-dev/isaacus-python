@@ -4,15 +4,22 @@ from typing import List, Optional
 
 from ..._models import BaseModel
 
-__all__ = ["UniversalClassification", "Chunk", "Usage"]
+__all__ = ["UniversalClassification", "Classification", "ClassificationChunk", "Usage"]
 
 
-class Chunk(BaseModel):
+class ClassificationChunk(BaseModel):
     end: int
-    """The end index of the chunk in the original text."""
+    """
+    The index of the character in the original text where the chunk ends, beginning
+    from `0` (such that, in Python, the chunk is equivalent to `text[start:end+1]`).
+    """
 
     index: int
-    """The index of the chunk in the list of chunks."""
+    """
+    The original position of the chunk in the outputted list of chunks before
+    sorting, starting from `0` (and, therefore, ending at the number of chunks minus
+    `1`).
+    """
 
     score: float
     """
@@ -24,25 +31,29 @@ class Chunk(BaseModel):
     """
 
     start: int
-    """The start index of the chunk in the original text."""
+    """
+    The index of the character in the original text where the chunk starts,
+    beginning from `0`.
+    """
 
     text: str
     """The text of the chunk."""
 
 
-class Usage(BaseModel):
-    input_tokens: int
-    """The number of tokens inputted to the model."""
-
-
-class UniversalClassification(BaseModel):
-    chunks: Optional[List[Chunk]] = None
+class Classification(BaseModel):
+    chunks: Optional[List[ClassificationChunk]] = None
     """
     The text as broken into chunks by
     [semchunk](https://github.com/isaacus-dev/semchunk), each chunk with its own
     confidence score, ordered from highest to lowest score.
 
     If no chunking occurred, this will be `null`.
+    """
+
+    index: int
+    """
+    The index of the text in the input array of texts, starting from `0` (and,
+    therefore, ending at the number of texts minus `1`).
     """
 
     score: float
@@ -52,6 +63,19 @@ class UniversalClassification(BaseModel):
 
     A score greater than `0.5` indicates that the text supports the query, while a
     score less than `0.5` indicates that the text does not support the query.
+    """
+
+
+class Usage(BaseModel):
+    input_tokens: int
+    """The number of tokens inputted to the model."""
+
+
+class UniversalClassification(BaseModel):
+    classifications: List[Classification]
+    """
+    The classifications of the texts, by relevance to the query, in order from
+    highest to lowest relevance score.
     """
 
     usage: Usage

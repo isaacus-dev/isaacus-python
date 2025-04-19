@@ -34,9 +34,9 @@ client = Isaacus(
 universal_classification = client.classifications.universal.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
-    text="I agree not to tell anyone about the document.",
+    texts=["I agree not to tell anyone about the document."],
 )
-print(universal_classification.chunks)
+print(universal_classification.classifications)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -62,9 +62,9 @@ async def main() -> None:
     universal_classification = await client.classifications.universal.create(
         model="kanon-universal-classifier",
         query="This is a confidentiality clause.",
-        text="I agree not to tell anyone about the document.",
+        texts=["I agree not to tell anyone about the document."],
     )
-    print(universal_classification.chunks)
+    print(universal_classification.classifications)
 
 
 asyncio.run(main())
@@ -93,7 +93,7 @@ client = Isaacus()
 universal_classification = client.classifications.universal.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
-    text="I agree not to tell anyone about the document.",
+    texts=["I agree not to tell anyone about the document."],
     chunking_options={
         "overlap_ratio": 0.1,
         "overlap_tokens": None,
@@ -122,7 +122,7 @@ try:
     client.classifications.universal.create(
         model="kanon-universal-classifier",
         query="This is a confidentiality clause.",
-        text="I agree not to tell anyone about the document.",
+        texts=["I agree not to tell anyone about the document."],
     )
 except isaacus.APIConnectionError as e:
     print("The server could not be reached")
@@ -169,7 +169,7 @@ client = Isaacus(
 client.with_options(max_retries=5).classifications.universal.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
-    text="I agree not to tell anyone about the document.",
+    texts=["I agree not to tell anyone about the document."],
 )
 ```
 
@@ -196,7 +196,7 @@ client = Isaacus(
 client.with_options(timeout=5.0).classifications.universal.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
-    text="I agree not to tell anyone about the document.",
+    texts=["I agree not to tell anyone about the document."],
 )
 ```
 
@@ -241,12 +241,12 @@ client = Isaacus()
 response = client.classifications.universal.with_raw_response.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
-    text="I agree not to tell anyone about the document.",
+    texts=["I agree not to tell anyone about the document."],
 )
 print(response.headers.get('X-My-Header'))
 
 universal = response.parse()  # get the object that `classifications.universal.create()` would have returned
-print(universal.chunks)
+print(universal.classifications)
 ```
 
 These methods return an [`APIResponse`](https://github.com/isaacus-dev/isaacus-python/tree/main/src/isaacus/_response.py) object.
@@ -263,7 +263,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 with client.classifications.universal.with_streaming_response.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
-    text="I agree not to tell anyone about the document.",
+    texts=["I agree not to tell anyone about the document."],
 ) as response:
     print(response.headers.get("X-My-Header"))
 

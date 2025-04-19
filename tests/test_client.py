@@ -723,7 +723,7 @@ class TestIsaacus:
                         dict(
                             model="kanon-universal-classifier",
                             query="This is a confidentiality clause.",
-                            text="I agree not to tell anyone about the document.",
+                            texts=["I agree not to tell anyone about the document."],
                         ),
                         UniversalCreateParams,
                     ),
@@ -748,7 +748,7 @@ class TestIsaacus:
                         dict(
                             model="kanon-universal-classifier",
                             query="This is a confidentiality clause.",
-                            text="I agree not to tell anyone about the document.",
+                            texts=["I agree not to tell anyone about the document."],
                         ),
                         UniversalCreateParams,
                     ),
@@ -788,7 +788,7 @@ class TestIsaacus:
         response = client.classifications.universal.with_raw_response.create(
             model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="I agree not to tell anyone about the document.",
+            texts=["I agree not to tell anyone about the document."],
         )
 
         assert response.retries_taken == failures_before_success
@@ -816,7 +816,7 @@ class TestIsaacus:
         response = client.classifications.universal.with_raw_response.create(
             model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="I agree not to tell anyone about the document.",
+            texts=["I agree not to tell anyone about the document."],
             extra_headers={"x-stainless-retry-count": Omit()},
         )
 
@@ -844,7 +844,7 @@ class TestIsaacus:
         response = client.classifications.universal.with_raw_response.create(
             model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="I agree not to tell anyone about the document.",
+            texts=["I agree not to tell anyone about the document."],
             extra_headers={"x-stainless-retry-count": "42"},
         )
 
@@ -1533,7 +1533,7 @@ class TestAsyncIsaacus:
                         dict(
                             model="kanon-universal-classifier",
                             query="This is a confidentiality clause.",
-                            text="I agree not to tell anyone about the document.",
+                            texts=["I agree not to tell anyone about the document."],
                         ),
                         UniversalCreateParams,
                     ),
@@ -1558,7 +1558,7 @@ class TestAsyncIsaacus:
                         dict(
                             model="kanon-universal-classifier",
                             query="This is a confidentiality clause.",
-                            text="I agree not to tell anyone about the document.",
+                            texts=["I agree not to tell anyone about the document."],
                         ),
                         UniversalCreateParams,
                     ),
@@ -1599,7 +1599,7 @@ class TestAsyncIsaacus:
         response = await client.classifications.universal.with_raw_response.create(
             model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="I agree not to tell anyone about the document.",
+            texts=["I agree not to tell anyone about the document."],
         )
 
         assert response.retries_taken == failures_before_success
@@ -1628,7 +1628,7 @@ class TestAsyncIsaacus:
         response = await client.classifications.universal.with_raw_response.create(
             model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="I agree not to tell anyone about the document.",
+            texts=["I agree not to tell anyone about the document."],
             extra_headers={"x-stainless-retry-count": Omit()},
         )
 
@@ -1657,7 +1657,7 @@ class TestAsyncIsaacus:
         response = await client.classifications.universal.with_raw_response.create(
             model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
-            text="I agree not to tell anyone about the document.",
+            texts=["I agree not to tell anyone about the document."],
             extra_headers={"x-stainless-retry-count": "42"},
         )
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Literal, Required, TypedDict
 
 __all__ = ["UniversalCreateParams", "ChunkingOptions"]
@@ -18,18 +18,18 @@ class UniversalCreateParams(TypedDict, total=False):
     query: Required[str]
     """
     The [Isaacus Query Language (IQL)](https://docs.isaacus.com/iql) query or, if
-    IQL is disabled, the statement, to evaluate the text against.
+    IQL is disabled, the statement, to evaluate the texts against.
 
     The query must contain at least one non-whitespace character.
 
-    Unlike the text being classified, the query cannot be so long that it exceeds
+    Unlike the texts being classified, the query cannot be so long that it exceeds
     the maximum input length of the universal classifier.
     """
 
-    text: Required[str]
-    """The text to classify.
+    texts: Required[List[str]]
+    """The texts to classify.
 
-    The text must contain at least one non-whitespace character.
+    The texts must contain at least one non-whitespace character.
     """
 
     chunking_options: Optional[ChunkingOptions]
@@ -46,13 +46,13 @@ class UniversalCreateParams(TypedDict, total=False):
 
     `auto` is the default scoring method and is recommended for most use cases.
     Currently, it is equivalent to `chunk_max`. In the future, it will automatically
-    select the best method based on the model and input.
+    select the best method based on the model and inputs.
 
-    `chunk_max` uses the highest confidence score of all of the text's chunks.
+    `chunk_max` uses the highest confidence score of all of the texts' chunks.
 
-    `chunk_avg` averages the confidence scores of all of the text's chunks.
+    `chunk_avg` averages the confidence scores of all of the texts' chunks.
 
-    `chunk_min` uses the lowest confidence score of all of the text's chunks.
+    `chunk_min` uses the lowest confidence score of all of the texts' chunks.
     """
 
 
