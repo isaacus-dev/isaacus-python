@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.4.0 (2025-04-19)
+
+Full Changelog: [v0.3.3...v0.4.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.3.3...v0.4.0)
+
+### ⚠ BREAKING CHANGES
+
+* **api:** made universal classification endpoint multi-input only
+
+### Features
+
+* **api:** made universal classification endpoint multi-input only ([4fb2535](https://github.com/isaacus-dev/isaacus-python/commit/4fb2535407d88d51c1db1e9a37c9ea767cdf06c0))
+
+
+### Chores
+
+* **internal:** bump pyright version ([2f992e7](https://github.com/isaacus-dev/isaacus-python/commit/2f992e788860d16739438a021bd8825a7999b1e4))
+* **internal:** update models test ([bb3df78](https://github.com/isaacus-dev/isaacus-python/commit/bb3df7823dd27e6482b5e97ef17019ee0a1e596c))
+
 ## 0.3.3 (2025-04-16)
 
 Full Changelog: [v0.3.2...v0.3.3](https://github.com/isaacus-dev/isaacus-python/compare/v0.3.2...v0.3.3)

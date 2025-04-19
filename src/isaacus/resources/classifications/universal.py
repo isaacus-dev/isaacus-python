@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Literal
 
 import httpx
@@ -52,7 +52,7 @@ class UniversalResource(SyncAPIResource):
         *,
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
-        text: str,
+        texts: List[str],
         chunking_options: Optional[universal_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
         is_iql: bool | NotGiven = NOT_GIVEN,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
@@ -64,7 +64,7 @@ class UniversalResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UniversalClassification:
         """
-        Classify the relevance of a legal document to a query with an Isaacus universal
+        Classify the relevance of legal documents to a query with an Isaacus universal
         legal AI classifier.
 
         Args:
@@ -72,16 +72,16 @@ class UniversalResource(SyncAPIResource):
               to use for universal classification.
 
           query: The [Isaacus Query Language (IQL)](https://docs.isaacus.com/iql) query or, if
-              IQL is disabled, the statement, to evaluate the text against.
+              IQL is disabled, the statement, to evaluate the texts against.
 
               The query must contain at least one non-whitespace character.
 
-              Unlike the text being classified, the query cannot be so long that it exceeds
+              Unlike the texts being classified, the query cannot be so long that it exceeds
               the maximum input length of the universal classifier.
 
-          text: The text to classify.
+          texts: The texts to classify.
 
-              The text must contain at least one non-whitespace character.
+              The texts must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
@@ -92,13 +92,13 @@ class UniversalResource(SyncAPIResource):
 
               `auto` is the default scoring method and is recommended for most use cases.
               Currently, it is equivalent to `chunk_max`. In the future, it will automatically
-              select the best method based on the model and input.
+              select the best method based on the model and inputs.
 
-              `chunk_max` uses the highest confidence score of all of the text's chunks.
+              `chunk_max` uses the highest confidence score of all of the texts' chunks.
 
-              `chunk_avg` averages the confidence scores of all of the text's chunks.
+              `chunk_avg` averages the confidence scores of all of the texts' chunks.
 
-              `chunk_min` uses the lowest confidence score of all of the text's chunks.
+              `chunk_min` uses the lowest confidence score of all of the texts' chunks.
 
           extra_headers: Send extra headers
 
@@ -114,7 +114,7 @@ class UniversalResource(SyncAPIResource):
                 {
                     "model": model,
                     "query": query,
-                    "text": text,
+                    "texts": texts,
                     "chunking_options": chunking_options,
                     "is_iql": is_iql,
                     "scoring_method": scoring_method,
@@ -153,7 +153,7 @@ class AsyncUniversalResource(AsyncAPIResource):
         *,
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
-        text: str,
+        texts: List[str],
         chunking_options: Optional[universal_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
         is_iql: bool | NotGiven = NOT_GIVEN,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
@@ -165,7 +165,7 @@ class AsyncUniversalResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> UniversalClassification:
         """
-        Classify the relevance of a legal document to a query with an Isaacus universal
+        Classify the relevance of legal documents to a query with an Isaacus universal
         legal AI classifier.
 
         Args:
@@ -173,16 +173,16 @@ class AsyncUniversalResource(AsyncAPIResource):
               to use for universal classification.
 
           query: The [Isaacus Query Language (IQL)](https://docs.isaacus.com/iql) query or, if
-              IQL is disabled, the statement, to evaluate the text against.
+              IQL is disabled, the statement, to evaluate the texts against.
 
               The query must contain at least one non-whitespace character.
 
-              Unlike the text being classified, the query cannot be so long that it exceeds
+              Unlike the texts being classified, the query cannot be so long that it exceeds
               the maximum input length of the universal classifier.
 
-          text: The text to classify.
+          texts: The texts to classify.
 
-              The text must contain at least one non-whitespace character.
+              The texts must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
@@ -193,13 +193,13 @@ class AsyncUniversalResource(AsyncAPIResource):
 
               `auto` is the default scoring method and is recommended for most use cases.
               Currently, it is equivalent to `chunk_max`. In the future, it will automatically
-              select the best method based on the model and input.
+              select the best method based on the model and inputs.
 
-              `chunk_max` uses the highest confidence score of all of the text's chunks.
+              `chunk_max` uses the highest confidence score of all of the texts' chunks.
 
-              `chunk_avg` averages the confidence scores of all of the text's chunks.
+              `chunk_avg` averages the confidence scores of all of the texts' chunks.
 
-              `chunk_min` uses the lowest confidence score of all of the text's chunks.
+              `chunk_min` uses the lowest confidence score of all of the texts' chunks.
 
           extra_headers: Send extra headers
 
@@ -215,7 +215,7 @@ class AsyncUniversalResource(AsyncAPIResource):
                 {
                     "model": model,
                     "query": query,
-                    "text": text,
+                    "texts": texts,
                     "chunking_options": chunking_options,
                     "is_iql": is_iql,
                     "scoring_method": scoring_method,
