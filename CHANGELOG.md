@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.0 (2025-04-19)
+
+Full Changelog: [v0.4.0...v0.5.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.4.0...v0.5.0)
+
+### ⚠ BREAKING CHANGES
+
+* **api:** changed how end offsets are computed
+
+### Features
+
+* **api:** changed how end offsets are computed ([3c96279](https://github.com/isaacus-dev/isaacus-python/commit/3c962792d88ec5abd6ee71d9388cc1a1ba6a80dd))
+
 ## 0.4.0 (2025-04-19)
 
 Full Changelog: [v0.3.3...v0.4.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.3.3...v0.4.0)
