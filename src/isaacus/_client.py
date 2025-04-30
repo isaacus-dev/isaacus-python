@@ -19,10 +19,7 @@ from ._types import (
     ProxiesTypes,
     RequestOptions,
 )
-from ._utils import (
-    is_given,
-    get_async_library,
-)
+from ._utils import is_given, get_async_library
 from ._version import __version__
 from .resources import rerankings
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
@@ -32,6 +29,7 @@ from ._base_client import (
     SyncAPIClient,
     AsyncAPIClient,
 )
+from .resources.extractions import extractions
 from .resources.classifications import classifications
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Isaacus", "AsyncIsaacus", "Client", "AsyncClient"]
@@ -40,6 +38,7 @@ __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Isaacus", 
 class Isaacus(SyncAPIClient):
     classifications: classifications.ClassificationsResource
     rerankings: rerankings.RerankingsResource
+    extractions: extractions.ExtractionsResource
     with_raw_response: IsaacusWithRawResponse
     with_streaming_response: IsaacusWithStreamedResponse
 
@@ -99,6 +98,7 @@ class Isaacus(SyncAPIClient):
 
         self.classifications = classifications.ClassificationsResource(self)
         self.rerankings = rerankings.RerankingsResource(self)
+        self.extractions = extractions.ExtractionsResource(self)
         self.with_raw_response = IsaacusWithRawResponse(self)
         self.with_streaming_response = IsaacusWithStreamedResponse(self)
 
@@ -210,6 +210,7 @@ class Isaacus(SyncAPIClient):
 class AsyncIsaacus(AsyncAPIClient):
     classifications: classifications.AsyncClassificationsResource
     rerankings: rerankings.AsyncRerankingsResource
+    extractions: extractions.AsyncExtractionsResource
     with_raw_response: AsyncIsaacusWithRawResponse
     with_streaming_response: AsyncIsaacusWithStreamedResponse
 
@@ -269,6 +270,7 @@ class AsyncIsaacus(AsyncAPIClient):
 
         self.classifications = classifications.AsyncClassificationsResource(self)
         self.rerankings = rerankings.AsyncRerankingsResource(self)
+        self.extractions = extractions.AsyncExtractionsResource(self)
         self.with_raw_response = AsyncIsaacusWithRawResponse(self)
         self.with_streaming_response = AsyncIsaacusWithStreamedResponse(self)
 
@@ -381,24 +383,28 @@ class IsaacusWithRawResponse:
     def __init__(self, client: Isaacus) -> None:
         self.classifications = classifications.ClassificationsResourceWithRawResponse(client.classifications)
         self.rerankings = rerankings.RerankingsResourceWithRawResponse(client.rerankings)
+        self.extractions = extractions.ExtractionsResourceWithRawResponse(client.extractions)
 
 
 class AsyncIsaacusWithRawResponse:
     def __init__(self, client: AsyncIsaacus) -> None:
         self.classifications = classifications.AsyncClassificationsResourceWithRawResponse(client.classifications)
         self.rerankings = rerankings.AsyncRerankingsResourceWithRawResponse(client.rerankings)
+        self.extractions = extractions.AsyncExtractionsResourceWithRawResponse(client.extractions)
 
 
 class IsaacusWithStreamedResponse:
     def __init__(self, client: Isaacus) -> None:
         self.classifications = classifications.ClassificationsResourceWithStreamingResponse(client.classifications)
         self.rerankings = rerankings.RerankingsResourceWithStreamingResponse(client.rerankings)
+        self.extractions = extractions.ExtractionsResourceWithStreamingResponse(client.extractions)
 
 
 class AsyncIsaacusWithStreamedResponse:
     def __init__(self, client: AsyncIsaacus) -> None:
         self.classifications = classifications.AsyncClassificationsResourceWithStreamingResponse(client.classifications)
         self.rerankings = rerankings.AsyncRerankingsResourceWithStreamingResponse(client.rerankings)
+        self.extractions = extractions.AsyncExtractionsResourceWithStreamingResponse(client.extractions)
 
 
 Client = Isaacus

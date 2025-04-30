@@ -29,7 +29,7 @@ class RerankingCreateParams(TypedDict, total=False):
 
     There must be at least one text.
 
-    The texts must contain at least one non-whitespace character.
+    Each text must contain at least one non-whitespace character.
     """
 
     chunking_options: Optional[ChunkingOptions]

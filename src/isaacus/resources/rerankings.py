@@ -9,10 +9,7 @@ import httpx
 
 from ..types import reranking_create_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from .._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -83,7 +80,7 @@ class RerankingsResource(SyncAPIResource):
 
               There must be at least one text.
 
-              The texts must contain at least one non-whitespace character.
+              Each text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
@@ -194,7 +191,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
 
               There must be at least one text.
 
-              The texts must contain at least one non-whitespace character.
+              Each text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
