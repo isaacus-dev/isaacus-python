@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.6.0 (2025-04-30)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** introduced extractive QA ([7b9856c](https://github.com/isaacus-dev/isaacus-python/commit/7b9856c7a64fd4694d0fe8436934fa520faa38cc))
+
+
+### Bug Fixes
+
+* **pydantic v1:** more robust ModelField.annotation check ([40be0d5](https://github.com/isaacus-dev/isaacus-python/commit/40be0d5d7bb0c4d5187c0207e6470800e9827216))
+
+
+### Chores
+
+* broadly detect json family of content-type headers ([ef18419](https://github.com/isaacus-dev/isaacus-python/commit/ef18419dc26bba05aec8f5e29711bcc6fe329e9e))
+* **ci:** add timeout thresholds for CI jobs ([f0438ce](https://github.com/isaacus-dev/isaacus-python/commit/f0438cebcfc587af81d967e610dc33ea5a53bb32))
+* **ci:** only use depot for staging repos ([869c0ff](https://github.com/isaacus-dev/isaacus-python/commit/869c0ff5824ccfd63a4123a026530df11352db44))
+* **internal:** codegen related update ([8860ae0](https://github.com/isaacus-dev/isaacus-python/commit/8860ae0393429d660038ce1c8d15020a42141979))
+* **internal:** fix list file params ([6dc4e32](https://github.com/isaacus-dev/isaacus-python/commit/6dc4e32ab00e83d2307bfb729222f66f24a1f45f))
+* **internal:** import reformatting ([57473e2](https://github.com/isaacus-dev/isaacus-python/commit/57473e25e03b551ab85b4d2ec484defdcc2de09d))
+* **internal:** refactor retries to not use recursion ([513599c](https://github.com/isaacus-dev/isaacus-python/commit/513599ce261e2ec9a034715e20ec150025186255))
+
 ## 0.5.0 (2025-04-19)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.4.0...v0.5.0)
