@@ -23,3 +23,17 @@ from isaacus.types import Reranking
 Methods:
 
 - <code title="post /rerankings">client.rerankings.<a href="./src/isaacus/resources/rerankings.py">create</a>(\*\*<a href="src/isaacus/types/reranking_create_params.py">params</a>) -> <a href="./src/isaacus/types/reranking.py">Reranking</a></code>
+
+# Extractions
+
+## Qa
+
+Types:
+
+```python
+from isaacus.types.extractions import AnswerExtraction
+```
+
+Methods:
+
+- <code title="post /extractions/qa">client.extractions.qa.<a href="./src/isaacus/resources/extractions/qa.py">create</a>(\*\*<a href="src/isaacus/types/extractions/qa_create_params.py">params</a>) -> <a href="./src/isaacus/types/extractions/answer_extraction.py">AnswerExtraction</a></code>

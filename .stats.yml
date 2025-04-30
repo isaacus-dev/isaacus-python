@@ -1,4 +1,4 @@
-configured_endpoints: 2
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/isaacus%2Fisaacus-f1ac3a46ba560544c348931204998163a9c5e35c40d6096f4b078e38c2714756.yml
-openapi_spec_hash: c9ba9f53c0dabdb703461d772020952f
-config_hash: 1d15d860383a3f6da1ac388297687cc9
+configured_endpoints: 3
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/isaacus%2Fisaacus-bc0272bf0a53ec37ca25f4a8b76bca4b90cf33c5f41816edf460daa642a5a84a.yml
+openapi_spec_hash: 79f28fedf89e1b719f464c064847a630
+config_hash: bfe30148ec88e8bbbf4a348a9fdfc00a
