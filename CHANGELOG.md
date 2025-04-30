@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.1 (2025-04-30)
+
+Full Changelog: [v0.6.0...v0.6.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.6.0...v0.6.1)
+
+### Documentation
+
+* **api:** fixed incorrect description of how extraction results are ordered ([4c6ee63](https://github.com/isaacus-dev/isaacus-python/commit/4c6ee63ab3b274ee76cb56f526004f2f63dbb0ac))
+
 ## 0.6.0 (2025-04-30)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.5.0...v0.6.0)
