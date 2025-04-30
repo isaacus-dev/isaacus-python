@@ -78,7 +78,7 @@ class UniversalResource(SyncAPIResource):
 
           texts: The texts to classify.
 
-              The texts must contain at least one non-whitespace character.
+              Each text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
@@ -179,7 +179,7 @@ class AsyncUniversalResource(AsyncAPIResource):
 
           texts: The texts to classify.
 
-              The texts must contain at least one non-whitespace character.
+              Each text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 

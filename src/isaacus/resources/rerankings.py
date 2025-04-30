@@ -80,7 +80,7 @@ class RerankingsResource(SyncAPIResource):
 
               There must be at least one text.
 
-              The texts must contain at least one non-whitespace character.
+              Each text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
@@ -191,7 +191,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
 
               There must be at least one text.
 
-              The texts must contain at least one non-whitespace character.
+              Each text must contain at least one non-whitespace character.
 
           chunking_options: Options for how to split text into smaller chunks.
 
