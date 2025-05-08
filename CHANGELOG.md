@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.6.1 (2025-05-08)
+
+Full Changelog: [v0.6.0...v0.6.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.6.0...v0.6.1)
+
+### Chores
+
+* **internal:** codegen related update ([ed8951f](https://github.com/isaacus-dev/isaacus-python/commit/ed8951f3943af3be84ea11a363e6ac3c23e37b2b))
+
+
+### Documentation
+
+* **api:** fixed incorrect description of how extraction results are ordered ([4c6ee63](https://github.com/isaacus-dev/isaacus-python/commit/4c6ee63ab3b274ee76cb56f526004f2f63dbb0ac))
+
 ## 0.6.0 (2025-04-30)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.5.0...v0.6.0)
