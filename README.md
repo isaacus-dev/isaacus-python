@@ -100,7 +100,7 @@ universal_classification = client.classifications.universal.create(
         "size": 512,
     },
 )
-print(universal_classification.chunking_options)
+print(universal_classification.classifications)
 ```
 
 ## Handling errors
