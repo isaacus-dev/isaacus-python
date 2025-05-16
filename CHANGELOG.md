@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.2 (2025-05-16)
+
+Full Changelog: [v0.6.1...v0.6.2](https://github.com/isaacus-dev/isaacus-python/compare/v0.6.1...v0.6.2)
+
+### Chores
+
+* **ci:** fix installation instructions ([157308b](https://github.com/isaacus-dev/isaacus-python/commit/157308b71eefc75af2e76acd10664eb5633b9110))
+* **ci:** upload sdks to package manager ([9f9915c](https://github.com/isaacus-dev/isaacus-python/commit/9f9915ce18a288ab157b8f75c21de724507267d7))
+
 ## 0.6.1 (2025-05-10)
 
 Full Changelog: [v0.6.0...v0.6.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.6.0...v0.6.1)
