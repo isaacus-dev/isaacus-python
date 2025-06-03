@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.7.0 (2025-06-03)
+
+Full Changelog: [v0.6.1...v0.7.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.6.1...v0.7.0)
+
+### Features
+
+* **client:** add follow_redirects request option ([40221d5](https://github.com/isaacus-dev/isaacus-python/commit/40221d56d887dcfb693d67883a47403c680f6062))
+
+
+### Chores
+
+* **ci:** fix installation instructions ([157308b](https://github.com/isaacus-dev/isaacus-python/commit/157308b71eefc75af2e76acd10664eb5633b9110))
+* **ci:** upload sdks to package manager ([9f9915c](https://github.com/isaacus-dev/isaacus-python/commit/9f9915ce18a288ab157b8f75c21de724507267d7))
+* **docs:** grammar improvements ([eb2766f](https://github.com/isaacus-dev/isaacus-python/commit/eb2766f59d477222ae93c06c32e06ab1ff94645f))
+* **docs:** remove reference to rye shell ([96a0239](https://github.com/isaacus-dev/isaacus-python/commit/96a0239f103261c69ead957c62fdee27497192ed))
+
 ## 0.6.1 (2025-05-10)
 
 Full Changelog: [v0.6.0...v0.6.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.6.0...v0.6.1)
