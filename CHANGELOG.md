@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.7.1 (2025-06-13)
+
+Full Changelog: [v0.7.0...v0.7.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.7.0...v0.7.1)
+
+### Bug Fixes
+
+* **client:** correctly parse binary response | stream ([5e316fe](https://github.com/isaacus-dev/isaacus-python/commit/5e316feaf5270e54321a917a9cd59efb2c42fcb3))
+
+
+### Chores
+
+* **tests:** run tests in parallel ([3f0e6da](https://github.com/isaacus-dev/isaacus-python/commit/3f0e6da6d9c6d9cd46cfa382da55a0b6a07d9d49))
+
 ## 0.7.0 (2025-06-03)
 
 Full Changelog: [v0.6.1...v0.7.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.6.1...v0.7.0)
