@@ -23,9 +23,7 @@ from pydantic import ValidationError
 
 from isaacus import Isaacus, AsyncIsaacus, APIResponseValidationError
 from isaacus._types import Omit
-from isaacus._utils import maybe_transform
 from isaacus._models import BaseModel, FinalRequestOptions
-from isaacus._constants import RAW_RESPONSE_HEADER
 from isaacus._exceptions import IsaacusError, APIStatusError, APITimeoutError, APIResponseValidationError
 from isaacus._base_client import (
     DEFAULT_TIMEOUT,
@@ -35,7 +33,6 @@ from isaacus._base_client import (
     DefaultAsyncHttpxClient,
     make_request_options,
 )
-from isaacus.types.classifications.universal_create_params import UniversalCreateParams
 
 from .utils import update_env
 
@@ -713,52 +710,29 @@ class TestIsaacus:
 
     @mock.patch("isaacus._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
+    def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter, client: Isaacus) -> None:
         respx_mock.post("/classifications/universal").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            self.client.post(
-                "/classifications/universal",
-                body=cast(
-                    object,
-                    maybe_transform(
-                        dict(
-                            model="kanon-universal-classifier",
-                            query="This is a confidentiality clause.",
-                            texts=["I agree not to tell anyone about the document."],
-                        ),
-                        UniversalCreateParams,
-                    ),
-                ),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
+            client.classifications.universal.with_streaming_response.create(
+                model="kanon-universal-classifier",
+                query="This is a confidentiality clause.",
+                texts=["I agree not to tell anyone about the document."],
+            ).__enter__()
 
         assert _get_open_connections(self.client) == 0
 
     @mock.patch("isaacus._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
+    def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, client: Isaacus) -> None:
         respx_mock.post("/classifications/universal").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            self.client.post(
-                "/classifications/universal",
-                body=cast(
-                    object,
-                    maybe_transform(
-                        dict(
-                            model="kanon-universal-classifier",
-                            query="This is a confidentiality clause.",
-                            texts=["I agree not to tell anyone about the document."],
-                        ),
-                        UniversalCreateParams,
-                    ),
-                ),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
-
+            client.classifications.universal.with_streaming_response.create(
+                model="kanon-universal-classifier",
+                query="This is a confidentiality clause.",
+                texts=["I agree not to tell anyone about the document."],
+            ).__enter__()
         assert _get_open_connections(self.client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
@@ -1572,52 +1546,31 @@ class TestAsyncIsaacus:
 
     @mock.patch("isaacus._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    async def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
+    async def test_retrying_timeout_errors_doesnt_leak(
+        self, respx_mock: MockRouter, async_client: AsyncIsaacus
+    ) -> None:
         respx_mock.post("/classifications/universal").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            await self.client.post(
-                "/classifications/universal",
-                body=cast(
-                    object,
-                    maybe_transform(
-                        dict(
-                            model="kanon-universal-classifier",
-                            query="This is a confidentiality clause.",
-                            texts=["I agree not to tell anyone about the document."],
-                        ),
-                        UniversalCreateParams,
-                    ),
-                ),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
+            await async_client.classifications.universal.with_streaming_response.create(
+                model="kanon-universal-classifier",
+                query="This is a confidentiality clause.",
+                texts=["I agree not to tell anyone about the document."],
+            ).__aenter__()
 
         assert _get_open_connections(self.client) == 0
 
     @mock.patch("isaacus._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
-    async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
+    async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, async_client: AsyncIsaacus) -> None:
         respx_mock.post("/classifications/universal").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            await self.client.post(
-                "/classifications/universal",
-                body=cast(
-                    object,
-                    maybe_transform(
-                        dict(
-                            model="kanon-universal-classifier",
-                            query="This is a confidentiality clause.",
-                            texts=["I agree not to tell anyone about the document."],
-                        ),
-                        UniversalCreateParams,
-                    ),
-                ),
-                cast_to=httpx.Response,
-                options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
-            )
-
+            await async_client.classifications.universal.with_streaming_response.create(
+                model="kanon-universal-classifier",
+                query="This is a confidentiality clause.",
+                texts=["I agree not to tell anyone about the document."],
+            ).__aenter__()
         assert _get_open_connections(self.client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
