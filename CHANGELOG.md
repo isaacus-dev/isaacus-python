@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.8.0 (2025-06-30)
+
+Full Changelog: [v0.7.0...v0.8.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.7.0...v0.8.0)
+
+### Features
+
+* **client:** add support for aiohttp ([fba17e9](https://github.com/isaacus-dev/isaacus-python/commit/fba17e98279aa6d93dd3c9b6f9b95246b4fac813))
+
+
+### Bug Fixes
+
+* **ci:** correct conditional ([53c81d9](https://github.com/isaacus-dev/isaacus-python/commit/53c81d9e14882ae83a72c15481c8933226e668fa))
+* **ci:** release-doctor — report correct token name ([3cb8672](https://github.com/isaacus-dev/isaacus-python/commit/3cb8672052edf1d1c4e72a5866fde3776d43a4e2))
+* **client:** correctly parse binary response | stream ([5e316fe](https://github.com/isaacus-dev/isaacus-python/commit/5e316feaf5270e54321a917a9cd59efb2c42fcb3))
+* **tests:** fix: tests which call HTTP endpoints directly with the example parameters ([638c7c4](https://github.com/isaacus-dev/isaacus-python/commit/638c7c4df7ecbc189480a0cba2d93125f9b97d2f))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([29244fd](https://github.com/isaacus-dev/isaacus-python/commit/29244fdb33a5706480e1c7314099a14ae177ee06))
+* **ci:** only run for pushes and fork pull requests ([94ed1eb](https://github.com/isaacus-dev/isaacus-python/commit/94ed1ebf9fc4111236f1db2a5d326f081079bdc8))
+* **internal:** update conftest.py ([e4a5936](https://github.com/isaacus-dev/isaacus-python/commit/e4a59368bd7d42d65fd368b03a208b2aa32a9144))
+* **readme:** update badges ([cd48569](https://github.com/isaacus-dev/isaacus-python/commit/cd485693063d03f092d5be7f024b0f7e23da0897))
+* **tests:** add tests for httpx client instantiation & proxies ([5d2c5b9](https://github.com/isaacus-dev/isaacus-python/commit/5d2c5b9e20bd80acd05240217b6be3991b46aae2))
+* **tests:** run tests in parallel ([3f0e6da](https://github.com/isaacus-dev/isaacus-python/commit/3f0e6da6d9c6d9cd46cfa382da55a0b6a07d9d49))
+* **tests:** skip some failing tests on the latest python versions ([b2b3fa8](https://github.com/isaacus-dev/isaacus-python/commit/b2b3fa82b87e9cc7e23164cc5589b3e157e635df))
+
+
+### Documentation
+
+* **client:** fix httpx.Timeout documentation reference ([b68d394](https://github.com/isaacus-dev/isaacus-python/commit/b68d3944df0ca58b7df3e89e06e90799f7ade25b))
+
 ## 0.7.0 (2025-06-03)
 
 Full Changelog: [v0.6.1...v0.7.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.6.1...v0.7.0)
