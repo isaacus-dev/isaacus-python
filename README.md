@@ -1,6 +1,7 @@
 # Isaacus Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/isaacus.svg)](https://pypi.org/project/isaacus/)
+<!-- prettier-ignore -->
+[![PyPI version](https://img.shields.io/pypi/v/isaacus.svg?label=pypi%20(stable))](https://pypi.org/project/isaacus/)
 
 The Isaacus Python library provides convenient access to the Isaacus REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
@@ -71,6 +72,41 @@ asyncio.run(main())
 ```
 
 Functionality between the synchronous and asynchronous clients is otherwise identical.
+
+### With aiohttp
+
+By default, the async client uses `httpx` for HTTP requests. However, for improved concurrency performance you may also use `aiohttp` as the HTTP backend.
+
+You can enable this by installing `aiohttp`:
+
+```sh
+# install from PyPI
+pip install isaacus[aiohttp]
+```
+
+Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
+
+```python
+import asyncio
+from isaacus import DefaultAioHttpClient
+from isaacus import AsyncIsaacus
+
+
+async def main() -> None:
+    async with AsyncIsaacus(
+        api_key="My API Key",
+        http_client=DefaultAioHttpClient(),
+    ) as client:
+        universal_classification = await client.classifications.universal.create(
+            model="kanon-universal-classifier",
+            query="This is a confidentiality clause.",
+            texts=["I agree not to tell anyone about the document."],
+        )
+        print(universal_classification.classifications)
+
+
+asyncio.run(main())
+```
 
 ## Using types
 
@@ -176,7 +212,7 @@ client.with_options(max_retries=5).classifications.universal.create(
 ### Timeouts
 
 By default requests time out after 1 minute. You can configure this with a `timeout` option,
-which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
+which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
 from isaacus import Isaacus
