@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.9.0 (2025-08-09)
+
+Full Changelog: [v0.8.0...v0.9.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.8.0...v0.9.0)
+
+### Features
+
+* **client:** support file upload requests ([2ab398d](https://github.com/isaacus-dev/isaacus-python/commit/2ab398dde07e98411c9b6efd76f7b7120a9633a8))
+
+
+### Chores
+
+* **internal:** fix ruff target version ([889d576](https://github.com/isaacus-dev/isaacus-python/commit/889d576cdc28d06404c6ee3ce0c67bf4d3be75c4))
+* **internal:** update comment in script ([7af966e](https://github.com/isaacus-dev/isaacus-python/commit/7af966e1677b44d412eda96c5ee8e9866f77ccfb))
+* update @stainless-api/prism-cli to v5.15.0 ([a3141f5](https://github.com/isaacus-dev/isaacus-python/commit/a3141f59b0ff6334fde2a9740fd2f86824fe5083))
+
 ## 0.8.0 (2025-07-25)
 
 Full Changelog: [v0.7.0...v0.8.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.7.0...v0.8.0)
