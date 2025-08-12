@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestRerankings:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create(self, client: Isaacus) -> None:
         reranking = client.rerankings.create(
@@ -33,7 +33,7 @@ class TestRerankings:
         )
         assert_matches_type(Reranking, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         reranking = client.rerankings.create(
@@ -57,7 +57,7 @@ class TestRerankings:
         )
         assert_matches_type(Reranking, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.rerankings.with_raw_response.create(
@@ -77,7 +77,7 @@ class TestRerankings:
         reranking = response.parse()
         assert_matches_type(Reranking, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.rerankings.with_streaming_response.create(
@@ -105,7 +105,7 @@ class TestAsyncRerankings:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         reranking = await async_client.rerankings.create(
@@ -121,7 +121,7 @@ class TestAsyncRerankings:
         )
         assert_matches_type(Reranking, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         reranking = await async_client.rerankings.create(
@@ -145,7 +145,7 @@ class TestAsyncRerankings:
         )
         assert_matches_type(Reranking, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.rerankings.with_raw_response.create(
@@ -165,7 +165,7 @@ class TestAsyncRerankings:
         reranking = await response.parse()
         assert_matches_type(Reranking, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.rerankings.with_streaming_response.create(
