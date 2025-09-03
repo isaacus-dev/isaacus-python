@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -49,7 +49,7 @@ class QaResource(SyncAPIResource):
         *,
         model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
         query: str,
-        texts: List[str],
+        texts: SequenceNotStr[str],
         chunking_options: Optional[qa_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
         ignore_inextractability: bool | NotGiven = NOT_GIVEN,
         top_k: int | NotGiven = NOT_GIVEN,
@@ -148,7 +148,7 @@ class AsyncQaResource(AsyncAPIResource):
         *,
         model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
         query: str,
-        texts: List[str],
+        texts: SequenceNotStr[str],
         chunking_options: Optional[qa_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
         ignore_inextractability: bool | NotGiven = NOT_GIVEN,
         top_k: int | NotGiven = NOT_GIVEN,
