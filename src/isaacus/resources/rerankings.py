@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Literal
 
 import httpx
 
 from ..types import reranking_create_params
-from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
 from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
@@ -49,7 +49,7 @@ class RerankingsResource(SyncAPIResource):
         *,
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
-        texts: List[str],
+        texts: SequenceNotStr[str],
         chunking_options: Optional[reranking_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
         is_iql: bool | NotGiven = NOT_GIVEN,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
@@ -160,7 +160,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
         *,
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
-        texts: List[str],
+        texts: SequenceNotStr[str],
         chunking_options: Optional[reranking_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
         is_iql: bool | NotGiven = NOT_GIVEN,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
