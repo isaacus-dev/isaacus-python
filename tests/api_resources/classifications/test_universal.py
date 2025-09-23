@@ -36,7 +36,7 @@ class TestUniversal:
             texts=["I agree not to tell anyone about the document."],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             is_iql=True,
@@ -99,7 +99,7 @@ class TestAsyncUniversal:
             texts=["I agree not to tell anyone about the document."],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             is_iql=True,
