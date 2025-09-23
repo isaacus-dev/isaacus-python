@@ -40,7 +40,7 @@ class TestQa:
             ],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             ignore_inextractability=False,
@@ -111,7 +111,7 @@ class TestAsyncQa:
             ],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             ignore_inextractability=False,

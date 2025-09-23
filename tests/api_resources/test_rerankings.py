@@ -48,7 +48,7 @@ class TestRerankings:
             ],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             is_iql=False,
@@ -136,7 +136,7 @@ class TestAsyncRerankings:
             ],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             is_iql=False,
