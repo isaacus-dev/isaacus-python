@@ -8,7 +8,7 @@ from typing_extensions import Literal
 import httpx
 
 from ..types import reranking_create_params
-from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
@@ -50,16 +50,16 @@ class RerankingsResource(SyncAPIResource):
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[reranking_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
-        is_iql: bool | NotGiven = NOT_GIVEN,
-        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
-        top_n: Optional[int] | NotGiven = NOT_GIVEN,
+        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
+        is_iql: bool | Omit = omit,
+        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
+        top_n: Optional[int] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Reranking:
         """
         Rerank legal documents by their relevance to a query with an Isaacus legal AI
@@ -161,16 +161,16 @@ class AsyncRerankingsResource(AsyncAPIResource):
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[reranking_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
-        is_iql: bool | NotGiven = NOT_GIVEN,
-        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
-        top_n: Optional[int] | NotGiven = NOT_GIVEN,
+        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
+        is_iql: bool | Omit = omit,
+        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
+        top_n: Optional[int] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Reranking:
         """
         Rerank legal documents by their relevance to a query with an Isaacus legal AI
