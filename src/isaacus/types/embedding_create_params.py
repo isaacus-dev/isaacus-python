@@ -13,7 +13,7 @@ __all__ = ["EmbeddingCreateParams"]
 class EmbeddingCreateParams(TypedDict, total=False):
     model: Required[Literal["kanon-2-embedder"]]
     """
-    The ID of the [model](https://docs.isaacus.com/models#embeddings) to use for
+    The ID of the [model](https://docs.isaacus.com/models#embedding) to use for
     embedding.
     """
 
