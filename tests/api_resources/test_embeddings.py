@@ -9,7 +9,7 @@ import pytest
 
 from isaacus import Isaacus, AsyncIsaacus
 from tests.utils import assert_matches_type
-from isaacus.types import Embedding
+from isaacus.types import EmbeddingCreateResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -24,7 +24,7 @@ class TestEmbeddings:
             model="kanon-2-embedder",
             texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
         )
-        assert_matches_type(Embedding, embedding, path=["response"])
+        assert_matches_type(EmbeddingCreateResponse, embedding, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -36,7 +36,7 @@ class TestEmbeddings:
             overflow_strategy="drop_end",
             task="retrieval/query",
         )
-        assert_matches_type(Embedding, embedding, path=["response"])
+        assert_matches_type(EmbeddingCreateResponse, embedding, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -49,7 +49,7 @@ class TestEmbeddings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         embedding = response.parse()
-        assert_matches_type(Embedding, embedding, path=["response"])
+        assert_matches_type(EmbeddingCreateResponse, embedding, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -62,7 +62,7 @@ class TestEmbeddings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             embedding = response.parse()
-            assert_matches_type(Embedding, embedding, path=["response"])
+            assert_matches_type(EmbeddingCreateResponse, embedding, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -79,7 +79,7 @@ class TestAsyncEmbeddings:
             model="kanon-2-embedder",
             texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
         )
-        assert_matches_type(Embedding, embedding, path=["response"])
+        assert_matches_type(EmbeddingCreateResponse, embedding, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -91,7 +91,7 @@ class TestAsyncEmbeddings:
             overflow_strategy="drop_end",
             task="retrieval/query",
         )
-        assert_matches_type(Embedding, embedding, path=["response"])
+        assert_matches_type(EmbeddingCreateResponse, embedding, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -104,7 +104,7 @@ class TestAsyncEmbeddings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         embedding = await response.parse()
-        assert_matches_type(Embedding, embedding, path=["response"])
+        assert_matches_type(EmbeddingCreateResponse, embedding, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -117,6 +117,6 @@ class TestAsyncEmbeddings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             embedding = await response.parse()
-            assert_matches_type(Embedding, embedding, path=["response"])
+            assert_matches_type(EmbeddingCreateResponse, embedding, path=["response"])
 
         assert cast(Any, response.is_closed) is True
