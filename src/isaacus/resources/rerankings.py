@@ -19,7 +19,7 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 from .._base_client import make_request_options
-from ..types.reranking import Reranking
+from ..types.reranking_response import RerankingResponse
 
 __all__ = ["RerankingsResource", "AsyncRerankingsResource"]
 
@@ -60,7 +60,7 @@ class RerankingsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> Reranking:
+    ) -> RerankingResponse:
         """
         Rerank legal documents by their relevance to a query with an Isaacus legal AI
         reranker.
@@ -131,7 +131,7 @@ class RerankingsResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Reranking,
+            cast_to=RerankingResponse,
         )
 
 
@@ -171,7 +171,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> Reranking:
+    ) -> RerankingResponse:
         """
         Rerank legal documents by their relevance to a query with an Isaacus legal AI
         reranker.
@@ -242,7 +242,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Reranking,
+            cast_to=RerankingResponse,
         )
 
 

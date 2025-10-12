@@ -9,7 +9,7 @@ import pytest
 
 from isaacus import Isaacus, AsyncIsaacus
 from tests.utils import assert_matches_type
-from isaacus.types import Reranking
+from isaacus.types import RerankingResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -31,7 +31,7 @@ class TestRerankings:
                 "The concept of negligence is central to tort law, with courts assessing whether a breach of duty caused harm.",
             ],
         )
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -55,7 +55,7 @@ class TestRerankings:
             scoring_method="auto",
             top_n=1,
         )
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -75,7 +75,7 @@ class TestRerankings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         reranking = response.parse()
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -95,7 +95,7 @@ class TestRerankings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             reranking = response.parse()
-            assert_matches_type(Reranking, reranking, path=["response"])
+            assert_matches_type(RerankingResponse, reranking, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -119,7 +119,7 @@ class TestAsyncRerankings:
                 "The concept of negligence is central to tort law, with courts assessing whether a breach of duty caused harm.",
             ],
         )
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -143,7 +143,7 @@ class TestAsyncRerankings:
             scoring_method="auto",
             top_n=1,
         )
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -163,7 +163,7 @@ class TestAsyncRerankings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         reranking = await response.parse()
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -183,6 +183,6 @@ class TestAsyncRerankings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             reranking = await response.parse()
-            assert_matches_type(Reranking, reranking, path=["response"])
+            assert_matches_type(RerankingResponse, reranking, path=["response"])
 
         assert cast(Any, response.is_closed) is True

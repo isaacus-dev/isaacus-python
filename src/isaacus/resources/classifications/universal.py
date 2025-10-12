@@ -19,7 +19,7 @@ from ..._response import (
 )
 from ..._base_client import make_request_options
 from ...types.classifications import universal_create_params
-from ...types.classifications.universal_classification import UniversalClassification
+from ...types.classifications.universal_classification_response import UniversalClassificationResponse
 
 __all__ = ["UniversalResource", "AsyncUniversalResource"]
 
@@ -59,7 +59,7 @@ class UniversalResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> UniversalClassification:
+    ) -> UniversalClassificationResponse:
         """
         Classify the relevance of legal documents to a query with an Isaacus universal
         legal AI classifier.
@@ -121,7 +121,7 @@ class UniversalResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=UniversalClassification,
+            cast_to=UniversalClassificationResponse,
         )
 
 
@@ -160,7 +160,7 @@ class AsyncUniversalResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> UniversalClassification:
+    ) -> UniversalClassificationResponse:
         """
         Classify the relevance of legal documents to a query with an Isaacus universal
         legal AI classifier.
@@ -222,7 +222,7 @@ class AsyncUniversalResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=UniversalClassification,
+            cast_to=UniversalClassificationResponse,
         )
 
 

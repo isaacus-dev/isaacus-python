@@ -32,12 +32,12 @@ client = Isaacus(
     api_key=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
 )
 
-universal_classification = client.classifications.universal.create(
+universal_classification_response = client.classifications.universal.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
     texts=["I agree not to tell anyone about the document."],
 )
-print(universal_classification.classifications)
+print(universal_classification_response.classifications)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -60,12 +60,12 @@ client = AsyncIsaacus(
 
 
 async def main() -> None:
-    universal_classification = await client.classifications.universal.create(
+    universal_classification_response = await client.classifications.universal.create(
         model="kanon-universal-classifier",
         query="This is a confidentiality clause.",
         texts=["I agree not to tell anyone about the document."],
     )
-    print(universal_classification.classifications)
+    print(universal_classification_response.classifications)
 
 
 asyncio.run(main())
@@ -97,12 +97,12 @@ async def main() -> None:
         api_key="My API Key",
         http_client=DefaultAioHttpClient(),
     ) as client:
-        universal_classification = await client.classifications.universal.create(
+        universal_classification_response = await client.classifications.universal.create(
             model="kanon-universal-classifier",
             query="This is a confidentiality clause.",
             texts=["I agree not to tell anyone about the document."],
         )
-        print(universal_classification.classifications)
+        print(universal_classification_response.classifications)
 
 
 asyncio.run(main())
@@ -126,7 +126,7 @@ from isaacus import Isaacus
 
 client = Isaacus()
 
-universal_classification = client.classifications.universal.create(
+universal_classification_response = client.classifications.universal.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
     texts=["I agree not to tell anyone about the document."],
@@ -136,7 +136,7 @@ universal_classification = client.classifications.universal.create(
         "size": 512,
     },
 )
-print(universal_classification.classifications)
+print(universal_classification_response.classifications)
 ```
 
 ## Handling errors
