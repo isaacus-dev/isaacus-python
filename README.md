@@ -131,7 +131,7 @@ universal_classification = client.classifications.universal.create(
     query="This is a confidentiality clause.",
     texts=["I agree not to tell anyone about the document."],
     chunking_options={
-        "overlap_ratio": 0.1,
+        "overlap_ratio": 0.2,
         "overlap_tokens": None,
         "size": 512,
     },
