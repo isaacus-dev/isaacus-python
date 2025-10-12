@@ -9,7 +9,7 @@ import pytest
 
 from isaacus import Isaacus, AsyncIsaacus
 from tests.utils import assert_matches_type
-from isaacus.types.extractions import AnswerExtraction
+from isaacus.types.extractions import AnswerExtractionResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -27,7 +27,7 @@ class TestQa:
                 "The standard sentence for murder in the State of Victoria is 30 years if the person murdered was a police officer and 25 years in any other case."
             ],
         )
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -46,7 +46,7 @@ class TestQa:
             ignore_inextractability=False,
             top_k=1,
         )
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -62,7 +62,7 @@ class TestQa:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         qa = response.parse()
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -78,7 +78,7 @@ class TestQa:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             qa = response.parse()
-            assert_matches_type(AnswerExtraction, qa, path=["response"])
+            assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -98,7 +98,7 @@ class TestAsyncQa:
                 "The standard sentence for murder in the State of Victoria is 30 years if the person murdered was a police officer and 25 years in any other case."
             ],
         )
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -117,7 +117,7 @@ class TestAsyncQa:
             ignore_inextractability=False,
             top_k=1,
         )
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -133,7 +133,7 @@ class TestAsyncQa:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         qa = await response.parse()
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -149,6 +149,6 @@ class TestAsyncQa:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             qa = await response.parse()
-            assert_matches_type(AnswerExtraction, qa, path=["response"])
+            assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
         assert cast(Any, response.is_closed) is True

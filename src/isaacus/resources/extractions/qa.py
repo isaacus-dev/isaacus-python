@@ -19,7 +19,7 @@ from ..._response import (
 )
 from ..._base_client import make_request_options
 from ...types.extractions import qa_create_params
-from ...types.extractions.answer_extraction import AnswerExtraction
+from ...types.extractions.answer_extraction_response import AnswerExtractionResponse
 
 __all__ = ["QaResource", "AsyncQaResource"]
 
@@ -59,7 +59,7 @@ class QaResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> AnswerExtraction:
+    ) -> AnswerExtractionResponse:
         """
         Extract answers to questions from legal documents with an Isaacus legal AI
         answer extractor.
@@ -119,7 +119,7 @@ class QaResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=AnswerExtraction,
+            cast_to=AnswerExtractionResponse,
         )
 
 
@@ -158,7 +158,7 @@ class AsyncQaResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
-    ) -> AnswerExtraction:
+    ) -> AnswerExtractionResponse:
         """
         Extract answers to questions from legal documents with an Isaacus legal AI
         answer extractor.
@@ -218,7 +218,7 @@ class AsyncQaResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=AnswerExtraction,
+            cast_to=AnswerExtractionResponse,
         )
 
 

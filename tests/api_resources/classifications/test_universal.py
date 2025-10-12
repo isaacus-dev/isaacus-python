@@ -9,7 +9,7 @@ import pytest
 
 from isaacus import Isaacus, AsyncIsaacus
 from tests.utils import assert_matches_type
-from isaacus.types.classifications import UniversalClassification
+from isaacus.types.classifications import UniversalClassificationResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -25,7 +25,7 @@ class TestUniversal:
             query="This is a confidentiality clause.",
             texts=["I agree not to tell anyone about the document."],
         )
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -42,7 +42,7 @@ class TestUniversal:
             is_iql=True,
             scoring_method="auto",
         )
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -56,7 +56,7 @@ class TestUniversal:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         universal = response.parse()
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -70,7 +70,7 @@ class TestUniversal:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             universal = response.parse()
-            assert_matches_type(UniversalClassification, universal, path=["response"])
+            assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -88,7 +88,7 @@ class TestAsyncUniversal:
             query="This is a confidentiality clause.",
             texts=["I agree not to tell anyone about the document."],
         )
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -105,7 +105,7 @@ class TestAsyncUniversal:
             is_iql=True,
             scoring_method="auto",
         )
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -119,7 +119,7 @@ class TestAsyncUniversal:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         universal = await response.parse()
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -133,6 +133,6 @@ class TestAsyncUniversal:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             universal = await response.parse()
-            assert_matches_type(UniversalClassification, universal, path=["response"])
+            assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
         assert cast(Any, response.is_closed) is True
