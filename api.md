@@ -3,12 +3,12 @@
 Types:
 
 ```python
-from isaacus.types import EmbeddingCreateResponse
+from isaacus.types import Embedding
 ```
 
 Methods:
 
-- <code title="post /embeddings">client.embeddings.<a href="./src/isaacus/resources/embeddings.py">create</a>(\*\*<a href="src/isaacus/types/embedding_create_params.py">params</a>) -> <a href="./src/isaacus/types/embedding_create_response.py">EmbeddingCreateResponse</a></code>
+- <code title="post /embeddings">client.embeddings.<a href="./src/isaacus/resources/embeddings.py">create</a>(\*\*<a href="src/isaacus/types/embedding_create_params.py">params</a>) -> <a href="./src/isaacus/types/embedding.py">Embedding</a></code>
 
 # Classifications
 
