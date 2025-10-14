@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -19,7 +19,7 @@ from ..._response import (
 )
 from ..._base_client import make_request_options
 from ...types.extractions import qa_create_params
-from ...types.extractions.answer_extraction import AnswerExtraction
+from ...types.extractions.answer_extraction_response import AnswerExtractionResponse
 
 __all__ = ["QaResource", "AsyncQaResource"]
 
@@ -49,24 +49,25 @@ class QaResource(SyncAPIResource):
         *,
         model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
         query: str,
-        texts: List[str],
-        chunking_options: Optional[qa_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
-        ignore_inextractability: bool | NotGiven = NOT_GIVEN,
-        top_k: int | NotGiven = NOT_GIVEN,
+        texts: SequenceNotStr[str],
+        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
+        ignore_inextractability: bool | Omit = omit,
+        top_k: int | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AnswerExtraction:
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> AnswerExtractionResponse:
         """
         Extract answers to questions from legal documents with an Isaacus legal AI
         answer extractor.
 
         Args:
-          model: The ID of the [model](https://docs.isaacus.com/models#extractive-qa) to use for
-              extractive question answering.
+          model: The ID of the
+              [model](https://docs.isaacus.com/models#extractive-question-answering) to use
+              for extractive question answering.
 
           query: The query to extract the answer to.
 
@@ -119,7 +120,7 @@ class QaResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=AnswerExtraction,
+            cast_to=AnswerExtractionResponse,
         )
 
 
@@ -148,24 +149,25 @@ class AsyncQaResource(AsyncAPIResource):
         *,
         model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
         query: str,
-        texts: List[str],
-        chunking_options: Optional[qa_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
-        ignore_inextractability: bool | NotGiven = NOT_GIVEN,
-        top_k: int | NotGiven = NOT_GIVEN,
+        texts: SequenceNotStr[str],
+        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
+        ignore_inextractability: bool | Omit = omit,
+        top_k: int | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AnswerExtraction:
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> AnswerExtractionResponse:
         """
         Extract answers to questions from legal documents with an Isaacus legal AI
         answer extractor.
 
         Args:
-          model: The ID of the [model](https://docs.isaacus.com/models#extractive-qa) to use for
-              extractive question answering.
+          model: The ID of the
+              [model](https://docs.isaacus.com/models#extractive-question-answering) to use
+              for extractive question answering.
 
           query: The query to extract the answer to.
 
@@ -218,7 +220,7 @@ class AsyncQaResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=AnswerExtraction,
+            cast_to=AnswerExtractionResponse,
         )
 
 

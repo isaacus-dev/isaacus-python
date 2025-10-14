@@ -3,4 +3,4 @@
 from __future__ import annotations
 
 from .qa_create_params import QaCreateParams as QaCreateParams
-from .answer_extraction import AnswerExtraction as AnswerExtraction
+from .answer_extraction_response import AnswerExtractionResponse as AnswerExtractionResponse

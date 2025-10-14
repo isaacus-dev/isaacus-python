@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Union, Mapping
+from typing import Any, Mapping
 from typing_extensions import Self, override
 
 import httpx
@@ -11,17 +11,17 @@ import httpx
 from . import _exceptions
 from ._qs import Querystring
 from ._types import (
-    NOT_GIVEN,
     Omit,
     Timeout,
     NotGiven,
     Transport,
     ProxiesTypes,
     RequestOptions,
+    not_given,
 )
 from ._utils import is_given, get_async_library
 from ._version import __version__
-from .resources import rerankings
+from .resources import embeddings, rerankings
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import IsaacusError, APIStatusError
 from ._base_client import (
@@ -36,6 +36,7 @@ __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Isaacus", 
 
 
 class Isaacus(SyncAPIClient):
+    embeddings: embeddings.EmbeddingsResource
     classifications: classifications.ClassificationsResource
     rerankings: rerankings.RerankingsResource
     extractions: extractions.ExtractionsResource
@@ -50,7 +51,7 @@ class Isaacus(SyncAPIClient):
         *,
         api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         max_retries: int = DEFAULT_MAX_RETRIES,
         default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -96,6 +97,7 @@ class Isaacus(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
+        self.embeddings = embeddings.EmbeddingsResource(self)
         self.classifications = classifications.ClassificationsResource(self)
         self.rerankings = rerankings.RerankingsResource(self)
         self.extractions = extractions.ExtractionsResource(self)
@@ -127,9 +129,9 @@ class Isaacus(SyncAPIClient):
         *,
         api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         http_client: httpx.Client | None = None,
-        max_retries: int | NotGiven = NOT_GIVEN,
+        max_retries: int | NotGiven = not_given,
         default_headers: Mapping[str, str] | None = None,
         set_default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -208,6 +210,7 @@ class Isaacus(SyncAPIClient):
 
 
 class AsyncIsaacus(AsyncAPIClient):
+    embeddings: embeddings.AsyncEmbeddingsResource
     classifications: classifications.AsyncClassificationsResource
     rerankings: rerankings.AsyncRerankingsResource
     extractions: extractions.AsyncExtractionsResource
@@ -222,7 +225,7 @@ class AsyncIsaacus(AsyncAPIClient):
         *,
         api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         max_retries: int = DEFAULT_MAX_RETRIES,
         default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -268,6 +271,7 @@ class AsyncIsaacus(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
+        self.embeddings = embeddings.AsyncEmbeddingsResource(self)
         self.classifications = classifications.AsyncClassificationsResource(self)
         self.rerankings = rerankings.AsyncRerankingsResource(self)
         self.extractions = extractions.AsyncExtractionsResource(self)
@@ -299,9 +303,9 @@ class AsyncIsaacus(AsyncAPIClient):
         *,
         api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         http_client: httpx.AsyncClient | None = None,
-        max_retries: int | NotGiven = NOT_GIVEN,
+        max_retries: int | NotGiven = not_given,
         default_headers: Mapping[str, str] | None = None,
         set_default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -381,6 +385,7 @@ class AsyncIsaacus(AsyncAPIClient):
 
 class IsaacusWithRawResponse:
     def __init__(self, client: Isaacus) -> None:
+        self.embeddings = embeddings.EmbeddingsResourceWithRawResponse(client.embeddings)
         self.classifications = classifications.ClassificationsResourceWithRawResponse(client.classifications)
         self.rerankings = rerankings.RerankingsResourceWithRawResponse(client.rerankings)
         self.extractions = extractions.ExtractionsResourceWithRawResponse(client.extractions)
@@ -388,6 +393,7 @@ class IsaacusWithRawResponse:
 
 class AsyncIsaacusWithRawResponse:
     def __init__(self, client: AsyncIsaacus) -> None:
+        self.embeddings = embeddings.AsyncEmbeddingsResourceWithRawResponse(client.embeddings)
         self.classifications = classifications.AsyncClassificationsResourceWithRawResponse(client.classifications)
         self.rerankings = rerankings.AsyncRerankingsResourceWithRawResponse(client.rerankings)
         self.extractions = extractions.AsyncExtractionsResourceWithRawResponse(client.extractions)
@@ -395,6 +401,7 @@ class AsyncIsaacusWithRawResponse:
 
 class IsaacusWithStreamedResponse:
     def __init__(self, client: Isaacus) -> None:
+        self.embeddings = embeddings.EmbeddingsResourceWithStreamingResponse(client.embeddings)
         self.classifications = classifications.ClassificationsResourceWithStreamingResponse(client.classifications)
         self.rerankings = rerankings.RerankingsResourceWithStreamingResponse(client.rerankings)
         self.extractions = extractions.ExtractionsResourceWithStreamingResponse(client.extractions)
@@ -402,6 +409,7 @@ class IsaacusWithStreamedResponse:
 
 class AsyncIsaacusWithStreamedResponse:
     def __init__(self, client: AsyncIsaacus) -> None:
+        self.embeddings = embeddings.AsyncEmbeddingsResourceWithStreamingResponse(client.embeddings)
         self.classifications = classifications.AsyncClassificationsResourceWithStreamingResponse(client.classifications)
         self.rerankings = rerankings.AsyncRerankingsResourceWithStreamingResponse(client.rerankings)
         self.extractions = extractions.AsyncExtractionsResourceWithStreamingResponse(client.extractions)

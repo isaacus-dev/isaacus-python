@@ -4,7 +4,7 @@ from typing import List
 
 from .._models import BaseModel
 
-__all__ = ["Reranking", "Result", "Usage"]
+__all__ = ["RerankingResponse", "Result", "Usage"]
 
 
 class Result(BaseModel):
@@ -26,7 +26,7 @@ class Usage(BaseModel):
     """The number of tokens inputted to the model."""
 
 
-class Reranking(BaseModel):
+class RerankingResponse(BaseModel):
     results: List[Result]
     """
     The rerankings of the texts, by relevance to the query, in order from highest to

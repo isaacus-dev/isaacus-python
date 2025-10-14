@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Literal, Required, TypedDict
+
+from .._types import SequenceNotStr
 
 __all__ = ["RerankingCreateParams", "ChunkingOptions"]
 
@@ -24,7 +26,7 @@ class RerankingCreateParams(TypedDict, total=False):
     maximum input length of the reranker.
     """
 
-    texts: Required[List[str]]
+    texts: Required[SequenceNotStr[str]]
     """The texts to rerank.
 
     There must be at least one text.

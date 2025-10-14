@@ -4,7 +4,7 @@ from typing import List
 
 from ..._models import BaseModel
 
-__all__ = ["AnswerExtraction", "Extraction", "ExtractionAnswer", "Usage"]
+__all__ = ["AnswerExtractionResponse", "Extraction", "ExtractionAnswer", "Usage"]
 
 
 class ExtractionAnswer(BaseModel):
@@ -57,7 +57,7 @@ class Usage(BaseModel):
     """The number of tokens inputted to the model."""
 
 
-class AnswerExtraction(BaseModel):
+class AnswerExtractionResponse(BaseModel):
     extractions: List[Extraction]
     """
     The results of extracting answers from the texts, ordered from highest to lowest

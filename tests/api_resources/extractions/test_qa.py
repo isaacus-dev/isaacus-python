@@ -9,7 +9,7 @@ import pytest
 
 from isaacus import Isaacus, AsyncIsaacus
 from tests.utils import assert_matches_type
-from isaacus.types.extractions import AnswerExtraction
+from isaacus.types.extractions import AnswerExtractionResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestQa:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create(self, client: Isaacus) -> None:
         qa = client.extractions.qa.create(
@@ -27,9 +27,9 @@ class TestQa:
                 "The standard sentence for murder in the State of Victoria is 30 years if the person murdered was a police officer and 25 years in any other case."
             ],
         )
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         qa = client.extractions.qa.create(
@@ -40,15 +40,15 @@ class TestQa:
             ],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             ignore_inextractability=False,
             top_k=1,
         )
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.extractions.qa.with_raw_response.create(
@@ -62,9 +62,9 @@ class TestQa:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         qa = response.parse()
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.extractions.qa.with_streaming_response.create(
@@ -78,7 +78,7 @@ class TestQa:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             qa = response.parse()
-            assert_matches_type(AnswerExtraction, qa, path=["response"])
+            assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -88,7 +88,7 @@ class TestAsyncQa:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         qa = await async_client.extractions.qa.create(
@@ -98,9 +98,9 @@ class TestAsyncQa:
                 "The standard sentence for murder in the State of Victoria is 30 years if the person murdered was a police officer and 25 years in any other case."
             ],
         )
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         qa = await async_client.extractions.qa.create(
@@ -111,15 +111,15 @@ class TestAsyncQa:
             ],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             ignore_inextractability=False,
             top_k=1,
         )
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.extractions.qa.with_raw_response.create(
@@ -133,9 +133,9 @@ class TestAsyncQa:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         qa = await response.parse()
-        assert_matches_type(AnswerExtraction, qa, path=["response"])
+        assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.extractions.qa.with_streaming_response.create(
@@ -149,6 +149,6 @@ class TestAsyncQa:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             qa = await response.parse()
-            assert_matches_type(AnswerExtraction, qa, path=["response"])
+            assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
         assert cast(Any, response.is_closed) is True

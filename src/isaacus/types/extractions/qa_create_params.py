@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Literal, Required, TypedDict
+
+from ..._types import SequenceNotStr
 
 __all__ = ["QaCreateParams", "ChunkingOptions"]
 
@@ -11,8 +13,9 @@ __all__ = ["QaCreateParams", "ChunkingOptions"]
 class QaCreateParams(TypedDict, total=False):
     model: Required[Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"]]
     """
-    The ID of the [model](https://docs.isaacus.com/models#extractive-qa) to use for
-    extractive question answering.
+    The ID of the
+    [model](https://docs.isaacus.com/models#extractive-question-answering) to use
+    for extractive question answering.
     """
 
     query: Required[str]
@@ -24,7 +27,7 @@ class QaCreateParams(TypedDict, total=False):
     long that it exceeds the maximum input length of the model.
     """
 
-    texts: Required[List[str]]
+    texts: Required[SequenceNotStr[str]]
     """The texts to search for the answer in and extract the answer from.
 
     There must be at least one text.

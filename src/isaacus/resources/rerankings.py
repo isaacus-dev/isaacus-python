@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Literal
 
 import httpx
 
 from ..types import reranking_create_params
-from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
@@ -19,7 +19,7 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 from .._base_client import make_request_options
-from ..types.reranking import Reranking
+from ..types.reranking_response import RerankingResponse
 
 __all__ = ["RerankingsResource", "AsyncRerankingsResource"]
 
@@ -49,18 +49,18 @@ class RerankingsResource(SyncAPIResource):
         *,
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
-        texts: List[str],
-        chunking_options: Optional[reranking_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
-        is_iql: bool | NotGiven = NOT_GIVEN,
-        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
-        top_n: Optional[int] | NotGiven = NOT_GIVEN,
+        texts: SequenceNotStr[str],
+        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
+        is_iql: bool | Omit = omit,
+        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
+        top_n: Optional[int] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Reranking:
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> RerankingResponse:
         """
         Rerank legal documents by their relevance to a query with an Isaacus legal AI
         reranker.
@@ -131,7 +131,7 @@ class RerankingsResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Reranking,
+            cast_to=RerankingResponse,
         )
 
 
@@ -160,18 +160,18 @@ class AsyncRerankingsResource(AsyncAPIResource):
         *,
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
-        texts: List[str],
-        chunking_options: Optional[reranking_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
-        is_iql: bool | NotGiven = NOT_GIVEN,
-        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
-        top_n: Optional[int] | NotGiven = NOT_GIVEN,
+        texts: SequenceNotStr[str],
+        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
+        is_iql: bool | Omit = omit,
+        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
+        top_n: Optional[int] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Reranking:
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> RerankingResponse:
         """
         Rerank legal documents by their relevance to a query with an Isaacus legal AI
         reranker.
@@ -242,7 +242,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Reranking,
+            cast_to=RerankingResponse,
         )
 
 

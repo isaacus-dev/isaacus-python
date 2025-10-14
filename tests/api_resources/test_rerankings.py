@@ -9,7 +9,7 @@ import pytest
 
 from isaacus import Isaacus, AsyncIsaacus
 from tests.utils import assert_matches_type
-from isaacus.types import Reranking
+from isaacus.types import RerankingResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestRerankings:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create(self, client: Isaacus) -> None:
         reranking = client.rerankings.create(
@@ -31,9 +31,9 @@ class TestRerankings:
                 "The concept of negligence is central to tort law, with courts assessing whether a breach of duty caused harm.",
             ],
         )
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         reranking = client.rerankings.create(
@@ -48,16 +48,16 @@ class TestRerankings:
             ],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             is_iql=False,
             scoring_method="auto",
             top_n=1,
         )
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.rerankings.with_raw_response.create(
@@ -75,9 +75,9 @@ class TestRerankings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         reranking = response.parse()
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.rerankings.with_streaming_response.create(
@@ -95,7 +95,7 @@ class TestRerankings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             reranking = response.parse()
-            assert_matches_type(Reranking, reranking, path=["response"])
+            assert_matches_type(RerankingResponse, reranking, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -105,7 +105,7 @@ class TestAsyncRerankings:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         reranking = await async_client.rerankings.create(
@@ -119,9 +119,9 @@ class TestAsyncRerankings:
                 "The concept of negligence is central to tort law, with courts assessing whether a breach of duty caused harm.",
             ],
         )
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         reranking = await async_client.rerankings.create(
@@ -136,16 +136,16 @@ class TestAsyncRerankings:
             ],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             is_iql=False,
             scoring_method="auto",
             top_n=1,
         )
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.rerankings.with_raw_response.create(
@@ -163,9 +163,9 @@ class TestAsyncRerankings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         reranking = await response.parse()
-        assert_matches_type(Reranking, reranking, path=["response"])
+        assert_matches_type(RerankingResponse, reranking, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.rerankings.with_streaming_response.create(
@@ -183,6 +183,6 @@ class TestAsyncRerankings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             reranking = await response.parse()
-            assert_matches_type(Reranking, reranking, path=["response"])
+            assert_matches_type(RerankingResponse, reranking, path=["response"])
 
         assert cast(Any, response.is_closed) is True

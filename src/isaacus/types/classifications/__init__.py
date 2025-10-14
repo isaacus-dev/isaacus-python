@@ -3,4 +3,4 @@
 from __future__ import annotations
 
 from .universal_create_params import UniversalCreateParams as UniversalCreateParams
-from .universal_classification import UniversalClassification as UniversalClassification
+from .universal_classification_response import UniversalClassificationResponse as UniversalClassificationResponse

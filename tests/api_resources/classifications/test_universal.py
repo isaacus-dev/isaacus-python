@@ -9,7 +9,7 @@ import pytest
 
 from isaacus import Isaacus, AsyncIsaacus
 from tests.utils import assert_matches_type
-from isaacus.types.classifications import UniversalClassification
+from isaacus.types.classifications import UniversalClassificationResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestUniversal:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create(self, client: Isaacus) -> None:
         universal = client.classifications.universal.create(
@@ -25,9 +25,9 @@ class TestUniversal:
             query="This is a confidentiality clause.",
             texts=["I agree not to tell anyone about the document."],
         )
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         universal = client.classifications.universal.create(
@@ -36,15 +36,15 @@ class TestUniversal:
             texts=["I agree not to tell anyone about the document."],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             is_iql=True,
             scoring_method="auto",
         )
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.classifications.universal.with_raw_response.create(
@@ -56,9 +56,9 @@ class TestUniversal:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         universal = response.parse()
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.classifications.universal.with_streaming_response.create(
@@ -70,7 +70,7 @@ class TestUniversal:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             universal = response.parse()
-            assert_matches_type(UniversalClassification, universal, path=["response"])
+            assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -80,7 +80,7 @@ class TestAsyncUniversal:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         universal = await async_client.classifications.universal.create(
@@ -88,9 +88,9 @@ class TestAsyncUniversal:
             query="This is a confidentiality clause.",
             texts=["I agree not to tell anyone about the document."],
         )
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         universal = await async_client.classifications.universal.create(
@@ -99,15 +99,15 @@ class TestAsyncUniversal:
             texts=["I agree not to tell anyone about the document."],
             chunking_options={
                 "overlap_ratio": 0.1,
-                "overlap_tokens": 0,
+                "overlap_tokens": 10,
                 "size": 512,
             },
             is_iql=True,
             scoring_method="auto",
         )
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.classifications.universal.with_raw_response.create(
@@ -119,9 +119,9 @@ class TestAsyncUniversal:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         universal = await response.parse()
-        assert_matches_type(UniversalClassification, universal, path=["response"])
+        assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.classifications.universal.with_streaming_response.create(
@@ -133,6 +133,6 @@ class TestAsyncUniversal:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             universal = await response.parse()
-            assert_matches_type(UniversalClassification, universal, path=["response"])
+            assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
 
         assert cast(Any, response.is_closed) is True

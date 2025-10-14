@@ -1,3 +1,15 @@
+# Embeddings
+
+Types:
+
+```python
+from isaacus.types import EmbeddingResponse
+```
+
+Methods:
+
+- <code title="post /embeddings">client.embeddings.<a href="./src/isaacus/resources/embeddings.py">create</a>(\*\*<a href="src/isaacus/types/embedding_create_params.py">params</a>) -> <a href="./src/isaacus/types/embedding_response.py">EmbeddingResponse</a></code>
+
 # Classifications
 
 ## Universal
@@ -5,24 +17,24 @@
 Types:
 
 ```python
-from isaacus.types.classifications import UniversalClassification
+from isaacus.types.classifications import UniversalClassificationResponse
 ```
 
 Methods:
 
-- <code title="post /classifications/universal">client.classifications.universal.<a href="./src/isaacus/resources/classifications/universal.py">create</a>(\*\*<a href="src/isaacus/types/classifications/universal_create_params.py">params</a>) -> <a href="./src/isaacus/types/classifications/universal_classification.py">UniversalClassification</a></code>
+- <code title="post /classifications/universal">client.classifications.universal.<a href="./src/isaacus/resources/classifications/universal.py">create</a>(\*\*<a href="src/isaacus/types/classifications/universal_create_params.py">params</a>) -> <a href="./src/isaacus/types/classifications/universal_classification_response.py">UniversalClassificationResponse</a></code>
 
 # Rerankings
 
 Types:
 
 ```python
-from isaacus.types import Reranking
+from isaacus.types import RerankingResponse
 ```
 
 Methods:
 
-- <code title="post /rerankings">client.rerankings.<a href="./src/isaacus/resources/rerankings.py">create</a>(\*\*<a href="src/isaacus/types/reranking_create_params.py">params</a>) -> <a href="./src/isaacus/types/reranking.py">Reranking</a></code>
+- <code title="post /rerankings">client.rerankings.<a href="./src/isaacus/resources/rerankings.py">create</a>(\*\*<a href="src/isaacus/types/reranking_create_params.py">params</a>) -> <a href="./src/isaacus/types/reranking_response.py">RerankingResponse</a></code>
 
 # Extractions
 
@@ -31,9 +43,9 @@ Methods:
 Types:
 
 ```python
-from isaacus.types.extractions import AnswerExtraction
+from isaacus.types.extractions import AnswerExtractionResponse
 ```
 
 Methods:
 
-- <code title="post /extractions/qa">client.extractions.qa.<a href="./src/isaacus/resources/extractions/qa.py">create</a>(\*\*<a href="src/isaacus/types/extractions/qa_create_params.py">params</a>) -> <a href="./src/isaacus/types/extractions/answer_extraction.py">AnswerExtraction</a></code>
+- <code title="post /extractions/qa">client.extractions.qa.<a href="./src/isaacus/resources/extractions/qa.py">create</a>(\*\*<a href="src/isaacus/types/extractions/qa_create_params.py">params</a>) -> <a href="./src/isaacus/types/extractions/answer_extraction_response.py">AnswerExtractionResponse</a></code>

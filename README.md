@@ -32,12 +32,14 @@ client = Isaacus(
     api_key=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
 )
 
-universal_classification = client.classifications.universal.create(
-    model="kanon-universal-classifier",
-    query="This is a confidentiality clause.",
-    texts=["I agree not to tell anyone about the document."],
+embedding_response = client.embeddings.create(
+    model="kanon-2-embedder",
+    texts=[
+        "Are restraints of trade enforceable under English law?",
+        "What is a non-compete clause?",
+    ],
 )
-print(universal_classification.classifications)
+print(embedding_response.embeddings)
 ```
 
 While you can provide an `api_key` keyword argument,
@@ -60,12 +62,14 @@ client = AsyncIsaacus(
 
 
 async def main() -> None:
-    universal_classification = await client.classifications.universal.create(
-        model="kanon-universal-classifier",
-        query="This is a confidentiality clause.",
-        texts=["I agree not to tell anyone about the document."],
+    embedding_response = await client.embeddings.create(
+        model="kanon-2-embedder",
+        texts=[
+            "Are restraints of trade enforceable under English law?",
+            "What is a non-compete clause?",
+        ],
     )
-    print(universal_classification.classifications)
+    print(embedding_response.embeddings)
 
 
 asyncio.run(main())
@@ -97,12 +101,14 @@ async def main() -> None:
         api_key="My API Key",
         http_client=DefaultAioHttpClient(),
     ) as client:
-        universal_classification = await client.classifications.universal.create(
-            model="kanon-universal-classifier",
-            query="This is a confidentiality clause.",
-            texts=["I agree not to tell anyone about the document."],
+        embedding_response = await client.embeddings.create(
+            model="kanon-2-embedder",
+            texts=[
+                "Are restraints of trade enforceable under English law?",
+                "What is a non-compete clause?",
+            ],
         )
-        print(universal_classification.classifications)
+        print(embedding_response.embeddings)
 
 
 asyncio.run(main())
@@ -126,7 +132,7 @@ from isaacus import Isaacus
 
 client = Isaacus()
 
-universal_classification = client.classifications.universal.create(
+universal_classification_response = client.classifications.universal.create(
     model="kanon-universal-classifier",
     query="This is a confidentiality clause.",
     texts=["I agree not to tell anyone about the document."],
@@ -136,7 +142,7 @@ universal_classification = client.classifications.universal.create(
         "size": 512,
     },
 )
-print(universal_classification.classifications)
+print(universal_classification_response.classifications)
 ```
 
 ## Handling errors
@@ -155,10 +161,12 @@ from isaacus import Isaacus
 client = Isaacus()
 
 try:
-    client.classifications.universal.create(
-        model="kanon-universal-classifier",
-        query="This is a confidentiality clause.",
-        texts=["I agree not to tell anyone about the document."],
+    client.embeddings.create(
+        model="kanon-2-embedder",
+        texts=[
+            "Are restraints of trade enforceable under English law?",
+            "What is a non-compete clause?",
+        ],
     )
 except isaacus.APIConnectionError as e:
     print("The server could not be reached")
@@ -202,10 +210,12 @@ client = Isaacus(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).classifications.universal.create(
-    model="kanon-universal-classifier",
-    query="This is a confidentiality clause.",
-    texts=["I agree not to tell anyone about the document."],
+client.with_options(max_retries=5).embeddings.create(
+    model="kanon-2-embedder",
+    texts=[
+        "Are restraints of trade enforceable under English law?",
+        "What is a non-compete clause?",
+    ],
 )
 ```
 
@@ -229,10 +239,12 @@ client = Isaacus(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).classifications.universal.create(
-    model="kanon-universal-classifier",
-    query="This is a confidentiality clause.",
-    texts=["I agree not to tell anyone about the document."],
+client.with_options(timeout=5.0).embeddings.create(
+    model="kanon-2-embedder",
+    texts=[
+        "Are restraints of trade enforceable under English law?",
+        "What is a non-compete clause?",
+    ],
 )
 ```
 
@@ -274,15 +286,14 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from isaacus import Isaacus
 
 client = Isaacus()
-response = client.classifications.universal.with_raw_response.create(
-    model="kanon-universal-classifier",
-    query="This is a confidentiality clause.",
-    texts=["I agree not to tell anyone about the document."],
+response = client.embeddings.with_raw_response.create(
+    model="kanon-2-embedder",
+    texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
 )
 print(response.headers.get('X-My-Header'))
 
-universal = response.parse()  # get the object that `classifications.universal.create()` would have returned
-print(universal.classifications)
+embedding = response.parse()  # get the object that `embeddings.create()` would have returned
+print(embedding.embeddings)
 ```
 
 These methods return an [`APIResponse`](https://github.com/isaacus-dev/isaacus-python/tree/main/src/isaacus/_response.py) object.
@@ -296,10 +307,12 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.classifications.universal.with_streaming_response.create(
-    model="kanon-universal-classifier",
-    query="This is a confidentiality clause.",
-    texts=["I agree not to tell anyone about the document."],
+with client.embeddings.with_streaming_response.create(
+    model="kanon-2-embedder",
+    texts=[
+        "Are restraints of trade enforceable under English law?",
+        "What is a non-compete clause?",
+    ],
 ) as response:
     print(response.headers.get("X-My-Header"))
 

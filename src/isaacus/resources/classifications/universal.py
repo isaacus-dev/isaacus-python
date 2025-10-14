@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -19,7 +19,7 @@ from ..._response import (
 )
 from ..._base_client import make_request_options
 from ...types.classifications import universal_create_params
-from ...types.classifications.universal_classification import UniversalClassification
+from ...types.classifications.universal_classification_response import UniversalClassificationResponse
 
 __all__ = ["UniversalResource", "AsyncUniversalResource"]
 
@@ -49,17 +49,17 @@ class UniversalResource(SyncAPIResource):
         *,
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
-        texts: List[str],
-        chunking_options: Optional[universal_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
-        is_iql: bool | NotGiven = NOT_GIVEN,
-        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
+        texts: SequenceNotStr[str],
+        chunking_options: Optional[universal_create_params.ChunkingOptions] | Omit = omit,
+        is_iql: bool | Omit = omit,
+        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> UniversalClassification:
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> UniversalClassificationResponse:
         """
         Classify the relevance of legal documents to a query with an Isaacus universal
         legal AI classifier.
@@ -121,7 +121,7 @@ class UniversalResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=UniversalClassification,
+            cast_to=UniversalClassificationResponse,
         )
 
 
@@ -150,17 +150,17 @@ class AsyncUniversalResource(AsyncAPIResource):
         *,
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
-        texts: List[str],
-        chunking_options: Optional[universal_create_params.ChunkingOptions] | NotGiven = NOT_GIVEN,
-        is_iql: bool | NotGiven = NOT_GIVEN,
-        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | NotGiven = NOT_GIVEN,
+        texts: SequenceNotStr[str],
+        chunking_options: Optional[universal_create_params.ChunkingOptions] | Omit = omit,
+        is_iql: bool | Omit = omit,
+        scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> UniversalClassification:
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
+    ) -> UniversalClassificationResponse:
         """
         Classify the relevance of legal documents to a query with an Isaacus universal
         legal AI classifier.
@@ -222,7 +222,7 @@ class AsyncUniversalResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=UniversalClassification,
+            cast_to=UniversalClassificationResponse,
         )
 
 

@@ -1,5 +1,60 @@
 # Changelog
 
+## 0.9.0 (2025-10-14)
+
+Full Changelog: [v0.8.0...v0.9.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.8.0...v0.9.0)
+
+### ⚠ BREAKING CHANGES
+
+* **api:** reduce max length of embeddings input
+* **sdk:** add `_response` to response models to finally fix duplicated names
+
+### Features
+
+* **api:** added embedding endpoint ([88190d6](https://github.com/isaacus-dev/isaacus-python/commit/88190d6d33c8d5e3cf59dfd3c488b5ae9abec93b))
+* **api:** reduce max length of embeddings input ([0ad7114](https://github.com/isaacus-dev/isaacus-python/commit/0ad7114b5fec2fde9aaa830a6ba6163ad3b6fccc))
+* **api:** rename embedding -&gt; embeddings ([204a05d](https://github.com/isaacus-dev/isaacus-python/commit/204a05d7b1504901766db3c0d0d8ea47a22a16ed))
+* **api:** revert embedding -&gt; embeddings ([b934279](https://github.com/isaacus-dev/isaacus-python/commit/b9342795e50374817b8e3dc2e2f1163a2ff0805a))
+* **client:** support file upload requests ([2ab398d](https://github.com/isaacus-dev/isaacus-python/commit/2ab398dde07e98411c9b6efd76f7b7120a9633a8))
+* improve future compat with pydantic v3 ([5a20497](https://github.com/isaacus-dev/isaacus-python/commit/5a20497a9c4bbf88056df12a0c686566dc9bd162))
+* **sdk:** add embeddings endpoint ([920ae0b](https://github.com/isaacus-dev/isaacus-python/commit/920ae0b65f2362ac098f8b94979b1e821f5143d8))
+* **sdk:** toggle to force regen ([cf60482](https://github.com/isaacus-dev/isaacus-python/commit/cf60482ba0dd3933daee477fa9bd4ae29d900fb4))
+* **sdk:** untoggle to force regen ([25d2067](https://github.com/isaacus-dev/isaacus-python/commit/25d2067fad4bb46ca595001f6e82458fd3d24a23))
+* **types:** replace List[str] with SequenceNotStr in params ([d2733a9](https://github.com/isaacus-dev/isaacus-python/commit/d2733a9d0f16531537a9db017a8e29d2c8fb3912))
+
+
+### Bug Fixes
+
+* **api:** typo ([5d4a1b9](https://github.com/isaacus-dev/isaacus-python/commit/5d4a1b99e8a6ac2a1c3cc4e83e7b65108eea335a))
+* avoid newer type syntax ([10253fe](https://github.com/isaacus-dev/isaacus-python/commit/10253fe93ed8142b52cf5199486221e81ac6ce5a))
+* **sdk:** add `_response` to response models to finally fix duplicated names ([5c7462d](https://github.com/isaacus-dev/isaacus-python/commit/5c7462dd25c67c44126eb946a656a6b841dc6a50))
+
+
+### Chores
+
+* **api:** try to force regen SDK ([2fafb55](https://github.com/isaacus-dev/isaacus-python/commit/2fafb555c1a20d7c359c91c35fd1f54868cffe54))
+* do not install brew dependencies in ./scripts/bootstrap by default ([57b055e](https://github.com/isaacus-dev/isaacus-python/commit/57b055ed56fdcc58b4663e4ddad32afac25e7ec1))
+* improve example values ([35b03bd](https://github.com/isaacus-dev/isaacus-python/commit/35b03bdbf4ceaccd00102e23d639a01d5bea136a))
+* **internal:** add Sequence related utils ([5a2287e](https://github.com/isaacus-dev/isaacus-python/commit/5a2287ef854d250048c070f3fd88b00ca84b0d3c))
+* **internal:** change ci workflow machines ([f86cbce](https://github.com/isaacus-dev/isaacus-python/commit/f86cbcef2583658466e95eaba4aba61f79646ef9))
+* **internal:** codegen related update ([22b520b](https://github.com/isaacus-dev/isaacus-python/commit/22b520b3c67e570f9267135111a89542ee2bdf7f))
+* **internal:** fix ruff target version ([889d576](https://github.com/isaacus-dev/isaacus-python/commit/889d576cdc28d06404c6ee3ce0c67bf4d3be75c4))
+* **internal:** move mypy configurations to `pyproject.toml` file ([d5732d5](https://github.com/isaacus-dev/isaacus-python/commit/d5732d5e0145763723e8be24cbd8296f9a385264))
+* **internal:** update comment in script ([7af966e](https://github.com/isaacus-dev/isaacus-python/commit/7af966e1677b44d412eda96c5ee8e9866f77ccfb))
+* **internal:** update pydantic dependency ([68a7057](https://github.com/isaacus-dev/isaacus-python/commit/68a70578a2e269fa3b2c46e3c29e82ba770090d6))
+* **internal:** update pyright exclude list ([6f0ae86](https://github.com/isaacus-dev/isaacus-python/commit/6f0ae86899883fe77aa669d595c623bedc2dc5c8))
+* remove custom code ([491dbdc](https://github.com/isaacus-dev/isaacus-python/commit/491dbdcd82984d099b8ee11e94894ad450b2424d))
+* **sdk:** restore original example ([079645e](https://github.com/isaacus-dev/isaacus-python/commit/079645e85259c2e4d3f6aa86b2ca2c21ce97367a))
+* **tests:** simplify `get_platform` test ([e00ccd0](https://github.com/isaacus-dev/isaacus-python/commit/e00ccd0c41c3751eb3fae880223ebb05eae0f154))
+* **types:** change optional parameter type from NotGiven to Omit ([38d13e0](https://github.com/isaacus-dev/isaacus-python/commit/38d13e0514b001d1a34446b881783d559e246865))
+* update @stainless-api/prism-cli to v5.15.0 ([a3141f5](https://github.com/isaacus-dev/isaacus-python/commit/a3141f59b0ff6334fde2a9740fd2f86824fe5083))
+* update github action ([0518028](https://github.com/isaacus-dev/isaacus-python/commit/05180288265bc111dba1c62fbfcd90139a6299ad))
+
+
+### Documentation
+
+* **sdk:** make embeddings example first ([caa70f7](https://github.com/isaacus-dev/isaacus-python/commit/caa70f7acf6ce910d8cf80425437ca51970cd255))
+
 ## 0.8.0 (2025-07-25)
 
 Full Changelog: [v0.7.0...v0.8.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.7.0...v0.8.0)

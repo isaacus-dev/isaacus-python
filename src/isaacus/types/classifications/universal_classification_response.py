@@ -4,7 +4,7 @@ from typing import List, Optional
 
 from ..._models import BaseModel
 
-__all__ = ["UniversalClassification", "Classification", "ClassificationChunk", "Usage"]
+__all__ = ["UniversalClassificationResponse", "Classification", "ClassificationChunk", "Usage"]
 
 
 class ClassificationChunk(BaseModel):
@@ -72,7 +72,7 @@ class Usage(BaseModel):
     """The number of tokens inputted to the model."""
 
 
-class UniversalClassification(BaseModel):
+class UniversalClassificationResponse(BaseModel):
     classifications: List[Classification]
     """
     The classifications of the texts, by relevance to the query, in order from
