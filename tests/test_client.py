@@ -712,13 +712,12 @@ class TestIsaacus:
     @mock.patch("isaacus._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter, client: Isaacus) -> None:
-        respx_mock.post("/classifications/universal").mock(side_effect=httpx.TimeoutException("Test timeout error"))
+        respx_mock.post("/embeddings").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            client.classifications.universal.with_streaming_response.create(
-                model="kanon-universal-classifier",
-                query="This is a confidentiality clause.",
-                texts=["I agree not to tell anyone about the document."],
+            client.embeddings.with_streaming_response.create(
+                model="kanon-2-embedder",
+                texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
             ).__enter__()
 
         assert _get_open_connections(self.client) == 0
@@ -726,13 +725,12 @@ class TestIsaacus:
     @mock.patch("isaacus._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, client: Isaacus) -> None:
-        respx_mock.post("/classifications/universal").mock(return_value=httpx.Response(500))
+        respx_mock.post("/embeddings").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            client.classifications.universal.with_streaming_response.create(
-                model="kanon-universal-classifier",
-                query="This is a confidentiality clause.",
-                texts=["I agree not to tell anyone about the document."],
+            client.embeddings.with_streaming_response.create(
+                model="kanon-2-embedder",
+                texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
             ).__enter__()
         assert _get_open_connections(self.client) == 0
 
@@ -760,12 +758,11 @@ class TestIsaacus:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
+        respx_mock.post("/embeddings").mock(side_effect=retry_handler)
 
-        response = client.classifications.universal.with_raw_response.create(
-            model="kanon-universal-classifier",
-            query="This is a confidentiality clause.",
-            texts=["I agree not to tell anyone about the document."],
+        response = client.embeddings.with_raw_response.create(
+            model="kanon-2-embedder",
+            texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
         )
 
         assert response.retries_taken == failures_before_success
@@ -788,12 +785,11 @@ class TestIsaacus:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
+        respx_mock.post("/embeddings").mock(side_effect=retry_handler)
 
-        response = client.classifications.universal.with_raw_response.create(
-            model="kanon-universal-classifier",
-            query="This is a confidentiality clause.",
-            texts=["I agree not to tell anyone about the document."],
+        response = client.embeddings.with_raw_response.create(
+            model="kanon-2-embedder",
+            texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
             extra_headers={"x-stainless-retry-count": Omit()},
         )
 
@@ -816,12 +812,11 @@ class TestIsaacus:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
+        respx_mock.post("/embeddings").mock(side_effect=retry_handler)
 
-        response = client.classifications.universal.with_raw_response.create(
-            model="kanon-universal-classifier",
-            query="This is a confidentiality clause.",
-            texts=["I agree not to tell anyone about the document."],
+        response = client.embeddings.with_raw_response.create(
+            model="kanon-2-embedder",
+            texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
             extra_headers={"x-stainless-retry-count": "42"},
         )
 
@@ -1551,13 +1546,12 @@ class TestAsyncIsaacus:
     async def test_retrying_timeout_errors_doesnt_leak(
         self, respx_mock: MockRouter, async_client: AsyncIsaacus
     ) -> None:
-        respx_mock.post("/classifications/universal").mock(side_effect=httpx.TimeoutException("Test timeout error"))
+        respx_mock.post("/embeddings").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            await async_client.classifications.universal.with_streaming_response.create(
-                model="kanon-universal-classifier",
-                query="This is a confidentiality clause.",
-                texts=["I agree not to tell anyone about the document."],
+            await async_client.embeddings.with_streaming_response.create(
+                model="kanon-2-embedder",
+                texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
             ).__aenter__()
 
         assert _get_open_connections(self.client) == 0
@@ -1565,13 +1559,12 @@ class TestAsyncIsaacus:
     @mock.patch("isaacus._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, async_client: AsyncIsaacus) -> None:
-        respx_mock.post("/classifications/universal").mock(return_value=httpx.Response(500))
+        respx_mock.post("/embeddings").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            await async_client.classifications.universal.with_streaming_response.create(
-                model="kanon-universal-classifier",
-                query="This is a confidentiality clause.",
-                texts=["I agree not to tell anyone about the document."],
+            await async_client.embeddings.with_streaming_response.create(
+                model="kanon-2-embedder",
+                texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
             ).__aenter__()
         assert _get_open_connections(self.client) == 0
 
@@ -1600,12 +1593,11 @@ class TestAsyncIsaacus:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
+        respx_mock.post("/embeddings").mock(side_effect=retry_handler)
 
-        response = await client.classifications.universal.with_raw_response.create(
-            model="kanon-universal-classifier",
-            query="This is a confidentiality clause.",
-            texts=["I agree not to tell anyone about the document."],
+        response = await client.embeddings.with_raw_response.create(
+            model="kanon-2-embedder",
+            texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
         )
 
         assert response.retries_taken == failures_before_success
@@ -1629,12 +1621,11 @@ class TestAsyncIsaacus:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
+        respx_mock.post("/embeddings").mock(side_effect=retry_handler)
 
-        response = await client.classifications.universal.with_raw_response.create(
-            model="kanon-universal-classifier",
-            query="This is a confidentiality clause.",
-            texts=["I agree not to tell anyone about the document."],
+        response = await client.embeddings.with_raw_response.create(
+            model="kanon-2-embedder",
+            texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
             extra_headers={"x-stainless-retry-count": Omit()},
         )
 
@@ -1658,12 +1649,11 @@ class TestAsyncIsaacus:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.post("/classifications/universal").mock(side_effect=retry_handler)
+        respx_mock.post("/embeddings").mock(side_effect=retry_handler)
 
-        response = await client.classifications.universal.with_raw_response.create(
-            model="kanon-universal-classifier",
-            query="This is a confidentiality clause.",
-            texts=["I agree not to tell anyone about the document."],
+        response = await client.embeddings.with_raw_response.create(
+            model="kanon-2-embedder",
+            texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
             extra_headers={"x-stainless-retry-count": "42"},
         )
 
