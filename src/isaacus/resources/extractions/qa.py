@@ -65,8 +65,9 @@ class QaResource(SyncAPIResource):
         answer extractor.
 
         Args:
-          model: The ID of the [model](https://docs.isaacus.com/models#extractive-qa) to use for
-              extractive question answering.
+          model: The ID of the
+              [model](https://docs.isaacus.com/models#extractive-question-answering) to use
+              for extractive question answering.
 
           query: The query to extract the answer to.
 
@@ -164,8 +165,9 @@ class AsyncQaResource(AsyncAPIResource):
         answer extractor.
 
         Args:
-          model: The ID of the [model](https://docs.isaacus.com/models#extractive-qa) to use for
-              extractive question answering.
+          model: The ID of the
+              [model](https://docs.isaacus.com/models#extractive-question-answering) to use
+              for extractive question answering.
 
           query: The query to extract the answer to.
 
