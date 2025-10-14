@@ -13,8 +13,9 @@ __all__ = ["QaCreateParams", "ChunkingOptions"]
 class QaCreateParams(TypedDict, total=False):
     model: Required[Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"]]
     """
-    The ID of the [model](https://docs.isaacus.com/models#extractive-qa) to use for
-    extractive question answering.
+    The ID of the
+    [model](https://docs.isaacus.com/models#extractive-question-answering) to use
+    for extractive question answering.
     """
 
     query: Required[str]
