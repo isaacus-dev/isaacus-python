@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.1 (2025-10-19)
+
+Full Changelog: [v0.9.0...v0.9.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.9.0...v0.9.1)
+
+### Chores
+
+* bump `httpx-aiohttp` version to 0.1.9 ([7a85243](https://github.com/isaacus-dev/isaacus-python/commit/7a85243fcfb9d5b78d522d336310dcd1f009e904))
+
 ## 0.9.0 (2025-10-14)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.8.0...v0.9.0)
