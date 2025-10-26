@@ -38,6 +38,7 @@ embedding_response = client.embeddings.create(
         "Are restraints of trade enforceable under English law?",
         "What is a non-compete clause?",
     ],
+    task="retrieval/query",
 )
 print(embedding_response.embeddings)
 ```
@@ -68,6 +69,7 @@ async def main() -> None:
             "Are restraints of trade enforceable under English law?",
             "What is a non-compete clause?",
         ],
+        task="retrieval/query",
     )
     print(embedding_response.embeddings)
 
@@ -107,6 +109,7 @@ async def main() -> None:
                 "Are restraints of trade enforceable under English law?",
                 "What is a non-compete clause?",
             ],
+            task="retrieval/query",
         )
         print(embedding_response.embeddings)
 
@@ -167,6 +170,7 @@ try:
             "Are restraints of trade enforceable under English law?",
             "What is a non-compete clause?",
         ],
+        task="retrieval/query",
     )
 except isaacus.APIConnectionError as e:
     print("The server could not be reached")
@@ -216,6 +220,7 @@ client.with_options(max_retries=5).embeddings.create(
         "Are restraints of trade enforceable under English law?",
         "What is a non-compete clause?",
     ],
+    task="retrieval/query",
 )
 ```
 
@@ -245,6 +250,7 @@ client.with_options(timeout=5.0).embeddings.create(
         "Are restraints of trade enforceable under English law?",
         "What is a non-compete clause?",
     ],
+    task="retrieval/query",
 )
 ```
 
@@ -289,6 +295,7 @@ client = Isaacus()
 response = client.embeddings.with_raw_response.create(
     model="kanon-2-embedder",
     texts=["Are restraints of trade enforceable under English law?", "What is a non-compete clause?"],
+    task="retrieval/query",
 )
 print(response.headers.get('X-My-Header'))
 
@@ -313,6 +320,7 @@ with client.embeddings.with_streaming_response.create(
         "Are restraints of trade enforceable under English law?",
         "What is a non-compete clause?",
     ],
+    task="retrieval/query",
 ) as response:
     print(response.headers.get("X-My-Header"))
 
