@@ -93,6 +93,7 @@ pip install isaacus[aiohttp]
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
 
 ```python
+import os
 import asyncio
 from isaacus import DefaultAioHttpClient
 from isaacus import AsyncIsaacus
@@ -100,7 +101,7 @@ from isaacus import AsyncIsaacus
 
 async def main() -> None:
     async with AsyncIsaacus(
-        api_key="My API Key",
+        api_key=os.environ.get("ISAACUS_API_KEY"),  # This is the default and can be omitted
         http_client=DefaultAioHttpClient(),
     ) as client:
         embedding_response = await client.embeddings.create(
