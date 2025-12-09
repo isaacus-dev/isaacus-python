@@ -19,11 +19,15 @@ class Embedding(BaseModel):
 
 
 class Usage(BaseModel):
+    """Statistics about the usage of resources in the process of embedding the inputs."""
+
     input_tokens: int
     """The number of tokens inputted to the model."""
 
 
 class EmbeddingResponse(BaseModel):
+    """Embeddings of legal texts produced by an Isaacus legal AI embedder."""
+
     embeddings: List[Embedding]
     """The embeddings of the inputs."""
 
