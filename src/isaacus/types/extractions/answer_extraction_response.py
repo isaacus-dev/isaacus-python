@@ -8,6 +8,8 @@ __all__ = ["AnswerExtractionResponse", "Extraction", "ExtractionAnswer", "Usage"
 
 
 class ExtractionAnswer(BaseModel):
+    """An answer extracted from a text."""
+
     end: int
     """
     The index of the character immediately after the last character of the answer in
@@ -31,6 +33,8 @@ class ExtractionAnswer(BaseModel):
 
 
 class Extraction(BaseModel):
+    """The result of extracting answers from a text."""
+
     answers: List[ExtractionAnswer]
     """Answers extracted from the text, ordered from highest to lowest score."""
 
@@ -53,11 +57,17 @@ class Extraction(BaseModel):
 
 
 class Usage(BaseModel):
+    """
+    Statistics about the usage of resources in the process of extracting answers from the texts.
+    """
+
     input_tokens: int
     """The number of tokens inputted to the model."""
 
 
 class AnswerExtractionResponse(BaseModel):
+    """The results of extracting answers from texts."""
+
     extractions: List[Extraction]
     """
     The results of extracting answers from the texts, ordered from highest to lowest

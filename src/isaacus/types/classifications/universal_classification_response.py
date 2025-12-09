@@ -68,11 +68,17 @@ class Classification(BaseModel):
 
 
 class Usage(BaseModel):
+    """Statistics about the usage of resources in the process of classifying the text."""
+
     input_tokens: int
     """The number of tokens inputted to the model."""
 
 
 class UniversalClassificationResponse(BaseModel):
+    """
+    Classifications of the relevance of legal documents to a query produced by an Isaacus universal legal AI classifier.
+    """
+
     classifications: List[Classification]
     """
     The classifications of the texts, by relevance to the query, in order from
