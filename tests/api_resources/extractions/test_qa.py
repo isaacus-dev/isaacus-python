@@ -14,7 +14,7 @@ from isaacus.types.extractions import AnswerExtractionResponse
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
 
-class TestQa:
+class TestQA:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
@@ -83,7 +83,7 @@ class TestQa:
         assert cast(Any, response.is_closed) is True
 
 
-class TestAsyncQa:
+class TestAsyncQA:
     parametrize = pytest.mark.parametrize(
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
