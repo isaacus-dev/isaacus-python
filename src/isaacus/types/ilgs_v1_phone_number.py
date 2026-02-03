@@ -14,12 +14,6 @@ class ILGSv1PhoneNumber(BaseModel):
     If a phone number was mentioned in the document but is not valid, possible, or attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[ILGSv1Span]
-    """
-    An array of one or more spans within the document's text where the phone number
-    is mentioned.
-    """
-
     number: str
     """
     The normalized phone number in E.123 international notation conforming with
@@ -28,3 +22,9 @@ class ILGSv1PhoneNumber(BaseModel):
 
     person: str
     """The unique identifier of the person that this phone number belongs to."""
+
+    mentions: List[ILGSv1Span]
+    """
+    An array of one or more spans within the document's text where the phone number
+    is mentioned.
+    """

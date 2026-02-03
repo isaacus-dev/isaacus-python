@@ -14,14 +14,14 @@ class ILGSv1IDNumber(BaseModel):
     If an identification number was mentioned in the document but is not attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[ILGSv1Span]
-    """
-    An array of one or more spans within the document's text where the
-    identification number is mentioned.
-    """
-
     number: str
     """The identification number."""
 
     person: str
     """The unique identifier of the person that this identification number belongs to."""
+
+    mentions: List[ILGSv1Span]
+    """
+    An array of one or more spans within the document's text where the
+    identification number is mentioned.
+    """

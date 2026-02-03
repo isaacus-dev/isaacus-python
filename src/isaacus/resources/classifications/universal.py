@@ -50,9 +50,9 @@ class UniversalResource(SyncAPIResource):
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[universal_create_params.ChunkingOptions] | Omit = omit,
         is_iql: bool | Omit = omit,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
+        chunking_options: Optional[universal_create_params.ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -80,8 +80,6 @@ class UniversalResource(SyncAPIResource):
 
               Each text must contain at least one non-whitespace character.
 
-          chunking_options: Options for how to split text into smaller chunks.
-
           is_iql: Whether the query should be interpreted as an
               [IQL](https://docs.isaacus.com/iql) query or else as a statement.
 
@@ -96,6 +94,8 @@ class UniversalResource(SyncAPIResource):
               `chunk_avg` averages the confidence scores of all of the texts' chunks.
 
               `chunk_min` uses the lowest confidence score of all of the texts' chunks.
+
+          chunking_options: Options for how to split text into smaller chunks.
 
           extra_headers: Send extra headers
 
@@ -112,9 +112,9 @@ class UniversalResource(SyncAPIResource):
                     "model": model,
                     "query": query,
                     "texts": texts,
-                    "chunking_options": chunking_options,
                     "is_iql": is_iql,
                     "scoring_method": scoring_method,
+                    "chunking_options": chunking_options,
                 },
                 universal_create_params.UniversalCreateParams,
             ),
@@ -151,9 +151,9 @@ class AsyncUniversalResource(AsyncAPIResource):
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[universal_create_params.ChunkingOptions] | Omit = omit,
         is_iql: bool | Omit = omit,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
+        chunking_options: Optional[universal_create_params.ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -181,8 +181,6 @@ class AsyncUniversalResource(AsyncAPIResource):
 
               Each text must contain at least one non-whitespace character.
 
-          chunking_options: Options for how to split text into smaller chunks.
-
           is_iql: Whether the query should be interpreted as an
               [IQL](https://docs.isaacus.com/iql) query or else as a statement.
 
@@ -197,6 +195,8 @@ class AsyncUniversalResource(AsyncAPIResource):
               `chunk_avg` averages the confidence scores of all of the texts' chunks.
 
               `chunk_min` uses the lowest confidence score of all of the texts' chunks.
+
+          chunking_options: Options for how to split text into smaller chunks.
 
           extra_headers: Send extra headers
 
@@ -213,9 +213,9 @@ class AsyncUniversalResource(AsyncAPIResource):
                     "model": model,
                     "query": query,
                     "texts": texts,
-                    "chunking_options": chunking_options,
                     "is_iql": is_iql,
                     "scoring_method": scoring_method,
+                    "chunking_options": chunking_options,
                 },
                 universal_create_params.UniversalCreateParams,
             ),

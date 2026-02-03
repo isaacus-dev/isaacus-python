@@ -50,10 +50,10 @@ class RerankingsResource(SyncAPIResource):
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
+        top_n: Optional[int] | Omit = omit,
         is_iql: bool | Omit = omit,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
-        top_n: Optional[int] | Omit = omit,
+        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -82,7 +82,7 @@ class RerankingsResource(SyncAPIResource):
 
               Each text must contain at least one non-whitespace character.
 
-          chunking_options: Options for how to split text into smaller chunks.
+          top_n: A whole number greater than or equal to 1.
 
           is_iql: Whether the query should be interpreted as an
               [Isaacus Query Language (IQL)](https://docs.isaacus.com/iql) query, which is not
@@ -104,7 +104,7 @@ class RerankingsResource(SyncAPIResource):
 
               `chunk_min` uses the lowest relevance score of all of a text's chunks.
 
-          top_n: A whole number greater than or equal to 1.
+          chunking_options: Options for how to split text into smaller chunks.
 
           extra_headers: Send extra headers
 
@@ -121,10 +121,10 @@ class RerankingsResource(SyncAPIResource):
                     "model": model,
                     "query": query,
                     "texts": texts,
-                    "chunking_options": chunking_options,
+                    "top_n": top_n,
                     "is_iql": is_iql,
                     "scoring_method": scoring_method,
-                    "top_n": top_n,
+                    "chunking_options": chunking_options,
                 },
                 reranking_create_params.RerankingCreateParams,
             ),
@@ -161,10 +161,10 @@ class AsyncRerankingsResource(AsyncAPIResource):
         model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
+        top_n: Optional[int] | Omit = omit,
         is_iql: bool | Omit = omit,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
-        top_n: Optional[int] | Omit = omit,
+        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -193,7 +193,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
 
               Each text must contain at least one non-whitespace character.
 
-          chunking_options: Options for how to split text into smaller chunks.
+          top_n: A whole number greater than or equal to 1.
 
           is_iql: Whether the query should be interpreted as an
               [Isaacus Query Language (IQL)](https://docs.isaacus.com/iql) query, which is not
@@ -215,7 +215,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
 
               `chunk_min` uses the lowest relevance score of all of a text's chunks.
 
-          top_n: A whole number greater than or equal to 1.
+          chunking_options: Options for how to split text into smaller chunks.
 
           extra_headers: Send extra headers
 
@@ -232,10 +232,10 @@ class AsyncRerankingsResource(AsyncAPIResource):
                     "model": model,
                     "query": query,
                     "texts": texts,
-                    "chunking_options": chunking_options,
+                    "top_n": top_n,
                     "is_iql": is_iql,
                     "scoring_method": scoring_method,
-                    "top_n": top_n,
+                    "chunking_options": chunking_options,
                 },
                 reranking_create_params.RerankingCreateParams,
             ),

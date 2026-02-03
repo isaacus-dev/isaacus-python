@@ -16,17 +16,8 @@ class ILGSv1Date(BaseModel):
     Only Gregorian dates between the years 1000 and 9999 (inclusive) fitting into one of the supported date types are extractable.
     """
 
-    mentions: List[ILGSv1Span]
-    """
-    An array of one or more spans within the document's text where the date is
-    mentioned.
-    """
-
-    person: Optional[str] = None
-    """
-    A unique identifier for a legal person in the format `per:{index}` where
-    `{index}` is a non-negative incrementing integer starting from zero.
-    """
+    value: str
+    """The date in ISO 8601 format (YYYY-MM-DD)."""
 
     type: Literal["creation", "signature", "effective", "expiry", "delivery", "renewal", "payment", "birth", "death"]
     """
@@ -66,5 +57,14 @@ class ILGSv1Date(BaseModel):
     person. A person's `death` date will never be before their `birth` date.
     """
 
-    value: str
-    """The date in ISO 8601 format (YYYY-MM-DD)."""
+    person: Optional[str] = None
+    """
+    A unique identifier for a legal person in the format `per:{index}` where
+    `{index}` is a non-negative incrementing integer starting from zero.
+    """
+
+    mentions: List[ILGSv1Span]
+    """
+    An array of one or more spans within the document's text where the date is
+    mentioned.
+    """

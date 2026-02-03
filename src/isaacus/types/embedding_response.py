@@ -8,14 +8,14 @@ __all__ = ["EmbeddingResponse", "Embedding", "Usage"]
 
 
 class Embedding(BaseModel):
-    embedding: List[float]
-    """The embedding of the content represented as an array of floating point numbers."""
-
     index: int
     """
     The position of the content in the input array of contents, starting from `0`
     (and, therefore, ending at the number of contents minus `1`).
     """
+
+    embedding: List[float]
+    """The embedding of the content represented as an array of floating point numbers."""
 
 
 class Usage(BaseModel):

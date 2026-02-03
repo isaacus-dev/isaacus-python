@@ -11,10 +11,10 @@ __all__ = ["ILGSv1Quote"]
 class ILGSv1Quote(BaseModel):
     """A quotation within a document."""
 
-    amending: bool
+    source_segment: Optional[str] = None
     """
-    Whether the quote is being used to amend or modify content, typically in other
-    documents.
+    A unique identifier for a segment in the format `seg:{index}` where `{index}` is
+    a non-negative incrementing integer starting from zero.
     """
 
     source_document: Optional[str] = None
@@ -29,10 +29,10 @@ class ILGSv1Quote(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    source_segment: Optional[str] = None
+    amending: bool
     """
-    A unique identifier for a segment in the format `seg:{index}` where `{index}` is
-    a non-negative incrementing integer starting from zero.
+    Whether the quote is being used to amend or modify content, typically in other
+    documents.
     """
 
     span: ILGSv1Span

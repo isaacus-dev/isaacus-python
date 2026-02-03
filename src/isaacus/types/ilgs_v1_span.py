@@ -15,14 +15,14 @@ class ILGSv1Span(BaseModel):
     Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
     """
 
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
     start: int
     """
     The zero-based start index of the half-open span of Unicode code points in the
     input text.
+    """
+
+    end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
     """
