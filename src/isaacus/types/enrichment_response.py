@@ -54,8 +54,16 @@ class ResultDocumentCrossreferenceSpan(BaseModel):
     """The span of the segment within the document's text."""
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentCrossreference(BaseModel):
@@ -92,8 +100,16 @@ class ResultDocumentDateMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentDate(BaseModel):
@@ -168,8 +184,16 @@ class ResultDocumentEmailMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentEmail(BaseModel):
@@ -202,16 +226,32 @@ class ResultDocumentExternalDocumentMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentExternalDocumentName(BaseModel):
     """The span of the segment within the document's text."""
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentExternalDocumentPinpoint(BaseModel):
@@ -225,8 +265,16 @@ class ResultDocumentExternalDocumentPinpoint(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentExternalDocument(BaseModel):
@@ -319,8 +367,16 @@ class ResultDocumentHeading(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentIDNumberMention(BaseModel):
@@ -334,8 +390,16 @@ class ResultDocumentIDNumberMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentIDNumber(BaseModel):
@@ -368,8 +432,16 @@ class ResultDocumentJunk(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentLocationMention(BaseModel):
@@ -383,16 +455,32 @@ class ResultDocumentLocationMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentLocationName(BaseModel):
     """The span of the segment within the document's text."""
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentLocation(BaseModel):
@@ -437,16 +525,32 @@ class ResultDocumentPersonMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentPersonName(BaseModel):
     """The span of the segment within the document's text."""
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentPerson(BaseModel):
@@ -633,8 +737,16 @@ class ResultDocumentPhoneNumberMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentPhoneNumber(BaseModel):
@@ -663,8 +775,16 @@ class ResultDocumentQuoteSpan(BaseModel):
     """The span of the segment within the document's text."""
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentQuote(BaseModel):
@@ -709,16 +829,32 @@ class ResultDocumentSegmentCode(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentSegmentSpan(BaseModel):
     """The span of the segment within the document's text."""
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentSegmentTitle(BaseModel):
@@ -732,8 +868,16 @@ class ResultDocumentSegmentTitle(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentSegmentTypeName(BaseModel):
@@ -747,8 +891,16 @@ class ResultDocumentSegmentTypeName(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentSegment(BaseModel):
@@ -945,16 +1097,32 @@ class ResultDocumentSubtitle(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentTermMeaning(BaseModel):
     """The span of the segment within the document's text."""
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentTermMention(BaseModel):
@@ -968,16 +1136,32 @@ class ResultDocumentTermMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentTermName(BaseModel):
     """The span of the segment within the document's text."""
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentTerm(BaseModel):
@@ -1016,8 +1200,16 @@ class ResultDocumentTitle(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentWebsiteMention(BaseModel):
@@ -1031,8 +1223,16 @@ class ResultDocumentWebsiteMention(BaseModel):
     """
 
     end: int
+    """
+    The zero-based end index of the half-open span (i.e., the end is exclusive) of
+    Unicode code points in the input text.
+    """
 
     start: int
+    """
+    The zero-based start index of the half-open span of Unicode code points in the
+    input text.
+    """
 
 
 class ResultDocumentWebsite(BaseModel):
