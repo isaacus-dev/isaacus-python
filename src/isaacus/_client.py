@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Mapping
+from typing import TYPE_CHECKING, Any, Mapping
 from typing_extensions import Self, override
 
 import httpx
@@ -20,8 +20,8 @@ from ._types import (
     not_given,
 )
 from ._utils import is_given, get_async_library
+from ._compat import cached_property
 from ._version import __version__
-from .resources import embeddings, rerankings
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import IsaacusError, APIStatusError
 from ._base_client import (
@@ -29,20 +29,19 @@ from ._base_client import (
     SyncAPIClient,
     AsyncAPIClient,
 )
-from .resources.extractions import extractions
-from .resources.classifications import classifications
+
+if TYPE_CHECKING:
+    from .resources import embeddings, rerankings, enrichments, extractions, classifications
+    from .resources.embeddings import EmbeddingsResource, AsyncEmbeddingsResource
+    from .resources.rerankings import RerankingsResource, AsyncRerankingsResource
+    from .resources.enrichments import EnrichmentsResource, AsyncEnrichmentsResource
+    from .resources.extractions.extractions import ExtractionsResource, AsyncExtractionsResource
+    from .resources.classifications.classifications import ClassificationsResource, AsyncClassificationsResource
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Isaacus", "AsyncIsaacus", "Client", "AsyncClient"]
 
 
 class Isaacus(SyncAPIClient):
-    embeddings: embeddings.EmbeddingsResource
-    classifications: classifications.ClassificationsResource
-    rerankings: rerankings.RerankingsResource
-    extractions: extractions.ExtractionsResource
-    with_raw_response: IsaacusWithRawResponse
-    with_streaming_response: IsaacusWithStreamedResponse
-
     # client options
     api_key: str
 
@@ -97,12 +96,43 @@ class Isaacus(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.embeddings = embeddings.EmbeddingsResource(self)
-        self.classifications = classifications.ClassificationsResource(self)
-        self.rerankings = rerankings.RerankingsResource(self)
-        self.extractions = extractions.ExtractionsResource(self)
-        self.with_raw_response = IsaacusWithRawResponse(self)
-        self.with_streaming_response = IsaacusWithStreamedResponse(self)
+    @cached_property
+    def embeddings(self) -> EmbeddingsResource:
+        from .resources.embeddings import EmbeddingsResource
+
+        return EmbeddingsResource(self)
+
+    @cached_property
+    def classifications(self) -> ClassificationsResource:
+        from .resources.classifications import ClassificationsResource
+
+        return ClassificationsResource(self)
+
+    @cached_property
+    def rerankings(self) -> RerankingsResource:
+        from .resources.rerankings import RerankingsResource
+
+        return RerankingsResource(self)
+
+    @cached_property
+    def extractions(self) -> ExtractionsResource:
+        from .resources.extractions import ExtractionsResource
+
+        return ExtractionsResource(self)
+
+    @cached_property
+    def enrichments(self) -> EnrichmentsResource:
+        from .resources.enrichments import EnrichmentsResource
+
+        return EnrichmentsResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> IsaacusWithRawResponse:
+        return IsaacusWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> IsaacusWithStreamedResponse:
+        return IsaacusWithStreamedResponse(self)
 
     @property
     @override
@@ -210,13 +240,6 @@ class Isaacus(SyncAPIClient):
 
 
 class AsyncIsaacus(AsyncAPIClient):
-    embeddings: embeddings.AsyncEmbeddingsResource
-    classifications: classifications.AsyncClassificationsResource
-    rerankings: rerankings.AsyncRerankingsResource
-    extractions: extractions.AsyncExtractionsResource
-    with_raw_response: AsyncIsaacusWithRawResponse
-    with_streaming_response: AsyncIsaacusWithStreamedResponse
-
     # client options
     api_key: str
 
@@ -271,12 +294,43 @@ class AsyncIsaacus(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.embeddings = embeddings.AsyncEmbeddingsResource(self)
-        self.classifications = classifications.AsyncClassificationsResource(self)
-        self.rerankings = rerankings.AsyncRerankingsResource(self)
-        self.extractions = extractions.AsyncExtractionsResource(self)
-        self.with_raw_response = AsyncIsaacusWithRawResponse(self)
-        self.with_streaming_response = AsyncIsaacusWithStreamedResponse(self)
+    @cached_property
+    def embeddings(self) -> AsyncEmbeddingsResource:
+        from .resources.embeddings import AsyncEmbeddingsResource
+
+        return AsyncEmbeddingsResource(self)
+
+    @cached_property
+    def classifications(self) -> AsyncClassificationsResource:
+        from .resources.classifications import AsyncClassificationsResource
+
+        return AsyncClassificationsResource(self)
+
+    @cached_property
+    def rerankings(self) -> AsyncRerankingsResource:
+        from .resources.rerankings import AsyncRerankingsResource
+
+        return AsyncRerankingsResource(self)
+
+    @cached_property
+    def extractions(self) -> AsyncExtractionsResource:
+        from .resources.extractions import AsyncExtractionsResource
+
+        return AsyncExtractionsResource(self)
+
+    @cached_property
+    def enrichments(self) -> AsyncEnrichmentsResource:
+        from .resources.enrichments import AsyncEnrichmentsResource
+
+        return AsyncEnrichmentsResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> AsyncIsaacusWithRawResponse:
+        return AsyncIsaacusWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncIsaacusWithStreamedResponse:
+        return AsyncIsaacusWithStreamedResponse(self)
 
     @property
     @override
@@ -384,35 +438,151 @@ class AsyncIsaacus(AsyncAPIClient):
 
 
 class IsaacusWithRawResponse:
+    _client: Isaacus
+
     def __init__(self, client: Isaacus) -> None:
-        self.embeddings = embeddings.EmbeddingsResourceWithRawResponse(client.embeddings)
-        self.classifications = classifications.ClassificationsResourceWithRawResponse(client.classifications)
-        self.rerankings = rerankings.RerankingsResourceWithRawResponse(client.rerankings)
-        self.extractions = extractions.ExtractionsResourceWithRawResponse(client.extractions)
+        self._client = client
+
+    @cached_property
+    def embeddings(self) -> embeddings.EmbeddingsResourceWithRawResponse:
+        from .resources.embeddings import EmbeddingsResourceWithRawResponse
+
+        return EmbeddingsResourceWithRawResponse(self._client.embeddings)
+
+    @cached_property
+    def classifications(self) -> classifications.ClassificationsResourceWithRawResponse:
+        from .resources.classifications import ClassificationsResourceWithRawResponse
+
+        return ClassificationsResourceWithRawResponse(self._client.classifications)
+
+    @cached_property
+    def rerankings(self) -> rerankings.RerankingsResourceWithRawResponse:
+        from .resources.rerankings import RerankingsResourceWithRawResponse
+
+        return RerankingsResourceWithRawResponse(self._client.rerankings)
+
+    @cached_property
+    def extractions(self) -> extractions.ExtractionsResourceWithRawResponse:
+        from .resources.extractions import ExtractionsResourceWithRawResponse
+
+        return ExtractionsResourceWithRawResponse(self._client.extractions)
+
+    @cached_property
+    def enrichments(self) -> enrichments.EnrichmentsResourceWithRawResponse:
+        from .resources.enrichments import EnrichmentsResourceWithRawResponse
+
+        return EnrichmentsResourceWithRawResponse(self._client.enrichments)
 
 
 class AsyncIsaacusWithRawResponse:
+    _client: AsyncIsaacus
+
     def __init__(self, client: AsyncIsaacus) -> None:
-        self.embeddings = embeddings.AsyncEmbeddingsResourceWithRawResponse(client.embeddings)
-        self.classifications = classifications.AsyncClassificationsResourceWithRawResponse(client.classifications)
-        self.rerankings = rerankings.AsyncRerankingsResourceWithRawResponse(client.rerankings)
-        self.extractions = extractions.AsyncExtractionsResourceWithRawResponse(client.extractions)
+        self._client = client
+
+    @cached_property
+    def embeddings(self) -> embeddings.AsyncEmbeddingsResourceWithRawResponse:
+        from .resources.embeddings import AsyncEmbeddingsResourceWithRawResponse
+
+        return AsyncEmbeddingsResourceWithRawResponse(self._client.embeddings)
+
+    @cached_property
+    def classifications(self) -> classifications.AsyncClassificationsResourceWithRawResponse:
+        from .resources.classifications import AsyncClassificationsResourceWithRawResponse
+
+        return AsyncClassificationsResourceWithRawResponse(self._client.classifications)
+
+    @cached_property
+    def rerankings(self) -> rerankings.AsyncRerankingsResourceWithRawResponse:
+        from .resources.rerankings import AsyncRerankingsResourceWithRawResponse
+
+        return AsyncRerankingsResourceWithRawResponse(self._client.rerankings)
+
+    @cached_property
+    def extractions(self) -> extractions.AsyncExtractionsResourceWithRawResponse:
+        from .resources.extractions import AsyncExtractionsResourceWithRawResponse
+
+        return AsyncExtractionsResourceWithRawResponse(self._client.extractions)
+
+    @cached_property
+    def enrichments(self) -> enrichments.AsyncEnrichmentsResourceWithRawResponse:
+        from .resources.enrichments import AsyncEnrichmentsResourceWithRawResponse
+
+        return AsyncEnrichmentsResourceWithRawResponse(self._client.enrichments)
 
 
 class IsaacusWithStreamedResponse:
+    _client: Isaacus
+
     def __init__(self, client: Isaacus) -> None:
-        self.embeddings = embeddings.EmbeddingsResourceWithStreamingResponse(client.embeddings)
-        self.classifications = classifications.ClassificationsResourceWithStreamingResponse(client.classifications)
-        self.rerankings = rerankings.RerankingsResourceWithStreamingResponse(client.rerankings)
-        self.extractions = extractions.ExtractionsResourceWithStreamingResponse(client.extractions)
+        self._client = client
+
+    @cached_property
+    def embeddings(self) -> embeddings.EmbeddingsResourceWithStreamingResponse:
+        from .resources.embeddings import EmbeddingsResourceWithStreamingResponse
+
+        return EmbeddingsResourceWithStreamingResponse(self._client.embeddings)
+
+    @cached_property
+    def classifications(self) -> classifications.ClassificationsResourceWithStreamingResponse:
+        from .resources.classifications import ClassificationsResourceWithStreamingResponse
+
+        return ClassificationsResourceWithStreamingResponse(self._client.classifications)
+
+    @cached_property
+    def rerankings(self) -> rerankings.RerankingsResourceWithStreamingResponse:
+        from .resources.rerankings import RerankingsResourceWithStreamingResponse
+
+        return RerankingsResourceWithStreamingResponse(self._client.rerankings)
+
+    @cached_property
+    def extractions(self) -> extractions.ExtractionsResourceWithStreamingResponse:
+        from .resources.extractions import ExtractionsResourceWithStreamingResponse
+
+        return ExtractionsResourceWithStreamingResponse(self._client.extractions)
+
+    @cached_property
+    def enrichments(self) -> enrichments.EnrichmentsResourceWithStreamingResponse:
+        from .resources.enrichments import EnrichmentsResourceWithStreamingResponse
+
+        return EnrichmentsResourceWithStreamingResponse(self._client.enrichments)
 
 
 class AsyncIsaacusWithStreamedResponse:
+    _client: AsyncIsaacus
+
     def __init__(self, client: AsyncIsaacus) -> None:
-        self.embeddings = embeddings.AsyncEmbeddingsResourceWithStreamingResponse(client.embeddings)
-        self.classifications = classifications.AsyncClassificationsResourceWithStreamingResponse(client.classifications)
-        self.rerankings = rerankings.AsyncRerankingsResourceWithStreamingResponse(client.rerankings)
-        self.extractions = extractions.AsyncExtractionsResourceWithStreamingResponse(client.extractions)
+        self._client = client
+
+    @cached_property
+    def embeddings(self) -> embeddings.AsyncEmbeddingsResourceWithStreamingResponse:
+        from .resources.embeddings import AsyncEmbeddingsResourceWithStreamingResponse
+
+        return AsyncEmbeddingsResourceWithStreamingResponse(self._client.embeddings)
+
+    @cached_property
+    def classifications(self) -> classifications.AsyncClassificationsResourceWithStreamingResponse:
+        from .resources.classifications import AsyncClassificationsResourceWithStreamingResponse
+
+        return AsyncClassificationsResourceWithStreamingResponse(self._client.classifications)
+
+    @cached_property
+    def rerankings(self) -> rerankings.AsyncRerankingsResourceWithStreamingResponse:
+        from .resources.rerankings import AsyncRerankingsResourceWithStreamingResponse
+
+        return AsyncRerankingsResourceWithStreamingResponse(self._client.rerankings)
+
+    @cached_property
+    def extractions(self) -> extractions.AsyncExtractionsResourceWithStreamingResponse:
+        from .resources.extractions import AsyncExtractionsResourceWithStreamingResponse
+
+        return AsyncExtractionsResourceWithStreamingResponse(self._client.extractions)
+
+    @cached_property
+    def enrichments(self) -> enrichments.AsyncEnrichmentsResourceWithStreamingResponse:
+        from .resources.enrichments import AsyncEnrichmentsResourceWithStreamingResponse
+
+        return AsyncEnrichmentsResourceWithStreamingResponse(self._client.enrichments)
 
 
 Client = Isaacus

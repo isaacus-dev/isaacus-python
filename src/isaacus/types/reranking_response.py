@@ -22,6 +22,8 @@ class Result(BaseModel):
 
 
 class Usage(BaseModel):
+    """Statistics about the usage of resources in the process of reranking the texts."""
+
     input_tokens: int
     """The number of tokens inputted to the model."""
 

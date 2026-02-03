@@ -67,11 +67,13 @@ class RerankingCreateParams(TypedDict, total=False):
 
 
 class ChunkingOptions(TypedDict, total=False):
+    """Options for how to split text into smaller chunks."""
+
     overlap_ratio: Optional[float]
     """A number greater than or equal to 0 and less than 1."""
 
     overlap_tokens: Optional[int]
-    """A whole number greater than -1."""
+    """A whole number greater than or equal to 0."""
 
     size: Optional[int]
     """A whole number greater than or equal to 1."""

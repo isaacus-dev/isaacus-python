@@ -1,5 +1,44 @@
 # Changelog
 
+## 0.10.0 (2026-02-03)
+
+Full Changelog: [v0.9.1...v0.10.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.9.1...v0.10.0)
+
+### Features
+
+* **api:** add min max ([50ece81](https://github.com/isaacus-dev/isaacus-python/commit/50ece81e21c605fd2801e2037f52046afe32a7f4))
+* **api:** switch to span objects for enrichment, note closed beta ([326b7dc](https://github.com/isaacus-dev/isaacus-python/commit/326b7dca713b9240bb6ea825f5361de804ca300b))
+* **sdk:** add enrichments ([eb4057b](https://github.com/isaacus-dev/isaacus-python/commit/eb4057b54a26158aded93e0b943e9828c5457b39))
+
+
+### Bug Fixes
+
+* **client:** close streams without requiring full consumption ([13eb93f](https://github.com/isaacus-dev/isaacus-python/commit/13eb93fea611507de440a4418b82de3aa8a06500))
+* compat with Python 3.14 ([89ef152](https://github.com/isaacus-dev/isaacus-python/commit/89ef152681673c408e217ad44f51dba229f9d371))
+* **compat:** update signatures of `model_dump` and `model_dump_json` for Pydantic v1 ([4d7b71d](https://github.com/isaacus-dev/isaacus-python/commit/4d7b71de78bdd83f00d16ec409c57cbe4dd01ebb))
+* ensure streams are always closed ([c2ae554](https://github.com/isaacus-dev/isaacus-python/commit/c2ae554fd73a5f0d4c0f7eb9a2fa652669d38f2e))
+* **types:** allow pyright to infer TypedDict types within SequenceNotStr ([b89d4ce](https://github.com/isaacus-dev/isaacus-python/commit/b89d4ce184708ad0737ba7fc77f1afe270a8eb50))
+* use async_to_httpx_files in patch method ([30ffab2](https://github.com/isaacus-dev/isaacus-python/commit/30ffab28e37d4f940e69f2afe199fad830f57ba0))
+
+
+### Chores
+
+* add missing docstrings ([0c4e7d4](https://github.com/isaacus-dev/isaacus-python/commit/0c4e7d4039a6b60adccc39be7a98b9efdbbc3df4))
+* add Python 3.14 classifier and testing ([083d4b6](https://github.com/isaacus-dev/isaacus-python/commit/083d4b600ddba22fc81c33da7dee079c97088c81))
+* **deps:** mypy 1.18.1 has a regression, pin to 1.17 ([9612e35](https://github.com/isaacus-dev/isaacus-python/commit/9612e35c83634a774c507349b4cd211d4d8c2c84))
+* **docs:** use environment variables for authentication in code snippets ([ac22598](https://github.com/isaacus-dev/isaacus-python/commit/ac2259872f666a3c0cdb57695623aa980e5bdf36))
+* **internal/tests:** avoid race condition with implicit client cleanup ([871fa54](https://github.com/isaacus-dev/isaacus-python/commit/871fa54adcd54f3f5ffde794e4ae703e7913e6b7))
+* **internal:** add missing files argument to base client ([669f50a](https://github.com/isaacus-dev/isaacus-python/commit/669f50a93bc5868ff80a48e0a29c4a53e362fa99))
+* **internal:** grammar fix (it's -&gt; its) ([84145f2](https://github.com/isaacus-dev/isaacus-python/commit/84145f233adddf8b55a24b0443a2f9c9dc5a4cbd))
+* **package:** drop Python 3.8 support ([556d5d0](https://github.com/isaacus-dev/isaacus-python/commit/556d5d07c941f4e2c4b6e523756723ce5661c4b3))
+* speedup initial import ([2d500ed](https://github.com/isaacus-dev/isaacus-python/commit/2d500ed45248bf120cd21236644d9573d563120b))
+* update lockfile ([b53392a](https://github.com/isaacus-dev/isaacus-python/commit/b53392a51c7b7e8605880af51e53db044ad14d94))
+
+
+### Documentation
+
+* **sdk:** specify example params ([f617346](https://github.com/isaacus-dev/isaacus-python/commit/f617346d3262a45594d34357e97fc616f5ddf9e9))
+
 ## 0.9.1 (2025-10-19)
 
 Full Changelog: [v0.9.0...v0.9.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.9.0...v0.9.1)

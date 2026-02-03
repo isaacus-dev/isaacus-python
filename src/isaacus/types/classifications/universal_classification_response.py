@@ -68,6 +68,8 @@ class Classification(BaseModel):
 
 
 class Usage(BaseModel):
+    """Statistics about the usage of resources in the process of classifying the text."""
+
     input_tokens: int
     """The number of tokens inputted to the model."""
 

@@ -16,6 +16,14 @@ from .rerankings import (
     RerankingsResourceWithStreamingResponse,
     AsyncRerankingsResourceWithStreamingResponse,
 )
+from .enrichments import (
+    EnrichmentsResource,
+    AsyncEnrichmentsResource,
+    EnrichmentsResourceWithRawResponse,
+    AsyncEnrichmentsResourceWithRawResponse,
+    EnrichmentsResourceWithStreamingResponse,
+    AsyncEnrichmentsResourceWithStreamingResponse,
+)
 from .extractions import (
     ExtractionsResource,
     AsyncExtractionsResource,
@@ -58,4 +66,10 @@ __all__ = [
     "AsyncExtractionsResourceWithRawResponse",
     "ExtractionsResourceWithStreamingResponse",
     "AsyncExtractionsResourceWithStreamingResponse",
+    "EnrichmentsResource",
+    "AsyncEnrichmentsResource",
+    "EnrichmentsResourceWithRawResponse",
+    "AsyncEnrichmentsResourceWithRawResponse",
+    "EnrichmentsResourceWithStreamingResponse",
+    "AsyncEnrichmentsResourceWithStreamingResponse",
 ]

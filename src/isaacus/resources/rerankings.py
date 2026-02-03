@@ -62,7 +62,7 @@ class RerankingsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RerankingResponse:
         """
-        Rerank legal documents by their relevance to a query with an Isaacus legal AI
+        Rank legal documents by their relevance to a query with an Isaacus legal AI
         reranker.
 
         Args:
@@ -173,7 +173,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RerankingResponse:
         """
-        Rerank legal documents by their relevance to a query with an Isaacus legal AI
+        Rank legal documents by their relevance to a query with an Isaacus legal AI
         reranker.
 
         Args:
