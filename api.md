@@ -49,3 +49,15 @@ from isaacus.types.extractions import AnswerExtractionResponse
 Methods:
 
 - <code title="post /extractions/qa">client.extractions.qa.<a href="./src/isaacus/resources/extractions/qa.py">create</a>(\*\*<a href="src/isaacus/types/extractions/qa_create_params.py">params</a>) -> <a href="./src/isaacus/types/extractions/answer_extraction_response.py">AnswerExtractionResponse</a></code>
+
+# Enrichments
+
+Types:
+
+```python
+from isaacus.types import EnrichmentResponse
+```
+
+Methods:
+
+- <code title="post /enrichments">client.enrichments.<a href="./src/isaacus/resources/enrichments.py">create</a>(\*\*<a href="src/isaacus/types/enrichment_create_params.py">params</a>) -> <a href="./src/isaacus/types/enrichment_response.py">EnrichmentResponse</a></code>

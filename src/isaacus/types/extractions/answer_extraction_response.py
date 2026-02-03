@@ -66,8 +66,6 @@ class Usage(BaseModel):
 
 
 class AnswerExtractionResponse(BaseModel):
-    """The results of extracting answers from texts."""
-
     extractions: List[Extraction]
     """
     The results of extracting answers from the texts, ordered from highest to lowest

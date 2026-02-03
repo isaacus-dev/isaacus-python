@@ -75,10 +75,6 @@ class Usage(BaseModel):
 
 
 class UniversalClassificationResponse(BaseModel):
-    """
-    Classifications of the relevance of legal documents to a query produced by an Isaacus universal legal AI classifier.
-    """
-
     classifications: List[Classification]
     """
     The classifications of the texts, by relevance to the query, in order from

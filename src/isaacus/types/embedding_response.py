@@ -26,8 +26,6 @@ class Usage(BaseModel):
 
 
 class EmbeddingResponse(BaseModel):
-    """Embeddings of legal texts produced by an Isaacus legal AI embedder."""
-
     embeddings: List[Embedding]
     """The embeddings of the inputs."""
 
