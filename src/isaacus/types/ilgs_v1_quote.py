@@ -3,12 +3,12 @@
 from typing import Optional
 
 from .._models import BaseModel
-from .ilgs_v1_span import IlgsV1Span
+from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["IlgsV1Quote"]
+__all__ = ["ILGSv1Quote"]
 
 
-class IlgsV1Quote(BaseModel):
+class ILGSv1Quote(BaseModel):
     """A quotation within a document."""
 
     amending: bool
@@ -35,7 +35,7 @@ class IlgsV1Quote(BaseModel):
     a non-negative incrementing integer starting from zero.
     """
 
-    span: IlgsV1Span
+    span: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible

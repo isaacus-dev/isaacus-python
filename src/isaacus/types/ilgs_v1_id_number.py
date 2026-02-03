@@ -3,18 +3,18 @@
 from typing import List
 
 from .._models import BaseModel
-from .ilgs_v1_span import IlgsV1Span
+from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["IlgsV1IDNumber"]
+__all__ = ["ILGSv1IDNumber"]
 
 
-class IlgsV1IDNumber(BaseModel):
+class ILGSv1IDNumber(BaseModel):
     """An identification number mentioned in a document belonging to a legal person.
 
     If an identification number was mentioned in the document but is not attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[IlgsV1Span]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the
     identification number is mentioned.

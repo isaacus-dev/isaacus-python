@@ -4,19 +4,19 @@ from typing import List, Optional
 from typing_extensions import Literal
 
 from .._models import BaseModel
-from .ilgs_v1_span import IlgsV1Span
+from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["IlgsV1Date"]
+__all__ = ["ILGSv1Date"]
 
 
-class IlgsV1Date(BaseModel):
+class ILGSv1Date(BaseModel):
     """
     A date identified in a document belonging to one of the following types: `creation`, `signature`, `effective`, `expiry`, `delivery`, `renewal`, `payment`, `birth`, or `death`.
 
     Only Gregorian dates between the years 1000 and 9999 (inclusive) fitting into one of the supported date types are extractable.
     """
 
-    mentions: List[IlgsV1Span]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the date is
     mentioned.

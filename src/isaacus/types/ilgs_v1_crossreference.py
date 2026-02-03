@@ -1,12 +1,12 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from .._models import BaseModel
-from .ilgs_v1_span import IlgsV1Span
+from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["IlgsV1Crossreference"]
+__all__ = ["ILGSv1Crossreference"]
 
 
-class IlgsV1Crossreference(BaseModel):
+class ILGSv1Crossreference(BaseModel):
     """A cross-reference within the document pointing to one or more segments."""
 
     end: str
@@ -17,7 +17,7 @@ class IlgsV1Crossreference(BaseModel):
     will be identical.
     """
 
-    span: IlgsV1Span
+    span: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible

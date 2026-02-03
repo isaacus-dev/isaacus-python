@@ -4,12 +4,12 @@ from typing import Optional
 from typing_extensions import Literal
 
 from .._models import BaseModel
-from .ilgs_v1_span import IlgsV1Span
+from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["IlgsV1Segment"]
+__all__ = ["ILGSv1Segment"]
 
 
-class IlgsV1Segment(BaseModel):
+class ILGSv1Segment(BaseModel):
     """
     A segment within the document representing a structurally distinct portion of the document's content.
     """
@@ -42,7 +42,7 @@ class IlgsV1Segment(BaseModel):
     `other` denotes content that does not fit into any of the other categories.
     """
 
-    code: Optional[IlgsV1Span] = None
+    code: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -86,7 +86,7 @@ class IlgsV1Segment(BaseModel):
     a non-negative incrementing integer starting from zero.
     """
 
-    span: IlgsV1Span
+    span: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -102,7 +102,7 @@ class IlgsV1Segment(BaseModel):
     code units instead of Unicode code points).
     """
 
-    title: Optional[IlgsV1Span] = None
+    title: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -188,7 +188,7 @@ class IlgsV1Segment(BaseModel):
     of which are exclusive to it.
     """
 
-    type_name: Optional[IlgsV1Span] = None
+    type_name: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
