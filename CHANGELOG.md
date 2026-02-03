@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.1 (2026-02-03)
+
+Full Changelog: [v0.10.0...v0.10.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.10.0...v0.10.1)
+
+### Documentation
+
+* **api:** added examples to 200 response codes ([a92b0d7](https://github.com/isaacus-dev/isaacus-python/commit/a92b0d79fad4552d3be5442dec404791f08040e1))
+
 ## 0.10.0 (2026-02-03)
 
 Full Changelog: [v0.9.1...v0.10.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.9.1...v0.10.0)
