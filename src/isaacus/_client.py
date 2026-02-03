@@ -31,9 +31,10 @@ from ._base_client import (
 )
 
 if TYPE_CHECKING:
-    from .resources import embeddings, rerankings, extractions, classifications
+    from .resources import embeddings, rerankings, enrichments, extractions, classifications
     from .resources.embeddings import EmbeddingsResource, AsyncEmbeddingsResource
     from .resources.rerankings import RerankingsResource, AsyncRerankingsResource
+    from .resources.enrichments import EnrichmentsResource, AsyncEnrichmentsResource
     from .resources.extractions.extractions import ExtractionsResource, AsyncExtractionsResource
     from .resources.classifications.classifications import ClassificationsResource, AsyncClassificationsResource
 
@@ -118,6 +119,12 @@ class Isaacus(SyncAPIClient):
         from .resources.extractions import ExtractionsResource
 
         return ExtractionsResource(self)
+
+    @cached_property
+    def enrichments(self) -> EnrichmentsResource:
+        from .resources.enrichments import EnrichmentsResource
+
+        return EnrichmentsResource(self)
 
     @cached_property
     def with_raw_response(self) -> IsaacusWithRawResponse:
@@ -312,6 +319,12 @@ class AsyncIsaacus(AsyncAPIClient):
         return AsyncExtractionsResource(self)
 
     @cached_property
+    def enrichments(self) -> AsyncEnrichmentsResource:
+        from .resources.enrichments import AsyncEnrichmentsResource
+
+        return AsyncEnrichmentsResource(self)
+
+    @cached_property
     def with_raw_response(self) -> AsyncIsaacusWithRawResponse:
         return AsyncIsaacusWithRawResponse(self)
 
@@ -454,6 +467,12 @@ class IsaacusWithRawResponse:
 
         return ExtractionsResourceWithRawResponse(self._client.extractions)
 
+    @cached_property
+    def enrichments(self) -> enrichments.EnrichmentsResourceWithRawResponse:
+        from .resources.enrichments import EnrichmentsResourceWithRawResponse
+
+        return EnrichmentsResourceWithRawResponse(self._client.enrichments)
+
 
 class AsyncIsaacusWithRawResponse:
     _client: AsyncIsaacus
@@ -484,6 +503,12 @@ class AsyncIsaacusWithRawResponse:
         from .resources.extractions import AsyncExtractionsResourceWithRawResponse
 
         return AsyncExtractionsResourceWithRawResponse(self._client.extractions)
+
+    @cached_property
+    def enrichments(self) -> enrichments.AsyncEnrichmentsResourceWithRawResponse:
+        from .resources.enrichments import AsyncEnrichmentsResourceWithRawResponse
+
+        return AsyncEnrichmentsResourceWithRawResponse(self._client.enrichments)
 
 
 class IsaacusWithStreamedResponse:
@@ -516,6 +541,12 @@ class IsaacusWithStreamedResponse:
 
         return ExtractionsResourceWithStreamingResponse(self._client.extractions)
 
+    @cached_property
+    def enrichments(self) -> enrichments.EnrichmentsResourceWithStreamingResponse:
+        from .resources.enrichments import EnrichmentsResourceWithStreamingResponse
+
+        return EnrichmentsResourceWithStreamingResponse(self._client.enrichments)
+
 
 class AsyncIsaacusWithStreamedResponse:
     _client: AsyncIsaacus
@@ -546,6 +577,12 @@ class AsyncIsaacusWithStreamedResponse:
         from .resources.extractions import AsyncExtractionsResourceWithStreamingResponse
 
         return AsyncExtractionsResourceWithStreamingResponse(self._client.extractions)
+
+    @cached_property
+    def enrichments(self) -> enrichments.AsyncEnrichmentsResourceWithStreamingResponse:
+        from .resources.enrichments import AsyncEnrichmentsResourceWithStreamingResponse
+
+        return AsyncEnrichmentsResourceWithStreamingResponse(self._client.enrichments)
 
 
 Client = Isaacus

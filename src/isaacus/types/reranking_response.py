@@ -29,10 +29,6 @@ class Usage(BaseModel):
 
 
 class RerankingResponse(BaseModel):
-    """
-    The reranking of texts, by relevance to a query, out of an input array of texts.
-    """
-
     results: List[Result]
     """
     The rerankings of the texts, by relevance to the query, in order from highest to
