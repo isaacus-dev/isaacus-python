@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.12.0 (2026-02-03)
+
+Full Changelog: [v0.11.0...v0.12.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.11.0...v0.12.0)
+
+### Features
+
+* **sdk:** add `qa` as an initialism ([27162f3](https://github.com/isaacus-dev/isaacus-python/commit/27162f3e98efa095e41f67801c6a3497709be9d6))
+* **sdk:** force ilgs v1 prefix on models ([62bc9ff](https://github.com/isaacus-dev/isaacus-python/commit/62bc9ffc03feb68e3638cfee3d9df9a8547bb9e8))
+* **sdk:** modify how ILGSv1 models are cased ([f295222](https://github.com/isaacus-dev/isaacus-python/commit/f2952227e58618b33c4d0da9515a1c73942a771a))
+* **sdk:** order properties as in spec ([3dc865c](https://github.com/isaacus-dev/isaacus-python/commit/3dc865c2ee865b334b7f0ca8810226f3ac251be8))
+
+
+### Bug Fixes
+
+* **api:** merge duplicate components, reorder required fields ([55b68ce](https://github.com/isaacus-dev/isaacus-python/commit/55b68ce2bc294f094ccaf3750ea1b932ed4f95f5))
+
 ## 0.11.0 (2026-02-03)
 
 Full Changelog: [v0.10.1...v0.11.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.10.1...v0.11.0)
