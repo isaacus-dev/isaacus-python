@@ -1,0 +1,30 @@
+# File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+from typing import List
+
+from .._models import BaseModel
+from .ilgs_v1_span import IlgsV1Span
+
+__all__ = ["IlgsV1PhoneNumber"]
+
+
+class IlgsV1PhoneNumber(BaseModel):
+    """A valid phone number identified in a document belonging to a legal person.
+
+    If a phone number was mentioned in the document but is not valid, possible, or attributable to a legal person, it will not be extracted.
+    """
+
+    mentions: List[IlgsV1Span]
+    """
+    An array of one or more spans within the document's text where the phone number
+    is mentioned.
+    """
+
+    number: str
+    """
+    The normalized phone number in E.123 international notation conforming with
+    local conventions on the use of spaces and hyphens as separators.
+    """
+
+    person: str
+    """The unique identifier of the person that this phone number belongs to."""
