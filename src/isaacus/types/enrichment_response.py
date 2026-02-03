@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List, Optional
+from typing import List, Union, Optional
 from typing_extensions import Literal
 
 from .._models import BaseModel
@@ -55,7 +55,7 @@ class ResultDocumentDate(BaseModel):
     Only Gregorian dates between the years 1000 and 9999 (inclusive) fitting into one of the supported date types are extractable.
     """
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of one or more spans within the document's text where the date is
     mentioned.
@@ -118,7 +118,7 @@ class ResultDocumentEmail(BaseModel):
     address: str
     """The normalized email address."""
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of one or more spans within the document's text where the email address
     is mentioned.
@@ -151,7 +151,7 @@ class ResultDocumentExternalDocument(BaseModel):
     code for federal law.
     """
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of one or more spans within the document's text where the external
     document is mentioned by name, for example, 'the US Constitution' in 'the Second
@@ -171,7 +171,7 @@ class ResultDocumentExternalDocument(BaseModel):
     spans.
     """
 
-    pinpoints: List[List[object]]
+    pinpoints: List[List[Union[int, int]]]
     """
     An array of spans within the document's text where specific parts of the
     external document are referenced, for example, 'Section 2' in 'as defined in
@@ -223,7 +223,7 @@ class ResultDocumentIDNumber(BaseModel):
     If an identification number was mentioned in the document but is not attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of one or more spans within the document's text where the
     identification number is mentioned.
@@ -245,7 +245,7 @@ class ResultDocumentLocation(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of one or more spans within the document's text where the location is
     mentioned.
@@ -284,7 +284,7 @@ class ResultDocumentPerson(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of one or more spans within the document's text where the person is
     mentioned.
@@ -462,7 +462,7 @@ class ResultDocumentPhoneNumber(BaseModel):
     If a phone number was mentioned in the document but is not valid, possible, or attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of one or more spans within the document's text where the phone number
     is mentioned.
@@ -542,7 +542,7 @@ class ResultDocumentSegment(BaseModel):
     `other` denotes content that does not fit into any of the other categories.
     """
 
-    code: Optional[List[object]] = None
+    code: Optional[List[Union[int, int]]] = None
     """
     The start index and the index immediately after the end of a span of Unicode
     code points in input text.
@@ -591,7 +591,7 @@ class ResultDocumentSegment(BaseModel):
     span: List[object]
     """The span of the segment within the document's text."""
 
-    title: Optional[List[object]] = None
+    title: Optional[List[Union[int, int]]] = None
     """
     The start index and the index immediately after the end of a span of Unicode
     code points in input text.
@@ -679,7 +679,7 @@ class ResultDocumentSegment(BaseModel):
     of which are exclusive to it.
     """
 
-    type_name: Optional[List[object]] = None
+    type_name: Optional[List[Union[int, int]]] = None
     """
     The start index and the index immediately after the end of a span of Unicode
     code points in input text.
@@ -715,7 +715,7 @@ class ResultDocumentTerm(BaseModel):
     the parties'.
     """
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of spans within the document's text where the term is mentioned outside
     of its definition.
@@ -741,7 +741,7 @@ class ResultDocumentWebsite(BaseModel):
     If a website was mentioned in the document but is not attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[List[object]]
+    mentions: List[List[Union[int, int]]]
     """
     An array of one or more spans within the document's text where the website is
     mentioned (including paths and slugs which are not part of the website's
@@ -786,7 +786,7 @@ class ResultDocument(BaseModel):
     external_documents: List[ResultDocumentExternalDocument]
     """An array of documents identified within the document."""
 
-    headings: List[List[object]]
+    headings: List[List[Union[int, int]]]
     """An array of spans within the document's text constituting headings."""
 
     id_numbers: List[ResultDocumentIDNumber]
@@ -798,7 +798,7 @@ class ResultDocument(BaseModel):
     legal persons will not be extracted.
     """
 
-    junk: List[List[object]]
+    junk: List[List[Union[int, int]]]
     """
     An array of spans within the document's text constituting non-operative,
     non-substantive 'junk' content such as headers, footers, page numbers, and OCR
@@ -843,7 +843,7 @@ class ResultDocument(BaseModel):
     portions of its content.
     """
 
-    subtitle: Optional[List[object]] = None
+    subtitle: Optional[List[Union[int, int]]] = None
     """
     The start index and the index immediately after the end of a span of Unicode
     code points in input text.
@@ -864,7 +864,7 @@ class ResultDocument(BaseModel):
     terms: List[ResultDocumentTerm]
     """An array of terms assigned definite meanings within the document."""
 
-    title: Optional[List[object]] = None
+    title: Optional[List[Union[int, int]]] = None
     """
     The start index and the index immediately after the end of a span of Unicode
     code points in input text.
