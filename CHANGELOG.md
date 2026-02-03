@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.0 (2026-02-03)
+
+Full Changelog: [v0.10.1...v0.11.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.10.1...v0.11.0)
+
+### Features
+
+* **api:** remove -preview from model name ([e86f57d](https://github.com/isaacus-dev/isaacus-python/commit/e86f57dc2ac6c1f5a11973aaf1c4e5c19b6b2ec6))
+
 ## 0.10.1 (2026-02-03)
 
 Full Changelog: [v0.10.0...v0.10.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.10.0...v0.10.1)
