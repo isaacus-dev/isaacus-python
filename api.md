@@ -55,7 +55,23 @@ Methods:
 Types:
 
 ```python
-from isaacus.types import EnrichmentResponse
+from isaacus.types import (
+    EnrichmentResponse,
+    IlgsV1Crossreference,
+    IlgsV1Date,
+    IlgsV1Document,
+    IlgsV1Email,
+    IlgsV1ExternalDocument,
+    IlgsV1IDNumber,
+    IlgsV1Location,
+    IlgsV1Person,
+    IlgsV1PhoneNumber,
+    IlgsV1Quote,
+    IlgsV1Segment,
+    IlgsV1Span,
+    IlgsV1Term,
+    IlgsV1Website,
+)
 ```
 
 Methods:
