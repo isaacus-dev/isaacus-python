@@ -50,9 +50,9 @@ class QAResource(SyncAPIResource):
         model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
         ignore_inextractability: bool | Omit = omit,
         top_k: int | Omit = omit,
+        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -82,8 +82,6 @@ class QAResource(SyncAPIResource):
 
               Each text must contain at least one non-whitespace character.
 
-          chunking_options: Options for how to split text into smaller chunks.
-
           ignore_inextractability: Whether to, if the model's score of the likelihood that an answer can not be
               extracted from a text is greater than the highest score of all possible answers,
               still return the highest scoring answers for that text.
@@ -95,6 +93,8 @@ class QAResource(SyncAPIResource):
           top_k: The number of highest scoring answers to return.
 
               If `null`, which is the default, all answers will be returned.
+
+          chunking_options: Options for how to split text into smaller chunks.
 
           extra_headers: Send extra headers
 
@@ -111,9 +111,9 @@ class QAResource(SyncAPIResource):
                     "model": model,
                     "query": query,
                     "texts": texts,
-                    "chunking_options": chunking_options,
                     "ignore_inextractability": ignore_inextractability,
                     "top_k": top_k,
+                    "chunking_options": chunking_options,
                 },
                 qa_create_params.QACreateParams,
             ),
@@ -150,9 +150,9 @@ class AsyncQAResource(AsyncAPIResource):
         model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
         ignore_inextractability: bool | Omit = omit,
         top_k: int | Omit = omit,
+        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -182,8 +182,6 @@ class AsyncQAResource(AsyncAPIResource):
 
               Each text must contain at least one non-whitespace character.
 
-          chunking_options: Options for how to split text into smaller chunks.
-
           ignore_inextractability: Whether to, if the model's score of the likelihood that an answer can not be
               extracted from a text is greater than the highest score of all possible answers,
               still return the highest scoring answers for that text.
@@ -195,6 +193,8 @@ class AsyncQAResource(AsyncAPIResource):
           top_k: The number of highest scoring answers to return.
 
               If `null`, which is the default, all answers will be returned.
+
+          chunking_options: Options for how to split text into smaller chunks.
 
           extra_headers: Send extra headers
 
@@ -211,9 +211,9 @@ class AsyncQAResource(AsyncAPIResource):
                     "model": model,
                     "query": query,
                     "texts": texts,
-                    "chunking_options": chunking_options,
                     "ignore_inextractability": ignore_inextractability,
                     "top_k": top_k,
+                    "chunking_options": chunking_options,
                 },
                 qa_create_params.QACreateParams,
             ),

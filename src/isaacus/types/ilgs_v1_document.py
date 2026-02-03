@@ -24,92 +24,7 @@ __all__ = ["ILGSv1Document"]
 class ILGSv1Document(BaseModel):
     """The enriched document."""
 
-    crossreferences: List[ILGSv1Crossreference]
-    """
-    An array of cross-references within the document pointing to a single segment or
-    a span of segments.
-    """
-
-    dates: List[ILGSv1Date]
-    """
-    An array of dates identified in the document belonging to one of the following
-    types: `creation`, `signature`, `effective`, `expiry`, `delivery`, `renewal`,
-    `payment`, `birth`, or `death`.
-
-    Only Gregorian dates between the years 1000 and 9999 (inclusive) fitting into
-    one of the supported date types are extractable.
-    """
-
-    emails: List[ILGSv1Email]
-    """
-    An array of email addresses identified in the document belonging to legal
-    persons.
-
-    Email addresses mentioned in the document that are not attributable to legal
-    persons will not be extracted.
-    """
-
-    external_documents: List[ILGSv1ExternalDocument]
-    """An array of documents identified within the document."""
-
-    headings: List[ILGSv1Span]
-    """An array of spans within the document's text constituting headings."""
-
-    id_numbers: List[ILGSv1IDNumber]
-    """
-    An array of identification numbers identified in the document belonging to legal
-    persons.
-
-    Identification numbers mentioned in the document that are not attributable to
-    legal persons will not be extracted.
-    """
-
-    junk: List[ILGSv1Span]
-    """
-    An array of spans within the document's text constituting non-operative,
-    non-substantive 'junk' content such as headers, footers, page numbers, and OCR
-    artifacts.
-    """
-
-    jurisdiction: Optional[str] = None
-    """
-    A jurisdiction code representing a country (via an initial country code) and,
-    optionally, a subdivision within that country (via a subsequent subdivision code
-    prefixed by a hyphen).
-
-    All 249 ISO 3166-1 alpha-2 country codes are representable in addition to
-    special `INT` and `EU` codes for international and European Union law,
-    respectively.
-
-    All 5,046 ISO 3166-2 codes are also representable in addition to a special `FED`
-    code for federal law.
-    """
-
-    locations: List[ILGSv1Location]
-    """An array of locations identified in the document."""
-
-    persons: List[ILGSv1Person]
-    """An array of legal persons identified in the document."""
-
-    phone_numbers: List[ILGSv1PhoneNumber]
-    """
-    An array of valid phone numbers identified in the document belonging to legal
-    persons.
-
-    Phone numbers mentioned in the document that are not valid, possible, or
-    attributable to legal persons will not be extracted.
-    """
-
-    quotes: List[ILGSv1Quote]
-    """An array of quotations within the document."""
-
-    segments: List[ILGSv1Segment]
-    """
-    An array of segments within the document representing structurally distinct
-    portions of its content.
-    """
-
-    subtitle: Optional[ILGSv1Span] = None
+    title: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -125,10 +40,7 @@ class ILGSv1Document(BaseModel):
     code units instead of Unicode code points).
     """
 
-    terms: List[ILGSv1Term]
-    """An array of terms assigned definite meanings within the document."""
-
-    title: Optional[ILGSv1Span] = None
+    subtitle: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -162,7 +74,46 @@ class ILGSv1Document(BaseModel):
     of the predefined types.
     """
 
-    version: Literal["ilgs@1"]
+    jurisdiction: Optional[str] = None
+    """
+    A jurisdiction code representing a country (via an initial country code) and,
+    optionally, a subdivision within that country (via a subsequent subdivision code
+    prefixed by a hyphen).
+
+    All 249 ISO 3166-1 alpha-2 country codes are representable in addition to
+    special `INT` and `EU` codes for international and European Union law,
+    respectively.
+
+    All 5,046 ISO 3166-2 codes are also representable in addition to a special `FED`
+    code for federal law.
+    """
+
+    segments: List[ILGSv1Segment]
+    """
+    An array of segments within the document representing structurally distinct
+    portions of its content.
+    """
+
+    crossreferences: List[ILGSv1Crossreference]
+    """
+    An array of cross-references within the document pointing to a single segment or
+    a span of segments.
+    """
+
+    locations: List[ILGSv1Location]
+    """An array of locations identified in the document."""
+
+    persons: List[ILGSv1Person]
+    """An array of legal persons identified in the document."""
+
+    emails: List[ILGSv1Email]
+    """
+    An array of email addresses identified in the document belonging to legal
+    persons.
+
+    Email addresses mentioned in the document that are not attributable to legal
+    persons will not be extracted.
+    """
 
     websites: List[ILGSv1Website]
     """An array of websites identified in the document belonging to legal persons.
@@ -170,3 +121,52 @@ class ILGSv1Document(BaseModel):
     Websites mentioned in the document that are not attributable to legal persons
     will not be extracted.
     """
+
+    phone_numbers: List[ILGSv1PhoneNumber]
+    """
+    An array of valid phone numbers identified in the document belonging to legal
+    persons.
+
+    Phone numbers mentioned in the document that are not valid, possible, or
+    attributable to legal persons will not be extracted.
+    """
+
+    id_numbers: List[ILGSv1IDNumber]
+    """
+    An array of identification numbers identified in the document belonging to legal
+    persons.
+
+    Identification numbers mentioned in the document that are not attributable to
+    legal persons will not be extracted.
+    """
+
+    terms: List[ILGSv1Term]
+    """An array of terms assigned definite meanings within the document."""
+
+    external_documents: List[ILGSv1ExternalDocument]
+    """An array of documents identified within the document."""
+
+    quotes: List[ILGSv1Quote]
+    """An array of quotations within the document."""
+
+    dates: List[ILGSv1Date]
+    """
+    An array of dates identified in the document belonging to one of the following
+    types: `creation`, `signature`, `effective`, `expiry`, `delivery`, `renewal`,
+    `payment`, `birth`, or `death`.
+
+    Only Gregorian dates between the years 1000 and 9999 (inclusive) fitting into
+    one of the supported date types are extractable.
+    """
+
+    headings: List[ILGSv1Span]
+    """An array of spans within the document's text constituting headings."""
+
+    junk: List[ILGSv1Span]
+    """
+    An array of spans within the document's text constituting non-operative,
+    non-substantive 'junk' content such as headers, footers, page numbers, and OCR
+    artifacts.
+    """
+
+    version: Literal["ilgs@1"]

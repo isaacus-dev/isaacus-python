@@ -11,14 +11,14 @@ __all__ = ["EnrichmentResponse", "Result", "Usage"]
 class Result(BaseModel):
     """An enriched document alongside its index in the input array of texts."""
 
-    document: ILGSv1Document
-    """The enriched document."""
-
     index: int
     """
     The index of this document in the input array of texts, starting at `0` (and,
     therefore, ending at the number of inputs minus `1`).
     """
+
+    document: ILGSv1Document
+    """The enriched document."""
 
 
 class Usage(BaseModel):

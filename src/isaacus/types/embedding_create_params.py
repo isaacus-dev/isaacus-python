@@ -25,8 +25,15 @@ class EmbeddingCreateParams(TypedDict, total=False):
     No more than 128 texts can be embedded in a single request.
     """
 
-    dimensions: Optional[int]
-    """A whole number greater than or equal to 1."""
+    task: Optional[Literal["retrieval/query", "retrieval/document"]]
+    """The task the embeddings will be used for.
+
+    `retrieval/query` is meant for queries and statements, and `retrieval/document`
+    is meant for anything to be retrieved using query embeddings.
+
+    If `null`, which is the default setting, embeddings will not be optimized for
+    any particular task.
+    """
 
     overflow_strategy: Optional[Literal["drop_end"]]
     """The strategy to employ when content exceeds the model's maximum input length.
@@ -38,12 +45,5 @@ class EmbeddingCreateParams(TypedDict, total=False):
     input length.
     """
 
-    task: Optional[Literal["retrieval/query", "retrieval/document"]]
-    """The task the embeddings will be used for.
-
-    `retrieval/query` is meant for queries and statements, and `retrieval/document`
-    is meant for anything to be retrieved using query embeddings.
-
-    If `null`, which is the default setting, embeddings will not be optimized for
-    any particular task.
-    """
+    dimensions: Optional[int]
+    """A whole number greater than or equal to 1."""

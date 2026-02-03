@@ -18,12 +18,6 @@ class ILGSv1Location(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[ILGSv1Span]
-    """
-    An array of one or more spans within the document's text where the location is
-    mentioned.
-    """
-
     name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
@@ -40,14 +34,20 @@ class ILGSv1Location(BaseModel):
     code units instead of Unicode code points).
     """
 
+    type: Literal["country", "state", "city", "address", "other"]
+    """
+    The type of the location, being one of `country`, `state`, `city`, `address`, or
+    `other`.
+    """
+
     parent: Optional[str] = None
     """
     A unique identifier for a location in the format `loc:{index}` where `{index}`
     is a non-negative incrementing integer starting from zero.
     """
 
-    type: Literal["country", "state", "city", "address", "other"]
+    mentions: List[ILGSv1Span]
     """
-    The type of the location, being one of `country`, `state`, `city`, `address`, or
-    `other`.
+    An array of one or more spans within the document's text where the location is
+    mentioned.
     """

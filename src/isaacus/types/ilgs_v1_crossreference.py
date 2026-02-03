@@ -9,6 +9,14 @@ __all__ = ["ILGSv1Crossreference"]
 class ILGSv1Crossreference(BaseModel):
     """A cross-reference within the document pointing to one or more segments."""
 
+    start: str
+    """
+    The unique identifier of the earliest segment in the span of segments being
+    cross-referenced with ties broken in favor of the least-nested (i.e., largest)
+    segment. If the cross-reference points to a single segment, `start` and `end`
+    will be identical.
+    """
+
     end: str
     """
     The unique identifier of the latest segment in the span of segments being
@@ -31,12 +39,4 @@ class ILGSv1Crossreference(BaseModel):
     zero-based, half-open, Unicode code point-spaced string indexing), indices may
     need to be translated accordingly (for example, JavaScript slices into UTF-16
     code units instead of Unicode code points).
-    """
-
-    start: str
-    """
-    The unique identifier of the earliest segment in the span of segments being
-    cross-referenced with ties broken in favor of the least-nested (i.e., largest)
-    segment. If the cross-reference points to a single segment, `start` and `end`
-    will be identical.
     """

@@ -38,13 +38,13 @@ class TestQA:
             texts=[
                 "The standard sentence for murder in the State of Victoria is 30 years if the person murdered was a police officer and 25 years in any other case."
             ],
-            chunking_options={
-                "overlap_ratio": 0.1,
-                "overlap_tokens": 10,
-                "size": 512,
-            },
             ignore_inextractability=False,
             top_k=1,
+            chunking_options={
+                "size": 512,
+                "overlap_ratio": 0.1,
+                "overlap_tokens": 10,
+            },
         )
         assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
@@ -109,13 +109,13 @@ class TestAsyncQA:
             texts=[
                 "The standard sentence for murder in the State of Victoria is 30 years if the person murdered was a police officer and 25 years in any other case."
             ],
-            chunking_options={
-                "overlap_ratio": 0.1,
-                "overlap_tokens": 10,
-                "size": 512,
-            },
             ignore_inextractability=False,
             top_k=1,
+            chunking_options={
+                "size": 512,
+                "overlap_ratio": 0.1,
+                "overlap_tokens": 10,
+            },
         )
         assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 

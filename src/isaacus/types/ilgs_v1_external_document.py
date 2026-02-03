@@ -18,27 +18,6 @@ class ILGSv1ExternalDocument(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    jurisdiction: Optional[str] = None
-    """
-    A jurisdiction code representing a country (via an initial country code) and,
-    optionally, a subdivision within that country (via a subsequent subdivision code
-    prefixed by a hyphen).
-
-    All 249 ISO 3166-1 alpha-2 country codes are representable in addition to
-    special `INT` and `EU` codes for international and European Union law,
-    respectively.
-
-    All 5,046 ISO 3166-2 codes are also representable in addition to a special `FED`
-    code for federal law.
-    """
-
-    mentions: List[ILGSv1Span]
-    """
-    An array of one or more spans within the document's text where the external
-    document is mentioned by name, for example, 'the US Constitution' in 'the Second
-    Amendment to the US Constitution protects freedom of speech'.
-    """
-
     name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
@@ -55,11 +34,36 @@ class ILGSv1ExternalDocument(BaseModel):
     code units instead of Unicode code points).
     """
 
-    pinpoints: List[ILGSv1Span]
+    type: Literal["statute", "regulation", "decision", "contract", "other"]
     """
-    An array of spans within the document's text where specific parts of the
-    external document are referenced, for example, 'Section 2' in 'as defined in
-    Section 2 of the US Constitution'.
+    The type of the external document, being one of `statute`, `regulation`,
+    `decision`, `contract`, or `other`.
+
+    `statute` denotes primary legislation such as acts, bills, codes, and
+    constitutions.
+
+    `regulation` denotes secondary legislation such as rules, statutory instruments,
+    and ordinances.
+
+    `decision` denotes judicial or quasi-judicial decisions such as court judgments,
+    judicial opinions, and tribunal rulings.
+
+    `other` is used for all other types of legal documents that do not fit into any
+    of the predefined types.
+    """
+
+    jurisdiction: Optional[str] = None
+    """
+    A jurisdiction code representing a country (via an initial country code) and,
+    optionally, a subdivision within that country (via a subsequent subdivision code
+    prefixed by a hyphen).
+
+    All 249 ISO 3166-1 alpha-2 country codes are representable in addition to
+    special `INT` and `EU` codes for international and European Union law,
+    respectively.
+
+    All 5,046 ISO 3166-2 codes are also representable in addition to a special `FED`
+    code for federal law.
     """
 
     reception: Literal["positive", "mixed", "negative", "neutral"]
@@ -82,20 +86,16 @@ class ILGSv1ExternalDocument(BaseModel):
     expressing any particular sentiment towards it.
     """
 
-    type: Literal["statute", "regulation", "decision", "contract", "other"]
+    mentions: List[ILGSv1Span]
     """
-    The type of the external document, being one of `statute`, `regulation`,
-    `decision`, `contract`, or `other`.
+    An array of one or more spans within the document's text where the external
+    document is mentioned by name, for example, 'the US Constitution' in 'the Second
+    Amendment to the US Constitution protects freedom of speech'.
+    """
 
-    `statute` denotes primary legislation such as acts, bills, codes, and
-    constitutions.
-
-    `regulation` denotes secondary legislation such as rules, statutory instruments,
-    and ordinances.
-
-    `decision` denotes judicial or quasi-judicial decisions such as court judgments,
-    judicial opinions, and tribunal rulings.
-
-    `other` is used for all other types of legal documents that do not fit into any
-    of the predefined types.
+    pinpoints: List[ILGSv1Span]
+    """
+    An array of spans within the document's text where specific parts of the
+    external document are referenced, for example, 'Section 2' in 'as defined in
+    Section 2 of the US Constitution'.
     """

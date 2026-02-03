@@ -20,44 +20,6 @@ class ILGSv1Segment(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    category: Literal["front_matter", "scope", "main", "annotation", "back_matter", "other"]
-    """
-    The functional 'category' of the segment within the document, being one of
-    `front_matter`, `scope`, `main`, `annotation`, `back_matter`, or `other`.
-
-    `front_matter` denotes non-operative contextualizing content occurring at the
-    start of a document such as a preamble or recitals.
-
-    `scope` denotes operative content defining the application or interpretation of
-    a document such as definition sections and governing law clauses.
-
-    `main` denotes operative, non-scopal content.
-
-    `annotation` denotes non-operative annotative content providing explanatory or
-    referential information such as commentary, footnotes, and endnotes.
-
-    `back_matter` denotes non-operative contextualizing content occurring at the end
-    of a document such as authority statements.
-
-    `other` denotes content that does not fit into any of the other categories.
-    """
-
-    code: Optional[ILGSv1Span] = None
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible
-    for any two spans to partially overlap; they can only be disjoint, adjacent, or
-    wholly nested. Spans of the exact same type (e.g., segments) will never be
-    duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses
-    zero-based, half-open, Unicode code point-spaced string indexing), indices may
-    need to be translated accordingly (for example, JavaScript slices into UTF-16
-    code units instead of Unicode code points).
-    """
-
     kind: Literal["container", "unit", "item", "figure"]
     """
     The structural 'kind' of the segment, being one of `container`, `unit`, `item`,
@@ -78,44 +40,6 @@ class ILGSv1Segment(BaseModel):
 
     A `figure` is a visually structured or tabular unit of content such as a
     diagram, equation, or table. It cannot contain segments.
-    """
-
-    parent: Optional[str] = None
-    """
-    A unique identifier for a segment in the format `seg:{index}` where `{index}` is
-    a non-negative incrementing integer starting from zero.
-    """
-
-    span: ILGSv1Span
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible
-    for any two spans to partially overlap; they can only be disjoint, adjacent, or
-    wholly nested. Spans of the exact same type (e.g., segments) will never be
-    duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses
-    zero-based, half-open, Unicode code point-spaced string indexing), indices may
-    need to be translated accordingly (for example, JavaScript slices into UTF-16
-    code units instead of Unicode code points).
-    """
-
-    title: Optional[ILGSv1Span] = None
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible
-    for any two spans to partially overlap; they can only be disjoint, adjacent, or
-    wholly nested. Spans of the exact same type (e.g., segments) will never be
-    duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses
-    zero-based, half-open, Unicode code point-spaced string indexing), indices may
-    need to be translated accordingly (for example, JavaScript slices into UTF-16
-    code units instead of Unicode code points).
     """
 
     type: Optional[
@@ -188,7 +112,83 @@ class ILGSv1Segment(BaseModel):
     of which are exclusive to it.
     """
 
+    category: Literal["front_matter", "scope", "main", "annotation", "back_matter", "other"]
+    """
+    The functional 'category' of the segment within the document, being one of
+    `front_matter`, `scope`, `main`, `annotation`, `back_matter`, or `other`.
+
+    `front_matter` denotes non-operative contextualizing content occurring at the
+    start of a document such as a preamble or recitals.
+
+    `scope` denotes operative content defining the application or interpretation of
+    a document such as definition sections and governing law clauses.
+
+    `main` denotes operative, non-scopal content.
+
+    `annotation` denotes non-operative annotative content providing explanatory or
+    referential information such as commentary, footnotes, and endnotes.
+
+    `back_matter` denotes non-operative contextualizing content occurring at the end
+    of a document such as authority statements.
+
+    `other` denotes content that does not fit into any of the other categories.
+    """
+
     type_name: Optional[ILGSv1Span] = None
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
+
+    code: Optional[ILGSv1Span] = None
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
+
+    title: Optional[ILGSv1Span] = None
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
+
+    parent: Optional[str] = None
+    """
+    A unique identifier for a segment in the format `seg:{index}` where `{index}` is
+    a non-negative incrementing integer starting from zero.
+    """
+
+    span: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible

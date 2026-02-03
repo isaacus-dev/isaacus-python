@@ -8,18 +8,24 @@ __all__ = ["UniversalClassificationResponse", "Classification", "ClassificationC
 
 
 class ClassificationChunk(BaseModel):
-    end: int
-    """
-    The index of the character immediately after the last character of the chunk in
-    the original text, beginning from `0` (such that, in Python, the chunk is
-    equivalent to `text[start:end]`).
-    """
-
     index: int
     """
     The original position of the chunk in the outputted list of chunks before
     sorting, starting from `0` (and, therefore, ending at the number of chunks minus
     `1`).
+    """
+
+    start: int
+    """
+    The index of the character in the original text where the chunk starts,
+    beginning from `0`.
+    """
+
+    end: int
+    """
+    The index of the character immediately after the last character of the chunk in
+    the original text, beginning from `0` (such that, in Python, the chunk is
+    equivalent to `text[start:end]`).
     """
 
     score: float
@@ -31,26 +37,11 @@ class ClassificationChunk(BaseModel):
     score less than `0.5` indicates that the chunk does not support the query.
     """
 
-    start: int
-    """
-    The index of the character in the original text where the chunk starts,
-    beginning from `0`.
-    """
-
     text: str
     """The text of the chunk."""
 
 
 class Classification(BaseModel):
-    chunks: Optional[List[ClassificationChunk]] = None
-    """
-    The text as broken into chunks by
-    [semchunk](https://github.com/isaacus-dev/semchunk), each chunk with its own
-    confidence score, ordered from highest to lowest score.
-
-    If no chunking occurred, this will be `null`.
-    """
-
     index: int
     """
     The index of the text in the input array of texts, starting from `0` (and,
@@ -64,6 +55,15 @@ class Classification(BaseModel):
 
     A score greater than `0.5` indicates that the text supports the query, while a
     score less than `0.5` indicates that the text does not support the query.
+    """
+
+    chunks: Optional[List[ClassificationChunk]] = None
+    """
+    The text as broken into chunks by
+    [semchunk](https://github.com/isaacus-dev/semchunk), each chunk with its own
+    confidence score, ordered from highest to lowest score.
+
+    If no chunking occurred, this will be `null`.
     """
 
 

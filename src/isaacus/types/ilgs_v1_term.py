@@ -17,6 +17,22 @@ class ILGSv1Term(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
+    name: ILGSv1Span
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
+
     meaning: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
@@ -40,20 +56,4 @@ class ILGSv1Term(BaseModel):
 
     It is possible for the term to have no mentions if, outside of its definition,
     it is never referred to in the document.
-    """
-
-    name: ILGSv1Span
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible
-    for any two spans to partially overlap; they can only be disjoint, adjacent, or
-    wholly nested. Spans of the exact same type (e.g., segments) will never be
-    duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses
-    zero-based, half-open, Unicode code point-spaced string indexing), indices may
-    need to be translated accordingly (for example, JavaScript slices into UTF-16
-    code units instead of Unicode code points).
     """

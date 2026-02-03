@@ -17,11 +17,11 @@ class ILGSv1Email(BaseModel):
     address: str
     """The normalized email address."""
 
+    person: str
+    """The unique identifier of the person that this email address belongs to."""
+
     mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the email address
     is mentioned.
     """
-
-    person: str
-    """The unique identifier of the person that this email address belongs to."""

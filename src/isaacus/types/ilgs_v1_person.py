@@ -18,12 +18,6 @@ class ILGSv1Person(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[ILGSv1Span]
-    """
-    An array of one or more spans within the document's text where the person is
-    mentioned.
-    """
-
     name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
@@ -40,16 +34,20 @@ class ILGSv1Person(BaseModel):
     code units instead of Unicode code points).
     """
 
-    parent: Optional[str] = None
+    type: Literal["natural", "corporate", "politic"]
     """
-    A unique identifier for a legal person in the format `per:{index}` where
-    `{index}` is a non-negative incrementing integer starting from zero.
-    """
+    The legal entity type of the person, being one of `natural`, `corporate`, or
+    `politic`.
 
-    residence: Optional[str] = None
-    """
-    A unique identifier for a location in the format `loc:{index}` where `{index}`
-    is a non-negative incrementing integer starting from zero.
+    `natural` denotes a human being in their capacity as a natural legal person,
+    including when representing unincorporated entities such as partnerships and
+    trusts.
+
+    `corporate` denotes a body corporate such as a company, incorporated
+    partnership, or statutory corporation.
+
+    `politic` denotes a body politic such as a court, state, government, or
+    intergovernmental organization.
     """
 
     role: Literal[
@@ -178,18 +176,20 @@ class ILGSv1Person(BaseModel):
     legislation, or regulation that is the subject of the document. |
     """
 
-    type: Literal["natural", "corporate", "politic"]
+    parent: Optional[str] = None
     """
-    The legal entity type of the person, being one of `natural`, `corporate`, or
-    `politic`.
+    A unique identifier for a legal person in the format `per:{index}` where
+    `{index}` is a non-negative incrementing integer starting from zero.
+    """
 
-    `natural` denotes a human being in their capacity as a natural legal person,
-    including when representing unincorporated entities such as partnerships and
-    trusts.
+    residence: Optional[str] = None
+    """
+    A unique identifier for a location in the format `loc:{index}` where `{index}`
+    is a non-negative incrementing integer starting from zero.
+    """
 
-    `corporate` denotes a body corporate such as a company, incorporated
-    partnership, or statutory corporation.
-
-    `politic` denotes a body politic such as a court, state, government, or
-    intergovernmental organization.
+    mentions: List[ILGSv1Span]
+    """
+    An array of one or more spans within the document's text where the person is
+    mentioned.
     """
