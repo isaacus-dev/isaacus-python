@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List, Union, Optional
+from typing import List, Optional
 from typing_extensions import Literal
 
 from .._models import BaseModel
@@ -10,19 +10,52 @@ __all__ = [
     "Result",
     "ResultDocument",
     "ResultDocumentCrossreference",
+    "ResultDocumentCrossreferenceSpan",
     "ResultDocumentDate",
+    "ResultDocumentDateMention",
     "ResultDocumentEmail",
+    "ResultDocumentEmailMention",
     "ResultDocumentExternalDocument",
+    "ResultDocumentExternalDocumentMention",
+    "ResultDocumentExternalDocumentName",
+    "ResultDocumentExternalDocumentPinpoint",
+    "ResultDocumentHeading",
     "ResultDocumentIDNumber",
+    "ResultDocumentIDNumberMention",
+    "ResultDocumentJunk",
     "ResultDocumentLocation",
+    "ResultDocumentLocationMention",
+    "ResultDocumentLocationName",
     "ResultDocumentPerson",
+    "ResultDocumentPersonMention",
+    "ResultDocumentPersonName",
     "ResultDocumentPhoneNumber",
+    "ResultDocumentPhoneNumberMention",
     "ResultDocumentQuote",
+    "ResultDocumentQuoteSpan",
     "ResultDocumentSegment",
+    "ResultDocumentSegmentCode",
+    "ResultDocumentSegmentSpan",
+    "ResultDocumentSegmentTitle",
+    "ResultDocumentSegmentTypeName",
+    "ResultDocumentSubtitle",
     "ResultDocumentTerm",
+    "ResultDocumentTermMeaning",
+    "ResultDocumentTermMention",
+    "ResultDocumentTermName",
+    "ResultDocumentTitle",
     "ResultDocumentWebsite",
+    "ResultDocumentWebsiteMention",
     "Usage",
 ]
+
+
+class ResultDocumentCrossreferenceSpan(BaseModel):
+    """The span of the segment within the document's text."""
+
+    end: int
+
+    start: int
 
 
 class ResultDocumentCrossreference(BaseModel):
@@ -36,8 +69,8 @@ class ResultDocumentCrossreference(BaseModel):
     will be identical.
     """
 
-    span: List[object]
-    """The span within the document's text where the cross-reference occurs."""
+    span: ResultDocumentCrossreferenceSpan
+    """The span of the segment within the document's text."""
 
     start: str
     """
@@ -48,6 +81,21 @@ class ResultDocumentCrossreference(BaseModel):
     """
 
 
+class ResultDocumentDateMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
 class ResultDocumentDate(BaseModel):
     """
     A date identified in a document belonging to one of the following types: `creation`, `signature`, `effective`, `expiry`, `delivery`, `renewal`, `payment`, `birth`, or `death`.
@@ -55,7 +103,7 @@ class ResultDocumentDate(BaseModel):
     Only Gregorian dates between the years 1000 and 9999 (inclusive) fitting into one of the supported date types are extractable.
     """
 
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentDateMention]
     """
     An array of one or more spans within the document's text where the date is
     mentioned.
@@ -109,6 +157,21 @@ class ResultDocumentDate(BaseModel):
     """The date in ISO 8601 format (YYYY-MM-DD)."""
 
 
+class ResultDocumentEmailMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
 class ResultDocumentEmail(BaseModel):
     """An email address identified in a document belonging to a legal person.
 
@@ -118,7 +181,7 @@ class ResultDocumentEmail(BaseModel):
     address: str
     """The normalized email address."""
 
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentEmailMention]
     """
     An array of one or more spans within the document's text where the email address
     is mentioned.
@@ -126,6 +189,44 @@ class ResultDocumentEmail(BaseModel):
 
     person: str
     """The unique identifier of the person that this email address belongs to."""
+
+
+class ResultDocumentExternalDocumentMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentExternalDocumentName(BaseModel):
+    """The span of the segment within the document's text."""
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentExternalDocumentPinpoint(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
 
 
 class ResultDocumentExternalDocument(BaseModel):
@@ -151,27 +252,17 @@ class ResultDocumentExternalDocument(BaseModel):
     code for federal law.
     """
 
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentExternalDocumentMention]
     """
     An array of one or more spans within the document's text where the external
     document is mentioned by name, for example, 'the US Constitution' in 'the Second
     Amendment to the US Constitution protects freedom of speech'.
     """
 
-    name: List[object]
-    """
-    A span within the document's text representing the 'most proper' name of the
-    external document.
+    name: ResultDocumentExternalDocumentName
+    """The span of the segment within the document's text."""
 
-    As an example, a document referred to as the 'Constitution of the United States
-    of America' in two places in a document, the 'U.S. Constitution' in three
-    places, and the 'Constitution' in one place would have its `name` set to
-    whichever span the model was most confident represented the proper name of the
-    document, likely being one of the 'Constitution of the United States of America'
-    spans.
-    """
-
-    pinpoints: List[List[Union[int, int]]]
+    pinpoints: List[ResultDocumentExternalDocumentPinpoint]
     """
     An array of spans within the document's text where specific parts of the
     external document are referenced, for example, 'Section 2' in 'as defined in
@@ -217,13 +308,43 @@ class ResultDocumentExternalDocument(BaseModel):
     """
 
 
+class ResultDocumentHeading(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentIDNumberMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
 class ResultDocumentIDNumber(BaseModel):
     """An identification number mentioned in a document belonging to a legal person.
 
     If an identification number was mentioned in the document but is not attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentIDNumberMention]
     """
     An array of one or more spans within the document's text where the
     identification number is mentioned.
@@ -236,6 +357,44 @@ class ResultDocumentIDNumber(BaseModel):
     """The unique identifier of the person that this identification number belongs to."""
 
 
+class ResultDocumentJunk(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentLocationMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentLocationName(BaseModel):
+    """The span of the segment within the document's text."""
+
+    end: int
+
+    start: int
+
+
 class ResultDocumentLocation(BaseModel):
     """A location identified within a document."""
 
@@ -245,22 +404,14 @@ class ResultDocumentLocation(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentLocationMention]
     """
     An array of one or more spans within the document's text where the location is
     mentioned.
     """
 
-    name: List[object]
-    """
-    A span within the document's text representing the 'most proper' name of the
-    location.
-
-    As an example, a location referred to as 'New York City' in two places in a
-    document, 'NYC' in three places, and 'the Big Apple' in one place would have its
-    `name` set to whichever span the model was most confident represented the proper
-    name of the location, likely being one of the 'New York City' spans.
-    """
+    name: ResultDocumentLocationName
+    """The span of the segment within the document's text."""
 
     parent: Optional[str] = None
     """
@@ -275,6 +426,29 @@ class ResultDocumentLocation(BaseModel):
     """
 
 
+class ResultDocumentPersonMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentPersonName(BaseModel):
+    """The span of the segment within the document's text."""
+
+    end: int
+
+    start: int
+
+
 class ResultDocumentPerson(BaseModel):
     """A legal person identified in a document."""
 
@@ -284,22 +458,14 @@ class ResultDocumentPerson(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentPersonMention]
     """
     An array of one or more spans within the document's text where the person is
     mentioned.
     """
 
-    name: List[object]
-    """
-    A span within the document's text representing the 'most proper' name of the
-    person.
-
-    As an example, a person referred to as 'Jonathan A. Doe' in two places in a
-    document, 'John Doe' in three places, and 'Mr. Doe' in one place would have
-    their `name` set to whichever span the model was most confident represented the
-    proper name of the person, likely being one of the 'Jonathan A. Doe' spans.
-    """
+    name: ResultDocumentPersonName
+    """The span of the segment within the document's text."""
 
     parent: Optional[str] = None
     """
@@ -456,13 +622,28 @@ class ResultDocumentPerson(BaseModel):
     """
 
 
+class ResultDocumentPhoneNumberMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
 class ResultDocumentPhoneNumber(BaseModel):
     """A valid phone number identified in a document belonging to a legal person.
 
     If a phone number was mentioned in the document but is not valid, possible, or attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentPhoneNumberMention]
     """
     An array of one or more spans within the document's text where the phone number
     is mentioned.
@@ -476,6 +657,14 @@ class ResultDocumentPhoneNumber(BaseModel):
 
     person: str
     """The unique identifier of the person that this phone number belongs to."""
+
+
+class ResultDocumentQuoteSpan(BaseModel):
+    """The span of the segment within the document's text."""
+
+    end: int
+
+    start: int
 
 
 class ResultDocumentQuote(BaseModel):
@@ -505,8 +694,61 @@ class ResultDocumentQuote(BaseModel):
     a non-negative incrementing integer starting from zero.
     """
 
-    span: List[object]
-    """The span within the document's text where the quote occurs."""
+    span: ResultDocumentQuoteSpan
+    """The span of the segment within the document's text."""
+
+
+class ResultDocumentSegmentCode(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentSegmentSpan(BaseModel):
+    """The span of the segment within the document's text."""
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentSegmentTitle(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentSegmentTypeName(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
 
 
 class ResultDocumentSegment(BaseModel):
@@ -542,10 +784,8 @@ class ResultDocumentSegment(BaseModel):
     `other` denotes content that does not fit into any of the other categories.
     """
 
-    code: Optional[List[Union[int, int]]] = None
-    """
-    The start index and the index immediately after the end of a span of Unicode
-    code points in input text.
+    code: Optional[ResultDocumentSegmentCode] = None
+    """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
     for any two spans to partially overlap; they can only be disjoint, adjacent, or
@@ -588,13 +828,11 @@ class ResultDocumentSegment(BaseModel):
     a non-negative incrementing integer starting from zero.
     """
 
-    span: List[object]
+    span: ResultDocumentSegmentSpan
     """The span of the segment within the document's text."""
 
-    title: Optional[List[Union[int, int]]] = None
-    """
-    The start index and the index immediately after the end of a span of Unicode
-    code points in input text.
+    title: Optional[ResultDocumentSegmentTitle] = None
+    """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
     for any two spans to partially overlap; they can only be disjoint, adjacent, or
@@ -679,10 +917,8 @@ class ResultDocumentSegment(BaseModel):
     of which are exclusive to it.
     """
 
-    type_name: Optional[List[Union[int, int]]] = None
-    """
-    The start index and the index immediately after the end of a span of Unicode
-    code points in input text.
+    type_name: Optional[ResultDocumentSegmentTypeName] = None
+    """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
     for any two spans to partially overlap; they can only be disjoint, adjacent, or
@@ -698,6 +934,52 @@ class ResultDocumentSegment(BaseModel):
     """
 
 
+class ResultDocumentSubtitle(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentTermMeaning(BaseModel):
+    """The span of the segment within the document's text."""
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentTermMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentTermName(BaseModel):
+    """The span of the segment within the document's text."""
+
+    end: int
+
+    start: int
+
+
 class ResultDocumentTerm(BaseModel):
     """A term assigned a definite meaning within a document."""
 
@@ -707,15 +989,10 @@ class ResultDocumentTerm(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    meaning: List[object]
-    """The span within the document's text providing the term's meaning or definition.
+    meaning: ResultDocumentTermMeaning
+    """The span of the segment within the document's text."""
 
-    For example, in the phrase '"Agreement" means this contract between the
-    parties', the term's meaning would be the span covering 'this contract between
-    the parties'.
-    """
-
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentTermMention]
     """
     An array of spans within the document's text where the term is mentioned outside
     of its definition.
@@ -724,15 +1001,38 @@ class ResultDocumentTerm(BaseModel):
     it is never referred to in the document.
     """
 
-    name: List[object]
-    """The span within the document's text defining the term's name.
+    name: ResultDocumentTermName
+    """The span of the segment within the document's text."""
 
-    For example, in the phrase '"Agreement" means this contract between the
-    parties', the term's name would be the span covering 'Agreement'.
 
-    The term's name is different from and will never overlap with mentions of the
-    term elsewhere in the document.
+class ResultDocumentTitle(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
     """
+
+    end: int
+
+    start: int
+
+
+class ResultDocumentWebsiteMention(BaseModel):
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
+
+    end: int
+
+    start: int
 
 
 class ResultDocumentWebsite(BaseModel):
@@ -741,7 +1041,7 @@ class ResultDocumentWebsite(BaseModel):
     If a website was mentioned in the document but is not attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[List[Union[int, int]]]
+    mentions: List[ResultDocumentWebsiteMention]
     """
     An array of one or more spans within the document's text where the website is
     mentioned (including paths and slugs which are not part of the website's
@@ -786,7 +1086,7 @@ class ResultDocument(BaseModel):
     external_documents: List[ResultDocumentExternalDocument]
     """An array of documents identified within the document."""
 
-    headings: List[List[Union[int, int]]]
+    headings: List[ResultDocumentHeading]
     """An array of spans within the document's text constituting headings."""
 
     id_numbers: List[ResultDocumentIDNumber]
@@ -798,7 +1098,7 @@ class ResultDocument(BaseModel):
     legal persons will not be extracted.
     """
 
-    junk: List[List[Union[int, int]]]
+    junk: List[ResultDocumentJunk]
     """
     An array of spans within the document's text constituting non-operative,
     non-substantive 'junk' content such as headers, footers, page numbers, and OCR
@@ -843,10 +1143,8 @@ class ResultDocument(BaseModel):
     portions of its content.
     """
 
-    subtitle: Optional[List[Union[int, int]]] = None
-    """
-    The start index and the index immediately after the end of a span of Unicode
-    code points in input text.
+    subtitle: Optional[ResultDocumentSubtitle] = None
+    """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
     for any two spans to partially overlap; they can only be disjoint, adjacent, or
@@ -864,10 +1162,8 @@ class ResultDocument(BaseModel):
     terms: List[ResultDocumentTerm]
     """An array of terms assigned definite meanings within the document."""
 
-    title: Optional[List[Union[int, int]]] = None
-    """
-    The start index and the index immediately after the end of a span of Unicode
-    code points in input text.
+    title: Optional[ResultDocumentTitle] = None
+    """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
     for any two spans to partially overlap; they can only be disjoint, adjacent, or
@@ -937,11 +1233,12 @@ class EnrichmentResponse(BaseModel):
     Schema (IGLS).
 
     All spans in an enriched document graph are indexed into the Unicode code point
-    space of the source document. Access to source documents is thus required to
+    space of a source document. Access to source documents is thus required to
     resolve spans into text.
 
-    The first and second elements of a span correspond to the start index and the
-    index immediately after the end of a span of Unicode code points.
+    The start and end indices of spans are zero-based (i.e., the first Unicode code
+    point in the document is at index 0) and half-open (i.e., the end index is
+    exclusive).
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
     for any two spans to partially overlap; they can only be disjoint, adjacent, or
