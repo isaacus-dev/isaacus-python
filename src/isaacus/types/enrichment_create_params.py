@@ -11,7 +11,7 @@ __all__ = ["EnrichmentCreateParams"]
 
 
 class EnrichmentCreateParams(TypedDict, total=False):
-    model: Required[Literal["kanon-2-enricher-preview"]]
+    model: Required[Literal["kanon-2-enricher"]]
     """
     The ID of the [model](https://docs.isaacus.com/models#enrichment) to use for
     enrichment.

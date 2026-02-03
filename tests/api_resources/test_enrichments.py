@@ -21,7 +21,7 @@ class TestEnrichments:
     @parametrize
     def test_method_create(self, client: Isaacus) -> None:
         enrichment = client.enrichments.create(
-            model="kanon-2-enricher-preview",
+            model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
         )
         assert_matches_type(EnrichmentResponse, enrichment, path=["response"])
@@ -30,7 +30,7 @@ class TestEnrichments:
     @parametrize
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         enrichment = client.enrichments.create(
-            model="kanon-2-enricher-preview",
+            model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
             overflow_strategy=None,
         )
@@ -40,7 +40,7 @@ class TestEnrichments:
     @parametrize
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.enrichments.with_raw_response.create(
-            model="kanon-2-enricher-preview",
+            model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
         )
 
@@ -53,7 +53,7 @@ class TestEnrichments:
     @parametrize
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.enrichments.with_streaming_response.create(
-            model="kanon-2-enricher-preview",
+            model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
         ) as response:
             assert not response.is_closed
@@ -74,7 +74,7 @@ class TestAsyncEnrichments:
     @parametrize
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         enrichment = await async_client.enrichments.create(
-            model="kanon-2-enricher-preview",
+            model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
         )
         assert_matches_type(EnrichmentResponse, enrichment, path=["response"])
@@ -83,7 +83,7 @@ class TestAsyncEnrichments:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         enrichment = await async_client.enrichments.create(
-            model="kanon-2-enricher-preview",
+            model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
             overflow_strategy=None,
         )
@@ -93,7 +93,7 @@ class TestAsyncEnrichments:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.enrichments.with_raw_response.create(
-            model="kanon-2-enricher-preview",
+            model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
         )
 
@@ -106,7 +106,7 @@ class TestAsyncEnrichments:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.enrichments.with_streaming_response.create(
-            model="kanon-2-enricher-preview",
+            model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
         ) as response:
             assert not response.is_closed

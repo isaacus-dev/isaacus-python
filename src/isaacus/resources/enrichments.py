@@ -47,7 +47,7 @@ class EnrichmentsResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-2-enricher-preview"],
+        model: Literal["kanon-2-enricher"],
         texts: Union[SequenceNotStr[str], str],
         overflow_strategy: Optional[Literal["auto", "drop_end"]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -129,7 +129,7 @@ class AsyncEnrichmentsResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-2-enricher-preview"],
+        model: Literal["kanon-2-enricher"],
         texts: Union[SequenceNotStr[str], str],
         overflow_strategy: Optional[Literal["auto", "drop_end"]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
