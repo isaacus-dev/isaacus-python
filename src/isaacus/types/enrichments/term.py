@@ -2,13 +2,13 @@
 
 from typing import List
 
-from .._models import BaseModel
-from .ilgs_v1_span import ILGSv1Span
+from .span import Span
+from ..._models import BaseModel
 
-__all__ = ["ILGSv1Term"]
+__all__ = ["Term"]
 
 
-class ILGSv1Term(BaseModel):
+class Term(BaseModel):
     """A term assigned a definite meaning within a document."""
 
     id: str
@@ -17,7 +17,7 @@ class ILGSv1Term(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    name: ILGSv1Span
+    name: Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -33,7 +33,7 @@ class ILGSv1Term(BaseModel):
     code units instead of Unicode code points).
     """
 
-    meaning: ILGSv1Span
+    meaning: Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -49,7 +49,7 @@ class ILGSv1Term(BaseModel):
     code units instead of Unicode code points).
     """
 
-    mentions: List[ILGSv1Span]
+    mentions: List[Span]
     """
     An array of spans within the document's text where the term is mentioned outside
     of its definition.
