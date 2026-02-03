@@ -10,6 +10,15 @@ __all__ = ["AnswerExtractionResponse", "Extraction", "ExtractionAnswer", "Usage"
 class ExtractionAnswer(BaseModel):
     """An answer extracted from a text."""
 
+    text: str
+    """The text of the answer."""
+
+    start: int
+    """
+    The index of the first character of the answer in the text, starting from `0`
+    (and, therefore, ending at the number of characters in the text minus `1`).
+    """
+
     end: int
     """
     The index of the character immediately after the last character of the answer in
@@ -22,27 +31,18 @@ class ExtractionAnswer(BaseModel):
     A score between `0` and `1`, inclusive, representing the strength of the answer.
     """
 
-    start: int
-    """
-    The index of the first character of the answer in the text, starting from `0`
-    (and, therefore, ending at the number of characters in the text minus `1`).
-    """
-
-    text: str
-    """The text of the answer."""
-
 
 class Extraction(BaseModel):
     """The result of extracting answers from a text."""
-
-    answers: List[ExtractionAnswer]
-    """Answers extracted from the text, ordered from highest to lowest score."""
 
     index: int
     """
     The index of the text in the input array of texts that this result represents,
     starting from `0` (and, therefore, ending at the number of texts minus `1`).
     """
+
+    answers: List[ExtractionAnswer]
+    """Answers extracted from the text, ordered from highest to lowest score."""
 
     inextractability_score: float
     """

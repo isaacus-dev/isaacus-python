@@ -7,10 +7,10 @@ from typing_extensions import Literal, Required, TypedDict
 
 from ..._types import SequenceNotStr
 
-__all__ = ["QaCreateParams", "ChunkingOptions"]
+__all__ = ["QACreateParams", "ChunkingOptions"]
 
 
-class QaCreateParams(TypedDict, total=False):
+class QACreateParams(TypedDict, total=False):
     model: Required[Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"]]
     """
     The ID of the
@@ -35,9 +35,6 @@ class QaCreateParams(TypedDict, total=False):
     Each text must contain at least one non-whitespace character.
     """
 
-    chunking_options: Optional[ChunkingOptions]
-    """Options for how to split text into smaller chunks."""
-
     ignore_inextractability: bool
     """
     Whether to, if the model's score of the likelihood that an answer can not be
@@ -55,15 +52,18 @@ class QaCreateParams(TypedDict, total=False):
     If `null`, which is the default, all answers will be returned.
     """
 
+    chunking_options: Optional[ChunkingOptions]
+    """Options for how to split text into smaller chunks."""
+
 
 class ChunkingOptions(TypedDict, total=False):
     """Options for how to split text into smaller chunks."""
+
+    size: Optional[int]
+    """A whole number greater than or equal to 1."""
 
     overlap_ratio: Optional[float]
     """A number greater than or equal to 0 and less than 1."""
 
     overlap_tokens: Optional[int]
     """A whole number greater than or equal to 0."""
-
-    size: Optional[int]
-    """A whole number greater than or equal to 1."""

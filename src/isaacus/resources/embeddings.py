@@ -49,9 +49,9 @@ class EmbeddingsResource(SyncAPIResource):
         *,
         model: Literal["kanon-2-embedder"],
         texts: Union[SequenceNotStr[str], str],
-        dimensions: Optional[int] | Omit = omit,
-        overflow_strategy: Optional[Literal["drop_end"]] | Omit = omit,
         task: Optional[Literal["retrieval/query", "retrieval/document"]] | Omit = omit,
+        overflow_strategy: Optional[Literal["drop_end"]] | Omit = omit,
+        dimensions: Optional[int] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -72,7 +72,13 @@ class EmbeddingsResource(SyncAPIResource):
 
               No more than 128 texts can be embedded in a single request.
 
-          dimensions: A whole number greater than or equal to 1.
+          task: The task the embeddings will be used for.
+
+              `retrieval/query` is meant for queries and statements, and `retrieval/document`
+              is meant for anything to be retrieved using query embeddings.
+
+              If `null`, which is the default setting, embeddings will not be optimized for
+              any particular task.
 
           overflow_strategy: The strategy to employ when content exceeds the model's maximum input length.
 
@@ -82,13 +88,7 @@ class EmbeddingsResource(SyncAPIResource):
               If `null`, an error will be raised if any content exceeds the model's maximum
               input length.
 
-          task: The task the embeddings will be used for.
-
-              `retrieval/query` is meant for queries and statements, and `retrieval/document`
-              is meant for anything to be retrieved using query embeddings.
-
-              If `null`, which is the default setting, embeddings will not be optimized for
-              any particular task.
+          dimensions: A whole number greater than or equal to 1.
 
           extra_headers: Send extra headers
 
@@ -104,9 +104,9 @@ class EmbeddingsResource(SyncAPIResource):
                 {
                     "model": model,
                     "texts": texts,
-                    "dimensions": dimensions,
-                    "overflow_strategy": overflow_strategy,
                     "task": task,
+                    "overflow_strategy": overflow_strategy,
+                    "dimensions": dimensions,
                 },
                 embedding_create_params.EmbeddingCreateParams,
             ),
@@ -142,9 +142,9 @@ class AsyncEmbeddingsResource(AsyncAPIResource):
         *,
         model: Literal["kanon-2-embedder"],
         texts: Union[SequenceNotStr[str], str],
-        dimensions: Optional[int] | Omit = omit,
-        overflow_strategy: Optional[Literal["drop_end"]] | Omit = omit,
         task: Optional[Literal["retrieval/query", "retrieval/document"]] | Omit = omit,
+        overflow_strategy: Optional[Literal["drop_end"]] | Omit = omit,
+        dimensions: Optional[int] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -165,7 +165,13 @@ class AsyncEmbeddingsResource(AsyncAPIResource):
 
               No more than 128 texts can be embedded in a single request.
 
-          dimensions: A whole number greater than or equal to 1.
+          task: The task the embeddings will be used for.
+
+              `retrieval/query` is meant for queries and statements, and `retrieval/document`
+              is meant for anything to be retrieved using query embeddings.
+
+              If `null`, which is the default setting, embeddings will not be optimized for
+              any particular task.
 
           overflow_strategy: The strategy to employ when content exceeds the model's maximum input length.
 
@@ -175,13 +181,7 @@ class AsyncEmbeddingsResource(AsyncAPIResource):
               If `null`, an error will be raised if any content exceeds the model's maximum
               input length.
 
-          task: The task the embeddings will be used for.
-
-              `retrieval/query` is meant for queries and statements, and `retrieval/document`
-              is meant for anything to be retrieved using query embeddings.
-
-              If `null`, which is the default setting, embeddings will not be optimized for
-              any particular task.
+          dimensions: A whole number greater than or equal to 1.
 
           extra_headers: Send extra headers
 
@@ -197,9 +197,9 @@ class AsyncEmbeddingsResource(AsyncAPIResource):
                 {
                     "model": model,
                     "texts": texts,
-                    "dimensions": dimensions,
-                    "overflow_strategy": overflow_strategy,
                     "task": task,
+                    "overflow_strategy": overflow_strategy,
+                    "dimensions": dimensions,
                 },
                 embedding_create_params.EmbeddingCreateParams,
             ),

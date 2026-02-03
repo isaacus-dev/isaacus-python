@@ -21,28 +21,28 @@ from ..._base_client import make_request_options
 from ...types.extractions import qa_create_params
 from ...types.extractions.answer_extraction_response import AnswerExtractionResponse
 
-__all__ = ["QaResource", "AsyncQaResource"]
+__all__ = ["QAResource", "AsyncQAResource"]
 
 
-class QaResource(SyncAPIResource):
+class QAResource(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> QaResourceWithRawResponse:
+    def with_raw_response(self) -> QAResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/isaacus-dev/isaacus-python#accessing-raw-response-data-eg-headers
         """
-        return QaResourceWithRawResponse(self)
+        return QAResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> QaResourceWithStreamingResponse:
+    def with_streaming_response(self) -> QAResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/isaacus-dev/isaacus-python#with_streaming_response
         """
-        return QaResourceWithStreamingResponse(self)
+        return QAResourceWithStreamingResponse(self)
 
     def create(
         self,
@@ -50,9 +50,9 @@ class QaResource(SyncAPIResource):
         model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
         ignore_inextractability: bool | Omit = omit,
         top_k: int | Omit = omit,
+        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -82,8 +82,6 @@ class QaResource(SyncAPIResource):
 
               Each text must contain at least one non-whitespace character.
 
-          chunking_options: Options for how to split text into smaller chunks.
-
           ignore_inextractability: Whether to, if the model's score of the likelihood that an answer can not be
               extracted from a text is greater than the highest score of all possible answers,
               still return the highest scoring answers for that text.
@@ -95,6 +93,8 @@ class QaResource(SyncAPIResource):
           top_k: The number of highest scoring answers to return.
 
               If `null`, which is the default, all answers will be returned.
+
+          chunking_options: Options for how to split text into smaller chunks.
 
           extra_headers: Send extra headers
 
@@ -111,11 +111,11 @@ class QaResource(SyncAPIResource):
                     "model": model,
                     "query": query,
                     "texts": texts,
-                    "chunking_options": chunking_options,
                     "ignore_inextractability": ignore_inextractability,
                     "top_k": top_k,
+                    "chunking_options": chunking_options,
                 },
-                qa_create_params.QaCreateParams,
+                qa_create_params.QACreateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -124,25 +124,25 @@ class QaResource(SyncAPIResource):
         )
 
 
-class AsyncQaResource(AsyncAPIResource):
+class AsyncQAResource(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncQaResourceWithRawResponse:
+    def with_raw_response(self) -> AsyncQAResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/isaacus-dev/isaacus-python#accessing-raw-response-data-eg-headers
         """
-        return AsyncQaResourceWithRawResponse(self)
+        return AsyncQAResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncQaResourceWithStreamingResponse:
+    def with_streaming_response(self) -> AsyncQAResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/isaacus-dev/isaacus-python#with_streaming_response
         """
-        return AsyncQaResourceWithStreamingResponse(self)
+        return AsyncQAResourceWithStreamingResponse(self)
 
     async def create(
         self,
@@ -150,9 +150,9 @@ class AsyncQaResource(AsyncAPIResource):
         model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
         query: str,
         texts: SequenceNotStr[str],
-        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
         ignore_inextractability: bool | Omit = omit,
         top_k: int | Omit = omit,
+        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -182,8 +182,6 @@ class AsyncQaResource(AsyncAPIResource):
 
               Each text must contain at least one non-whitespace character.
 
-          chunking_options: Options for how to split text into smaller chunks.
-
           ignore_inextractability: Whether to, if the model's score of the likelihood that an answer can not be
               extracted from a text is greater than the highest score of all possible answers,
               still return the highest scoring answers for that text.
@@ -195,6 +193,8 @@ class AsyncQaResource(AsyncAPIResource):
           top_k: The number of highest scoring answers to return.
 
               If `null`, which is the default, all answers will be returned.
+
+          chunking_options: Options for how to split text into smaller chunks.
 
           extra_headers: Send extra headers
 
@@ -211,11 +211,11 @@ class AsyncQaResource(AsyncAPIResource):
                     "model": model,
                     "query": query,
                     "texts": texts,
-                    "chunking_options": chunking_options,
                     "ignore_inextractability": ignore_inextractability,
                     "top_k": top_k,
+                    "chunking_options": chunking_options,
                 },
-                qa_create_params.QaCreateParams,
+                qa_create_params.QACreateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -224,8 +224,8 @@ class AsyncQaResource(AsyncAPIResource):
         )
 
 
-class QaResourceWithRawResponse:
-    def __init__(self, qa: QaResource) -> None:
+class QAResourceWithRawResponse:
+    def __init__(self, qa: QAResource) -> None:
         self._qa = qa
 
         self.create = to_raw_response_wrapper(
@@ -233,8 +233,8 @@ class QaResourceWithRawResponse:
         )
 
 
-class AsyncQaResourceWithRawResponse:
-    def __init__(self, qa: AsyncQaResource) -> None:
+class AsyncQAResourceWithRawResponse:
+    def __init__(self, qa: AsyncQAResource) -> None:
         self._qa = qa
 
         self.create = async_to_raw_response_wrapper(
@@ -242,8 +242,8 @@ class AsyncQaResourceWithRawResponse:
         )
 
 
-class QaResourceWithStreamingResponse:
-    def __init__(self, qa: QaResource) -> None:
+class QAResourceWithStreamingResponse:
+    def __init__(self, qa: QAResource) -> None:
         self._qa = qa
 
         self.create = to_streamed_response_wrapper(
@@ -251,8 +251,8 @@ class QaResourceWithStreamingResponse:
         )
 
 
-class AsyncQaResourceWithStreamingResponse:
-    def __init__(self, qa: AsyncQaResource) -> None:
+class AsyncQAResourceWithStreamingResponse:
+    def __init__(self, qa: AsyncQAResource) -> None:
         self._qa = qa
 
         self.create = async_to_streamed_response_wrapper(

@@ -34,9 +34,6 @@ class UniversalCreateParams(TypedDict, total=False):
     Each text must contain at least one non-whitespace character.
     """
 
-    chunking_options: Optional[ChunkingOptions]
-    """Options for how to split text into smaller chunks."""
-
     is_iql: bool
     """
     Whether the query should be interpreted as an
@@ -57,15 +54,18 @@ class UniversalCreateParams(TypedDict, total=False):
     `chunk_min` uses the lowest confidence score of all of the texts' chunks.
     """
 
+    chunking_options: Optional[ChunkingOptions]
+    """Options for how to split text into smaller chunks."""
+
 
 class ChunkingOptions(TypedDict, total=False):
     """Options for how to split text into smaller chunks."""
+
+    size: Optional[int]
+    """A whole number greater than or equal to 1."""
 
     overlap_ratio: Optional[float]
     """A number greater than or equal to 0 and less than 1."""
 
     overlap_tokens: Optional[int]
     """A whole number greater than or equal to 0."""
-
-    size: Optional[int]
-    """A whole number greater than or equal to 1."""

@@ -14,7 +14,7 @@ from isaacus.types.extractions import AnswerExtractionResponse
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
 
-class TestQa:
+class TestQA:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
@@ -38,13 +38,13 @@ class TestQa:
             texts=[
                 "The standard sentence for murder in the State of Victoria is 30 years if the person murdered was a police officer and 25 years in any other case."
             ],
-            chunking_options={
-                "overlap_ratio": 0.1,
-                "overlap_tokens": 10,
-                "size": 512,
-            },
             ignore_inextractability=False,
             top_k=1,
+            chunking_options={
+                "size": 512,
+                "overlap_ratio": 0.1,
+                "overlap_tokens": 10,
+            },
         )
         assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 
@@ -83,7 +83,7 @@ class TestQa:
         assert cast(Any, response.is_closed) is True
 
 
-class TestAsyncQa:
+class TestAsyncQA:
     parametrize = pytest.mark.parametrize(
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
@@ -109,13 +109,13 @@ class TestAsyncQa:
             texts=[
                 "The standard sentence for murder in the State of Victoria is 30 years if the person murdered was a police officer and 25 years in any other case."
             ],
-            chunking_options={
-                "overlap_ratio": 0.1,
-                "overlap_tokens": 10,
-                "size": 512,
-            },
             ignore_inextractability=False,
             top_k=1,
+            chunking_options={
+                "size": 512,
+                "overlap_ratio": 0.1,
+                "overlap_tokens": 10,
+            },
         )
         assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
 

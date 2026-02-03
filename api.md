@@ -38,7 +38,7 @@ Methods:
 
 # Extractions
 
-## Qa
+## QA
 
 Types:
 
@@ -55,7 +55,23 @@ Methods:
 Types:
 
 ```python
-from isaacus.types import EnrichmentResponse
+from isaacus.types import (
+    EnrichmentResponse,
+    ILGSv1Crossreference,
+    ILGSv1Date,
+    ILGSv1Document,
+    ILGSv1Email,
+    ILGSv1ExternalDocument,
+    ILGSv1IDNumber,
+    ILGSv1Location,
+    ILGSv1Person,
+    ILGSv1PhoneNumber,
+    ILGSv1Quote,
+    ILGSv1Segment,
+    ILGSv1Span,
+    ILGSv1Term,
+    ILGSv1Website,
+)
 ```
 
 Methods:
