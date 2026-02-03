@@ -51,7 +51,14 @@ __all__ = [
 
 
 class ResultDocumentCrossreferenceSpan(BaseModel):
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
 
     end: int
     """
@@ -78,7 +85,20 @@ class ResultDocumentCrossreference(BaseModel):
     """
 
     span: ResultDocumentCrossreferenceSpan
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
 
     start: str
     """
@@ -239,7 +259,14 @@ class ResultDocumentExternalDocumentMention(BaseModel):
 
 
 class ResultDocumentExternalDocumentName(BaseModel):
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
 
     end: int
     """
@@ -308,7 +335,20 @@ class ResultDocumentExternalDocument(BaseModel):
     """
 
     name: ResultDocumentExternalDocumentName
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
 
     pinpoints: List[ResultDocumentExternalDocumentPinpoint]
     """
@@ -468,7 +508,14 @@ class ResultDocumentLocationMention(BaseModel):
 
 
 class ResultDocumentLocationName(BaseModel):
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
 
     end: int
     """
@@ -499,7 +546,20 @@ class ResultDocumentLocation(BaseModel):
     """
 
     name: ResultDocumentLocationName
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
 
     parent: Optional[str] = None
     """
@@ -538,7 +598,14 @@ class ResultDocumentPersonMention(BaseModel):
 
 
 class ResultDocumentPersonName(BaseModel):
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
 
     end: int
     """
@@ -569,7 +636,20 @@ class ResultDocumentPerson(BaseModel):
     """
 
     name: ResultDocumentPersonName
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
 
     parent: Optional[str] = None
     """
@@ -772,7 +852,14 @@ class ResultDocumentPhoneNumber(BaseModel):
 
 
 class ResultDocumentQuoteSpan(BaseModel):
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
 
     end: int
     """
@@ -815,7 +902,20 @@ class ResultDocumentQuote(BaseModel):
     """
 
     span: ResultDocumentQuoteSpan
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
 
 
 class ResultDocumentSegmentCode(BaseModel):
@@ -842,7 +942,14 @@ class ResultDocumentSegmentCode(BaseModel):
 
 
 class ResultDocumentSegmentSpan(BaseModel):
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
 
     end: int
     """
@@ -981,7 +1088,20 @@ class ResultDocumentSegment(BaseModel):
     """
 
     span: ResultDocumentSegmentSpan
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
 
     title: Optional[ResultDocumentSegmentTitle] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
@@ -1110,7 +1230,14 @@ class ResultDocumentSubtitle(BaseModel):
 
 
 class ResultDocumentTermMeaning(BaseModel):
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
 
     end: int
     """
@@ -1149,7 +1276,14 @@ class ResultDocumentTermMention(BaseModel):
 
 
 class ResultDocumentTermName(BaseModel):
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
+    """
 
     end: int
     """
@@ -1174,7 +1308,20 @@ class ResultDocumentTerm(BaseModel):
     """
 
     meaning: ResultDocumentTermMeaning
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
 
     mentions: List[ResultDocumentTermMention]
     """
@@ -1186,7 +1333,20 @@ class ResultDocumentTerm(BaseModel):
     """
 
     name: ResultDocumentTermName
-    """The span of the segment within the document's text."""
+    """A zero-based, half-open span into the Unicode code point space of input text.
+
+    All spans are globally laminar and well-nested similar to XML—it is impossible
+    for any two spans to partially overlap; they can only be disjoint, adjacent, or
+    wholly nested. Spans of the exact same type (e.g., segments) will never be
+    duplicated.
+
+    A span cannot be empty and will never start or end at whitespace.
+
+    Note that, when using programming languages other than Python (which uses
+    zero-based, half-open, Unicode code point-spaced string indexing), indices may
+    need to be translated accordingly (for example, JavaScript slices into UTF-16
+    code units instead of Unicode code points).
+    """
 
 
 class ResultDocumentTitle(BaseModel):
