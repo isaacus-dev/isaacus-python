@@ -4,12 +4,12 @@ from typing import List, Optional
 from typing_extensions import Literal
 
 from .._models import BaseModel
-from .ilgs_v1_span import IlgsV1Span
+from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["IlgsV1ExternalDocument"]
+__all__ = ["ILGSv1ExternalDocument"]
 
 
-class IlgsV1ExternalDocument(BaseModel):
+class ILGSv1ExternalDocument(BaseModel):
     """A document identified within another document."""
 
     id: str
@@ -32,14 +32,14 @@ class IlgsV1ExternalDocument(BaseModel):
     code for federal law.
     """
 
-    mentions: List[IlgsV1Span]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the external
     document is mentioned by name, for example, 'the US Constitution' in 'the Second
     Amendment to the US Constitution protects freedom of speech'.
     """
 
-    name: IlgsV1Span
+    name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -55,7 +55,7 @@ class IlgsV1ExternalDocument(BaseModel):
     code units instead of Unicode code points).
     """
 
-    pinpoints: List[IlgsV1Span]
+    pinpoints: List[ILGSv1Span]
     """
     An array of spans within the document's text where specific parts of the
     external document are referenced, for example, 'Section 2' in 'as defined in

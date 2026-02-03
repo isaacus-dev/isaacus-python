@@ -3,18 +3,18 @@
 from typing import List
 
 from .._models import BaseModel
-from .ilgs_v1_span import IlgsV1Span
+from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["IlgsV1PhoneNumber"]
+__all__ = ["ILGSv1PhoneNumber"]
 
 
-class IlgsV1PhoneNumber(BaseModel):
+class ILGSv1PhoneNumber(BaseModel):
     """A valid phone number identified in a document belonging to a legal person.
 
     If a phone number was mentioned in the document but is not valid, possible, or attributable to a legal person, it will not be extracted.
     """
 
-    mentions: List[IlgsV1Span]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the phone number
     is mentioned.

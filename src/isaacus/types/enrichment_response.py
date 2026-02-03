@@ -3,7 +3,7 @@
 from typing import List
 
 from .._models import BaseModel
-from .ilgs_v1_document import IlgsV1Document
+from .ilgs_v1_document import ILGSv1Document
 
 __all__ = ["EnrichmentResponse", "Result", "Usage"]
 
@@ -11,7 +11,7 @@ __all__ = ["EnrichmentResponse", "Result", "Usage"]
 class Result(BaseModel):
     """An enriched document alongside its index in the input array of texts."""
 
-    document: IlgsV1Document
+    document: ILGSv1Document
     """The enriched document."""
 
     index: int

@@ -4,33 +4,33 @@ from typing import List, Optional
 from typing_extensions import Literal
 
 from .._models import BaseModel
-from .ilgs_v1_date import IlgsV1Date
-from .ilgs_v1_span import IlgsV1Span
-from .ilgs_v1_term import IlgsV1Term
-from .ilgs_v1_email import IlgsV1Email
-from .ilgs_v1_quote import IlgsV1Quote
-from .ilgs_v1_person import IlgsV1Person
-from .ilgs_v1_segment import IlgsV1Segment
-from .ilgs_v1_website import IlgsV1Website
-from .ilgs_v1_location import IlgsV1Location
-from .ilgs_v1_id_number import IlgsV1IDNumber
-from .ilgs_v1_phone_number import IlgsV1PhoneNumber
-from .ilgs_v1_crossreference import IlgsV1Crossreference
-from .ilgs_v1_external_document import IlgsV1ExternalDocument
+from .ilgs_v1_date import ILGSv1Date
+from .ilgs_v1_span import ILGSv1Span
+from .ilgs_v1_term import ILGSv1Term
+from .ilgs_v1_email import ILGSv1Email
+from .ilgs_v1_quote import ILGSv1Quote
+from .ilgs_v1_person import ILGSv1Person
+from .ilgs_v1_segment import ILGSv1Segment
+from .ilgs_v1_website import ILGSv1Website
+from .ilgs_v1_location import ILGSv1Location
+from .ilgs_v1_id_number import ILGSv1IDNumber
+from .ilgs_v1_phone_number import ILGSv1PhoneNumber
+from .ilgs_v1_crossreference import ILGSv1Crossreference
+from .ilgs_v1_external_document import ILGSv1ExternalDocument
 
-__all__ = ["IlgsV1Document"]
+__all__ = ["ILGSv1Document"]
 
 
-class IlgsV1Document(BaseModel):
+class ILGSv1Document(BaseModel):
     """The enriched document."""
 
-    crossreferences: List[IlgsV1Crossreference]
+    crossreferences: List[ILGSv1Crossreference]
     """
     An array of cross-references within the document pointing to a single segment or
     a span of segments.
     """
 
-    dates: List[IlgsV1Date]
+    dates: List[ILGSv1Date]
     """
     An array of dates identified in the document belonging to one of the following
     types: `creation`, `signature`, `effective`, `expiry`, `delivery`, `renewal`,
@@ -40,7 +40,7 @@ class IlgsV1Document(BaseModel):
     one of the supported date types are extractable.
     """
 
-    emails: List[IlgsV1Email]
+    emails: List[ILGSv1Email]
     """
     An array of email addresses identified in the document belonging to legal
     persons.
@@ -49,13 +49,13 @@ class IlgsV1Document(BaseModel):
     persons will not be extracted.
     """
 
-    external_documents: List[IlgsV1ExternalDocument]
+    external_documents: List[ILGSv1ExternalDocument]
     """An array of documents identified within the document."""
 
-    headings: List[IlgsV1Span]
+    headings: List[ILGSv1Span]
     """An array of spans within the document's text constituting headings."""
 
-    id_numbers: List[IlgsV1IDNumber]
+    id_numbers: List[ILGSv1IDNumber]
     """
     An array of identification numbers identified in the document belonging to legal
     persons.
@@ -64,7 +64,7 @@ class IlgsV1Document(BaseModel):
     legal persons will not be extracted.
     """
 
-    junk: List[IlgsV1Span]
+    junk: List[ILGSv1Span]
     """
     An array of spans within the document's text constituting non-operative,
     non-substantive 'junk' content such as headers, footers, page numbers, and OCR
@@ -85,13 +85,13 @@ class IlgsV1Document(BaseModel):
     code for federal law.
     """
 
-    locations: List[IlgsV1Location]
+    locations: List[ILGSv1Location]
     """An array of locations identified in the document."""
 
-    persons: List[IlgsV1Person]
+    persons: List[ILGSv1Person]
     """An array of legal persons identified in the document."""
 
-    phone_numbers: List[IlgsV1PhoneNumber]
+    phone_numbers: List[ILGSv1PhoneNumber]
     """
     An array of valid phone numbers identified in the document belonging to legal
     persons.
@@ -100,16 +100,16 @@ class IlgsV1Document(BaseModel):
     attributable to legal persons will not be extracted.
     """
 
-    quotes: List[IlgsV1Quote]
+    quotes: List[ILGSv1Quote]
     """An array of quotations within the document."""
 
-    segments: List[IlgsV1Segment]
+    segments: List[ILGSv1Segment]
     """
     An array of segments within the document representing structurally distinct
     portions of its content.
     """
 
-    subtitle: Optional[IlgsV1Span] = None
+    subtitle: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -125,10 +125,10 @@ class IlgsV1Document(BaseModel):
     code units instead of Unicode code points).
     """
 
-    terms: List[IlgsV1Term]
+    terms: List[ILGSv1Term]
     """An array of terms assigned definite meanings within the document."""
 
-    title: Optional[IlgsV1Span] = None
+    title: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -164,7 +164,7 @@ class IlgsV1Document(BaseModel):
 
     version: Literal["ilgs@1"]
 
-    websites: List[IlgsV1Website]
+    websites: List[ILGSv1Website]
     """An array of websites identified in the document belonging to legal persons.
 
     Websites mentioned in the document that are not attributable to legal persons
