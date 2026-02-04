@@ -4,7 +4,7 @@ from typing import Optional
 from typing_extensions import Literal
 
 from .span import Span
-from .._models import BaseModel
+from ...._models import BaseModel
 
 __all__ = ["Segment"]
 
@@ -186,6 +186,12 @@ class Segment(BaseModel):
     """
     A unique identifier for a segment in the format `seg:{index}` where `{index}` is
     a non-negative incrementing integer starting from zero.
+    """
+
+    level: int
+    """
+    The level of the segment within the document's segment hierarchy starting from
+    `0` for root-level segments.
     """
 
     span: Span

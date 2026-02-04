@@ -11,9 +11,9 @@ from .quote import Quote
 from .person import Person
 from .segment import Segment
 from .website import Website
-from .._models import BaseModel
 from .location import Location
 from .id_number import IDNumber
+from ...._models import BaseModel
 from .phone_number import PhoneNumber
 from .crossreference import Crossreference
 from .external_document import ExternalDocument
@@ -23,6 +23,9 @@ __all__ = ["Document"]
 
 class Document(BaseModel):
     """The enriched document."""
+
+    text: str
+    """The text of the document."""
 
     title: Optional[Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.

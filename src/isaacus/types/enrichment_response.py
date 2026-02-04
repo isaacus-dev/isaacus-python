@@ -3,7 +3,7 @@
 from typing import List
 
 from .._models import BaseModel
-from .document import Document
+from .ilgs.v1.document import Document
 
 __all__ = ["EnrichmentResponse", "Result", "Usage"]
 

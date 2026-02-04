@@ -1,7 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from .span import Span
-from .._models import BaseModel
+from ...._models import BaseModel
 
 __all__ = ["Crossreference"]
 
