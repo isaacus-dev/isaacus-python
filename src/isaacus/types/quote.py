@@ -1,28 +1,38 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+from typing import Optional
+
 from .span import Span
-from ..._models import BaseModel
+from .._models import BaseModel
 
-__all__ = ["Crossreference"]
+__all__ = ["Quote"]
 
 
-class Crossreference(BaseModel):
-    """A cross-reference within the document pointing to one or more segments."""
+class Quote(BaseModel):
+    """A quotation within a document."""
 
-    start: str
+    source_segment: Optional[str] = None
     """
-    The unique identifier of the earliest segment in the span of segments being
-    cross-referenced with ties broken in favor of the least-nested (i.e., largest)
-    segment. If the cross-reference points to a single segment, `start` and `end`
-    will be identical.
+    A unique identifier for a segment in the format `seg:{index}` where `{index}` is
+    a non-negative incrementing integer starting from zero.
     """
 
-    end: str
+    source_document: Optional[str] = None
     """
-    The unique identifier of the latest segment in the span of segments being
-    cross-referenced with ties broken in favor of the least-nested (i.e., largest)
-    segment. If the cross-reference points to a single segment, `start` and `end`
-    will be identical.
+    A unique identifier for an external document in the format `exd:{index}` where
+    `{index}` is a non-negative incrementing integer starting from zero.
+    """
+
+    source_person: Optional[str] = None
+    """
+    A unique identifier for a legal person in the format `per:{index}` where
+    `{index}` is a non-negative incrementing integer starting from zero.
+    """
+
+    amending: bool
+    """
+    Whether the quote is being used to amend or modify content, typically in other
+    documents.
     """
 
     span: Span

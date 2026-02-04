@@ -4,7 +4,7 @@ from typing import Optional
 from typing_extensions import Literal
 
 from .span import Span
-from ..._models import BaseModel
+from .._models import BaseModel
 
 __all__ = ["Segment"]
 

@@ -62,14 +62,12 @@ Methods:
 
 - <code title="post /enrichments">client.enrichments.<a href="./src/isaacus/resources/enrichments.py">create</a>(\*\*<a href="src/isaacus/types/enrichment_create_params.py">params</a>) -> <a href="./src/isaacus/types/enrichment_response.py">EnrichmentResponse</a></code>
 
-# ILGS
-
-## v1
+# ILGSv1
 
 Types:
 
 ```python
-from isaacus.types.ilgs import (
+from isaacus.types import (
     Crossreference,
     Date,
     Document,
