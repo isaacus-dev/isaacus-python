@@ -11,9 +11,9 @@ from .quote import Quote
 from .person import Person
 from .segment import Segment
 from .website import Website
-from .._models import BaseModel
 from .location import Location
 from .id_number import IDNumber
+from ...._models import BaseModel
 from .phone_number import PhoneNumber
 from .crossreference import Crossreference
 from .external_document import ExternalDocument

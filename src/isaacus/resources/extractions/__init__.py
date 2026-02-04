@@ -1,12 +1,12 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from .qa import (
-    QaResource,
-    AsyncQaResource,
-    QaResourceWithRawResponse,
-    AsyncQaResourceWithRawResponse,
-    QaResourceWithStreamingResponse,
-    AsyncQaResourceWithStreamingResponse,
+    QAResource,
+    AsyncQAResource,
+    QAResourceWithRawResponse,
+    AsyncQAResourceWithRawResponse,
+    QAResourceWithStreamingResponse,
+    AsyncQAResourceWithStreamingResponse,
 )
 from .extractions import (
     ExtractionsResource,
@@ -18,12 +18,12 @@ from .extractions import (
 )
 
 __all__ = [
-    "QaResource",
-    "AsyncQaResource",
-    "QaResourceWithRawResponse",
-    "AsyncQaResourceWithRawResponse",
-    "QaResourceWithStreamingResponse",
-    "AsyncQaResourceWithStreamingResponse",
+    "QAResource",
+    "AsyncQAResource",
+    "QAResourceWithRawResponse",
+    "AsyncQAResourceWithRawResponse",
+    "QAResourceWithStreamingResponse",
+    "AsyncQAResourceWithStreamingResponse",
     "ExtractionsResource",
     "AsyncExtractionsResource",
     "ExtractionsResourceWithRawResponse",
