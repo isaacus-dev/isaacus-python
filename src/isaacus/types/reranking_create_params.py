@@ -6,9 +6,8 @@ from typing import Optional
 from typing_extensions import Literal, Required, TypedDict
 
 from .._types import SequenceNotStr
-from .shared_params.chunking_options import ChunkingOptions
 
-__all__ = ["RerankingCreateParams"]
+__all__ = ["RerankingCreateParams", "ChunkingOptions"]
 
 
 class RerankingCreateParams(TypedDict, total=False):
@@ -65,3 +64,16 @@ class RerankingCreateParams(TypedDict, total=False):
 
     chunking_options: Optional[ChunkingOptions]
     """Options for how to split text into smaller chunks."""
+
+
+class ChunkingOptions(TypedDict, total=False):
+    """Options for how to split text into smaller chunks."""
+
+    size: Optional[int]
+    """A whole number greater than or equal to 1."""
+
+    overlap_ratio: Optional[float]
+    """A number greater than or equal to 0 and less than 1."""
+
+    overlap_tokens: Optional[int]
+    """A whole number greater than or equal to 0."""

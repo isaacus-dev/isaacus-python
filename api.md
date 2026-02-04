@@ -1,9 +1,3 @@
-# Shared Types
-
-```python
-from isaacus.types import ChunkingOptions
-```
-
 # Embeddings
 
 Types:
