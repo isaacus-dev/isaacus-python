@@ -7,10 +7,10 @@ from typing_extensions import Literal, Required, TypedDict
 
 from ..._types import SequenceNotStr
 
-__all__ = ["QACreateParams", "ChunkingOptions"]
+__all__ = ["QaCreateParams", "ChunkingOptions"]
 
 
-class QACreateParams(TypedDict, total=False):
+class QaCreateParams(TypedDict, total=False):
     model: Required[Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"]]
     """
     The ID of the
