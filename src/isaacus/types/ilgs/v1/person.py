@@ -182,6 +182,12 @@ class Person(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
+    children: List[str]
+    """
+    The unique identifiers of any persons having this person as their immediate
+    parent.
+    """
+
     residence: Optional[str] = None
     """
     A unique identifier for a location in the format `loc:{index}` where `{index}`
