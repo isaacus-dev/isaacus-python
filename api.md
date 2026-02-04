@@ -69,5 +69,5 @@ Methods:
 Types:
 
 ```python
-from isaacus.types.ilgs import ILGSv1Document
+from isaacus.types.ilgs import ILGSv1Document, ILGSv1Span
 ```
