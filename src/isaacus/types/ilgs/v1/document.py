@@ -24,6 +24,9 @@ __all__ = ["Document"]
 class Document(BaseModel):
     """The enriched document."""
 
+    text: str
+    """The text of the document."""
+
     title: Optional[Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
