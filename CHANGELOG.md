@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.13.0 (2026-02-04)
+
+Full Changelog: [v0.12.0...v0.13.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.12.0...v0.13.0)
+
+### Features
+
+* **sdk:** alter v1 pascal casing ([7229055](https://github.com/isaacus-dev/isaacus-python/commit/7229055504fd20c05c5d7f5ee40afd76fbcdd02f))
+* **sdk:** move ilgs models under `ilgs_v1` ([0165061](https://github.com/isaacus-dev/isaacus-python/commit/0165061dfd3f5245df16c75f7b8dbb39c68d9de8))
+* **sdk:** move ilgs to its own resource ([e196566](https://github.com/isaacus-dev/isaacus-python/commit/e196566b8c5ef8e876f6d6c0d31393e17d24926f))
+* **sdk:** move ilgsv1 resources under a subresource ([8620bb5](https://github.com/isaacus-dev/isaacus-python/commit/8620bb5259685c1764960278caba70ae9b42a0ec))
+* **sdk:** removed chunking options as a shared resource ([b11b540](https://github.com/isaacus-dev/isaacus-python/commit/b11b540a1da187f5c667e99e53caa550c364aa94))
+* **sdk:** revert v1 casing change ([5a8d5b1](https://github.com/isaacus-dev/isaacus-python/commit/5a8d5b13c69185a36148ee336d3dcf1b3191de0b))
+
 ## 0.12.0 (2026-02-03)
 
 Full Changelog: [v0.11.0...v0.12.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.11.0...v0.12.0)

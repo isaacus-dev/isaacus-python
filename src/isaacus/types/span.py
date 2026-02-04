@@ -2,10 +2,10 @@
 
 from .._models import BaseModel
 
-__all__ = ["ILGSv1Span"]
+__all__ = ["Span"]
 
 
-class ILGSv1Span(BaseModel):
+class Span(BaseModel):
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.

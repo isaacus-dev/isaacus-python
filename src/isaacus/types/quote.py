@@ -1,24 +1,41 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List, Optional
-from typing_extensions import Literal
+from typing import Optional
 
+from .span import Span
 from .._models import BaseModel
-from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["ILGSv1Location"]
+__all__ = ["Quote"]
 
 
-class ILGSv1Location(BaseModel):
-    """A location identified within a document."""
+class Quote(BaseModel):
+    """A quotation within a document."""
 
-    id: str
+    source_segment: Optional[str] = None
     """
-    The unique identifier of the location in the format `loc:{index}` where
+    A unique identifier for a segment in the format `seg:{index}` where `{index}` is
+    a non-negative incrementing integer starting from zero.
+    """
+
+    source_document: Optional[str] = None
+    """
+    A unique identifier for an external document in the format `exd:{index}` where
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    name: ILGSv1Span
+    source_person: Optional[str] = None
+    """
+    A unique identifier for a legal person in the format `per:{index}` where
+    `{index}` is a non-negative incrementing integer starting from zero.
+    """
+
+    amending: bool
+    """
+    Whether the quote is being used to amend or modify content, typically in other
+    documents.
+    """
+
+    span: Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -32,22 +49,4 @@ class ILGSv1Location(BaseModel):
     zero-based, half-open, Unicode code point-spaced string indexing), indices may
     need to be translated accordingly (for example, JavaScript slices into UTF-16
     code units instead of Unicode code points).
-    """
-
-    type: Literal["country", "state", "city", "address", "other"]
-    """
-    The type of the location, being one of `country`, `state`, `city`, `address`, or
-    `other`.
-    """
-
-    parent: Optional[str] = None
-    """
-    A unique identifier for a location in the format `loc:{index}` where `{index}`
-    is a non-negative incrementing integer starting from zero.
-    """
-
-    mentions: List[ILGSv1Span]
-    """
-    An array of one or more spans within the document's text where the location is
-    mentioned.
     """
