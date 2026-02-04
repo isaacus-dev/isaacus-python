@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.14.0 (2026-02-04)
+
+Full Changelog: [v0.13.0...v0.14.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.13.0...v0.14.0)
+
+### Features
+
+* **api:** add a `text` field ([a1842eb](https://github.com/isaacus-dev/isaacus-python/commit/a1842eb23c4f6b142fae8aa5634a65e303eb8b78))
+* **api:** add level field to ILGS v1 segments ([63e8455](https://github.com/isaacus-dev/isaacus-python/commit/63e845506ef701eaff5cb85652a083e380b03dbc))
+* **sdk:** add ilgs v1 span as a top model ([b30f176](https://github.com/isaacus-dev/isaacus-python/commit/b30f176d23a7eabb18d92d716f8d35b2fc9f454b))
+* **sdk:** demote other models ([873f1a4](https://github.com/isaacus-dev/isaacus-python/commit/873f1a49d107be25de7b515b4796f2090e3885bf))
+* **sdk:** move ilgs structs around ([cd485eb](https://github.com/isaacus-dev/isaacus-python/commit/cd485eb173c7f454aecfd114121672172a75824c))
+* **sdk:** move ilgs structs around ([920e2bb](https://github.com/isaacus-dev/isaacus-python/commit/920e2bbf07e7aea58fabbd6b31ecd96050c43957))
+* **sdk:** move ilgs structs around ([d3068e3](https://github.com/isaacus-dev/isaacus-python/commit/d3068e38f718f52cc9b46dc6e60efa5dc911f10a))
+* **sdk:** move ilgs structs around ([6ea6db6](https://github.com/isaacus-dev/isaacus-python/commit/6ea6db6d15b754c6f2ffd5aa235d7b8abb1e3ad1))
+* **sdk:** move ilgs structs around ([1f9c511](https://github.com/isaacus-dev/isaacus-python/commit/1f9c5116054a44d62013e5c82ba9d85d38b28f33))
+
 ## 0.13.0 (2026-02-04)
 
 Full Changelog: [v0.12.0...v0.13.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.12.0...v0.13.0)
