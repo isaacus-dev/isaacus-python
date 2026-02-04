@@ -19,6 +19,7 @@ from ..._response import (
 )
 from ..._base_client import make_request_options
 from ...types.classifications import universal_create_params
+from ...types.shared_params.chunking_options import ChunkingOptions
 from ...types.classifications.universal_classification_response import UniversalClassificationResponse
 
 __all__ = ["UniversalResource", "AsyncUniversalResource"]
@@ -52,7 +53,7 @@ class UniversalResource(SyncAPIResource):
         texts: SequenceNotStr[str],
         is_iql: bool | Omit = omit,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
-        chunking_options: Optional[universal_create_params.ChunkingOptions] | Omit = omit,
+        chunking_options: Optional[ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -153,7 +154,7 @@ class AsyncUniversalResource(AsyncAPIResource):
         texts: SequenceNotStr[str],
         is_iql: bool | Omit = omit,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
-        chunking_options: Optional[universal_create_params.ChunkingOptions] | Omit = omit,
+        chunking_options: Optional[ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,

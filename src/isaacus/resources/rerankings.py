@@ -20,6 +20,7 @@ from .._response import (
 )
 from .._base_client import make_request_options
 from ..types.reranking_response import RerankingResponse
+from ..types.shared_params.chunking_options import ChunkingOptions
 
 __all__ = ["RerankingsResource", "AsyncRerankingsResource"]
 
@@ -53,7 +54,7 @@ class RerankingsResource(SyncAPIResource):
         top_n: Optional[int] | Omit = omit,
         is_iql: bool | Omit = omit,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
-        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
+        chunking_options: Optional[ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -164,7 +165,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
         top_n: Optional[int] | Omit = omit,
         is_iql: bool | Omit = omit,
         scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"] | Omit = omit,
-        chunking_options: Optional[reranking_create_params.ChunkingOptions] | Omit = omit,
+        chunking_options: Optional[ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,

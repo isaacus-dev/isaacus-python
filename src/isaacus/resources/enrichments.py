@@ -7,19 +7,19 @@ from typing_extensions import Literal
 
 import httpx
 
-from ...types import enrichment_create_params
-from ..._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
-from ..._utils import maybe_transform, async_maybe_transform
-from ..._compat import cached_property
-from ..._resource import SyncAPIResource, AsyncAPIResource
-from ..._response import (
+from ..types import enrichment_create_params
+from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
+from .._utils import maybe_transform, async_maybe_transform
+from .._compat import cached_property
+from .._resource import SyncAPIResource, AsyncAPIResource
+from .._response import (
     to_raw_response_wrapper,
     to_streamed_response_wrapper,
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ..._base_client import make_request_options
-from ...types.enrichment_response import EnrichmentResponse
+from .._base_client import make_request_options
+from ..types.enrichment_response import EnrichmentResponse
 
 __all__ = ["EnrichmentsResource", "AsyncEnrichmentsResource"]
 

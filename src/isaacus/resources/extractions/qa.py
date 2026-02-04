@@ -19,6 +19,7 @@ from ..._response import (
 )
 from ..._base_client import make_request_options
 from ...types.extractions import qa_create_params
+from ...types.shared_params.chunking_options import ChunkingOptions
 from ...types.extractions.answer_extraction_response import AnswerExtractionResponse
 
 __all__ = ["QAResource", "AsyncQAResource"]
@@ -52,7 +53,7 @@ class QAResource(SyncAPIResource):
         texts: SequenceNotStr[str],
         ignore_inextractability: bool | Omit = omit,
         top_k: int | Omit = omit,
-        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
+        chunking_options: Optional[ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -152,7 +153,7 @@ class AsyncQAResource(AsyncAPIResource):
         texts: SequenceNotStr[str],
         ignore_inextractability: bool | Omit = omit,
         top_k: int | Omit = omit,
-        chunking_options: Optional[qa_create_params.ChunkingOptions] | Omit = omit,
+        chunking_options: Optional[ChunkingOptions] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,

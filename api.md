@@ -1,3 +1,9 @@
+# Shared Types
+
+```python
+from isaacus.types import ChunkingOptions
+```
+
 # Embeddings
 
 Types:
@@ -60,14 +66,16 @@ from isaacus.types import EnrichmentResponse
 
 Methods:
 
-- <code title="post /enrichments">client.enrichments.<a href="./src/isaacus/resources/enrichments/enrichments.py">create</a>(\*\*<a href="src/isaacus/types/enrichment_create_params.py">params</a>) -> <a href="./src/isaacus/types/enrichment_response.py">EnrichmentResponse</a></code>
+- <code title="post /enrichments">client.enrichments.<a href="./src/isaacus/resources/enrichments.py">create</a>(\*\*<a href="src/isaacus/types/enrichment_create_params.py">params</a>) -> <a href="./src/isaacus/types/enrichment_response.py">EnrichmentResponse</a></code>
 
-## Ilgsv1
+# ILGS
+
+## v1
 
 Types:
 
 ```python
-from isaacus.types.enrichments import (
+from isaacus.types.ilgs import (
     Crossreference,
     Date,
     Document,
