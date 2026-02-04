@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.16.0 (2026-02-04)
+
+Full Changelog: [v0.15.0...v0.16.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.15.0...v0.16.0)
+
+### Features
+
+* **api:** add `children` fields to hierarchical ILGS entities ([38c909c](https://github.com/isaacus-dev/isaacus-python/commit/38c909ccd36352f6d774081c4184b117ef26911a))
+
 ## 0.15.0 (2026-02-04)
 
 Full Changelog: [v0.14.0...v0.15.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.14.0...v0.15.0)

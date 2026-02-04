@@ -46,6 +46,12 @@ class Location(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
+    children: List[str]
+    """
+    The unique identifiers of any 'child' locations having this location as their
+    immediate parent.
+    """
+
     mentions: List[Span]
     """
     An array of one or more spans within the document's text where the location is
