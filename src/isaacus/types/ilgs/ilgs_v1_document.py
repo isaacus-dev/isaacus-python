@@ -202,6 +202,12 @@ class Segment(BaseModel):
     a non-negative incrementing integer starting from zero.
     """
 
+    level: int
+    """
+    The level of the segment within the document's segment hierarchy starting from
+    `0` for root-level segments.
+    """
+
     span: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
