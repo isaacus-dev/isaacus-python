@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from .shared import ChunkingOptions as ChunkingOptions
 from .embedding_response import EmbeddingResponse as EmbeddingResponse
 from .reranking_response import RerankingResponse as RerankingResponse
 from .enrichment_response import EnrichmentResponse as EnrichmentResponse
