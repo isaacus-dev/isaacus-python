@@ -34,7 +34,7 @@ if TYPE_CHECKING:
     from .resources import embeddings, rerankings, enrichments, extractions, classifications
     from .resources.embeddings import EmbeddingsResource, AsyncEmbeddingsResource
     from .resources.rerankings import RerankingsResource, AsyncRerankingsResource
-    from .resources.enrichments.enrichments import EnrichmentsResource, AsyncEnrichmentsResource
+    from .resources.enrichments import EnrichmentsResource, AsyncEnrichmentsResource
     from .resources.extractions.extractions import ExtractionsResource, AsyncExtractionsResource
     from .resources.classifications.classifications import ClassificationsResource, AsyncClassificationsResource
 
