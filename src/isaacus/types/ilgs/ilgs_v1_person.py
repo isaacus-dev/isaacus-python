@@ -3,13 +3,13 @@
 from typing import List, Optional
 from typing_extensions import Literal
 
-from .span import Span
-from .._models import BaseModel
+from ..._models import BaseModel
+from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["Person"]
+__all__ = ["ILGSv1Person"]
 
 
-class Person(BaseModel):
+class ILGSv1Person(BaseModel):
     """A legal person identified in a document."""
 
     id: str
@@ -18,7 +18,7 @@ class Person(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    name: Span
+    name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -188,7 +188,7 @@ class Person(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[Span]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the person is
     mentioned.
