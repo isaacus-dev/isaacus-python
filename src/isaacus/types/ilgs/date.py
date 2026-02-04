@@ -3,13 +3,13 @@
 from typing import List, Optional
 from typing_extensions import Literal
 
+from .span import Span
 from ..._models import BaseModel
-from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["ILGSv1Date"]
+__all__ = ["Date"]
 
 
-class ILGSv1Date(BaseModel):
+class Date(BaseModel):
     """
     A date identified in a document belonging to one of the following types: `creation`, `signature`, `effective`, `expiry`, `delivery`, `renewal`, `payment`, `birth`, or `death`.
 
@@ -63,7 +63,7 @@ class ILGSv1Date(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[ILGSv1Span]
+    mentions: List[Span]
     """
     An array of one or more spans within the document's text where the date is
     mentioned.

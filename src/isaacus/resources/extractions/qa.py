@@ -21,28 +21,28 @@ from ..._base_client import make_request_options
 from ...types.extractions import qa_create_params
 from ...types.extractions.answer_extraction_response import AnswerExtractionResponse
 
-__all__ = ["QAResource", "AsyncQAResource"]
+__all__ = ["QaResource", "AsyncQaResource"]
 
 
-class QAResource(SyncAPIResource):
+class QaResource(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> QAResourceWithRawResponse:
+    def with_raw_response(self) -> QaResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/isaacus-dev/isaacus-python#accessing-raw-response-data-eg-headers
         """
-        return QAResourceWithRawResponse(self)
+        return QaResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> QAResourceWithStreamingResponse:
+    def with_streaming_response(self) -> QaResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/isaacus-dev/isaacus-python#with_streaming_response
         """
-        return QAResourceWithStreamingResponse(self)
+        return QaResourceWithStreamingResponse(self)
 
     def create(
         self,
@@ -115,7 +115,7 @@ class QAResource(SyncAPIResource):
                     "top_k": top_k,
                     "chunking_options": chunking_options,
                 },
-                qa_create_params.QACreateParams,
+                qa_create_params.QaCreateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -124,25 +124,25 @@ class QAResource(SyncAPIResource):
         )
 
 
-class AsyncQAResource(AsyncAPIResource):
+class AsyncQaResource(AsyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> AsyncQAResourceWithRawResponse:
+    def with_raw_response(self) -> AsyncQaResourceWithRawResponse:
         """
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/isaacus-dev/isaacus-python#accessing-raw-response-data-eg-headers
         """
-        return AsyncQAResourceWithRawResponse(self)
+        return AsyncQaResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> AsyncQAResourceWithStreamingResponse:
+    def with_streaming_response(self) -> AsyncQaResourceWithStreamingResponse:
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
         For more information, see https://www.github.com/isaacus-dev/isaacus-python#with_streaming_response
         """
-        return AsyncQAResourceWithStreamingResponse(self)
+        return AsyncQaResourceWithStreamingResponse(self)
 
     async def create(
         self,
@@ -215,7 +215,7 @@ class AsyncQAResource(AsyncAPIResource):
                     "top_k": top_k,
                     "chunking_options": chunking_options,
                 },
-                qa_create_params.QACreateParams,
+                qa_create_params.QaCreateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -224,8 +224,8 @@ class AsyncQAResource(AsyncAPIResource):
         )
 
 
-class QAResourceWithRawResponse:
-    def __init__(self, qa: QAResource) -> None:
+class QaResourceWithRawResponse:
+    def __init__(self, qa: QaResource) -> None:
         self._qa = qa
 
         self.create = to_raw_response_wrapper(
@@ -233,8 +233,8 @@ class QAResourceWithRawResponse:
         )
 
 
-class AsyncQAResourceWithRawResponse:
-    def __init__(self, qa: AsyncQAResource) -> None:
+class AsyncQaResourceWithRawResponse:
+    def __init__(self, qa: AsyncQaResource) -> None:
         self._qa = qa
 
         self.create = async_to_raw_response_wrapper(
@@ -242,8 +242,8 @@ class AsyncQAResourceWithRawResponse:
         )
 
 
-class QAResourceWithStreamingResponse:
-    def __init__(self, qa: QAResource) -> None:
+class QaResourceWithStreamingResponse:
+    def __init__(self, qa: QaResource) -> None:
         self._qa = qa
 
         self.create = to_streamed_response_wrapper(
@@ -251,8 +251,8 @@ class QAResourceWithStreamingResponse:
         )
 
 
-class AsyncQAResourceWithStreamingResponse:
-    def __init__(self, qa: AsyncQAResource) -> None:
+class AsyncQaResourceWithStreamingResponse:
+    def __init__(self, qa: AsyncQaResource) -> None:
         self._qa = qa
 
         self.create = async_to_streamed_response_wrapper(

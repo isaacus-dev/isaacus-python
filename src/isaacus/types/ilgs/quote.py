@@ -2,13 +2,13 @@
 
 from typing import Optional
 
+from .span import Span
 from ..._models import BaseModel
-from .ilgs_v1_span import ILGSv1Span
 
-__all__ = ["ILGSv1Quote"]
+__all__ = ["Quote"]
 
 
-class ILGSv1Quote(BaseModel):
+class Quote(BaseModel):
     """A quotation within a document."""
 
     source_segment: Optional[str] = None
@@ -35,7 +35,7 @@ class ILGSv1Quote(BaseModel):
     documents.
     """
 
-    span: ILGSv1Span
+    span: Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible

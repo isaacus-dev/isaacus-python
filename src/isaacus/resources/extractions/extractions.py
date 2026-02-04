@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 from .qa import (
-    QAResource,
-    AsyncQAResource,
-    QAResourceWithRawResponse,
-    AsyncQAResourceWithRawResponse,
-    QAResourceWithStreamingResponse,
-    AsyncQAResourceWithStreamingResponse,
+    QaResource,
+    AsyncQaResource,
+    QaResourceWithRawResponse,
+    AsyncQaResourceWithRawResponse,
+    QaResourceWithStreamingResponse,
+    AsyncQaResourceWithStreamingResponse,
 )
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -18,8 +18,8 @@ __all__ = ["ExtractionsResource", "AsyncExtractionsResource"]
 
 class ExtractionsResource(SyncAPIResource):
     @cached_property
-    def qa(self) -> QAResource:
-        return QAResource(self._client)
+    def qa(self) -> QaResource:
+        return QaResource(self._client)
 
     @cached_property
     def with_raw_response(self) -> ExtractionsResourceWithRawResponse:
@@ -43,8 +43,8 @@ class ExtractionsResource(SyncAPIResource):
 
 class AsyncExtractionsResource(AsyncAPIResource):
     @cached_property
-    def qa(self) -> AsyncQAResource:
-        return AsyncQAResource(self._client)
+    def qa(self) -> AsyncQaResource:
+        return AsyncQaResource(self._client)
 
     @cached_property
     def with_raw_response(self) -> AsyncExtractionsResourceWithRawResponse:
@@ -71,8 +71,8 @@ class ExtractionsResourceWithRawResponse:
         self._extractions = extractions
 
     @cached_property
-    def qa(self) -> QAResourceWithRawResponse:
-        return QAResourceWithRawResponse(self._extractions.qa)
+    def qa(self) -> QaResourceWithRawResponse:
+        return QaResourceWithRawResponse(self._extractions.qa)
 
 
 class AsyncExtractionsResourceWithRawResponse:
@@ -80,8 +80,8 @@ class AsyncExtractionsResourceWithRawResponse:
         self._extractions = extractions
 
     @cached_property
-    def qa(self) -> AsyncQAResourceWithRawResponse:
-        return AsyncQAResourceWithRawResponse(self._extractions.qa)
+    def qa(self) -> AsyncQaResourceWithRawResponse:
+        return AsyncQaResourceWithRawResponse(self._extractions.qa)
 
 
 class ExtractionsResourceWithStreamingResponse:
@@ -89,8 +89,8 @@ class ExtractionsResourceWithStreamingResponse:
         self._extractions = extractions
 
     @cached_property
-    def qa(self) -> QAResourceWithStreamingResponse:
-        return QAResourceWithStreamingResponse(self._extractions.qa)
+    def qa(self) -> QaResourceWithStreamingResponse:
+        return QaResourceWithStreamingResponse(self._extractions.qa)
 
 
 class AsyncExtractionsResourceWithStreamingResponse:
@@ -98,5 +98,5 @@ class AsyncExtractionsResourceWithStreamingResponse:
         self._extractions = extractions
 
     @cached_property
-    def qa(self) -> AsyncQAResourceWithStreamingResponse:
-        return AsyncQAResourceWithStreamingResponse(self._extractions.qa)
+    def qa(self) -> AsyncQaResourceWithStreamingResponse:
+        return AsyncQaResourceWithStreamingResponse(self._extractions.qa)
