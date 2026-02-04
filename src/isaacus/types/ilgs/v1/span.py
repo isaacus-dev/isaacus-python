@@ -26,3 +26,15 @@ class Span(BaseModel):
     The zero-based end index of the half-open span (i.e., the end is exclusive) of
     Unicode code points in the input text.
     """
+    
+    def decode(self, text: str) -> str:
+        """Decode the span from the given text.
+
+        Args:
+            text (str): The input text from which to decode the span.
+        
+        Returns:
+            str: The substring of the input text corresponding to the span.
+        """
+        
+        return text[self.start:self.end]
