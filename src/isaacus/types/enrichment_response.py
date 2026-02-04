@@ -3,7 +3,7 @@
 from typing import List
 
 from .._models import BaseModel
-from .ilgs.ilgs_v1_document import ILGSv1Document
+from .ilgs.v1.document import Document
 
 __all__ = ["EnrichmentResponse", "Result", "Usage"]
 
@@ -17,7 +17,7 @@ class Result(BaseModel):
     therefore, ending at the number of inputs minus `1`).
     """
 
-    document: ILGSv1Document
+    document: Document
     """The enriched document."""
 
 
