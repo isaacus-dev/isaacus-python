@@ -4,185 +4,23 @@ from typing import List, Optional
 from typing_extensions import Literal
 
 from ..._models import BaseModel
+from .ilgs_v1_span import ILGSv1Span
 
 __all__ = [
     "ILGSv1Document",
-    "Title",
-    "Subtitle",
     "Segment",
-    "SegmentTypeName",
-    "SegmentCode",
-    "SegmentTitle",
-    "SegmentSpan",
     "Crossreference",
-    "CrossreferenceSpan",
     "Location",
-    "LocationName",
-    "LocationMention",
     "Person",
-    "PersonName",
-    "PersonMention",
     "Email",
-    "EmailMention",
     "Website",
-    "WebsiteMention",
     "PhoneNumber",
-    "PhoneNumberMention",
     "IDNumber",
-    "IDNumberMention",
     "Term",
-    "TermName",
-    "TermMeaning",
-    "TermMention",
     "ExternalDocument",
-    "ExternalDocumentName",
-    "ExternalDocumentMention",
-    "ExternalDocumentPinpoint",
     "Quote",
-    "QuoteSpan",
     "Date",
-    "DateMention",
-    "Heading",
-    "Junk",
 ]
-
-
-class Title(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class Subtitle(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class SegmentTypeName(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class SegmentCode(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class SegmentTitle(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class SegmentSpan(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
 
 
 class Segment(BaseModel):
@@ -310,7 +148,7 @@ class Segment(BaseModel):
     `other` denotes content that does not fit into any of the other categories.
     """
 
-    type_name: Optional[SegmentTypeName] = None
+    type_name: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -326,7 +164,7 @@ class Segment(BaseModel):
     code units instead of Unicode code points).
     """
 
-    code: Optional[SegmentCode] = None
+    code: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -342,7 +180,7 @@ class Segment(BaseModel):
     code units instead of Unicode code points).
     """
 
-    title: Optional[SegmentTitle] = None
+    title: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -364,7 +202,7 @@ class Segment(BaseModel):
     a non-negative incrementing integer starting from zero.
     """
 
-    span: SegmentSpan
+    span: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -378,29 +216,6 @@ class Segment(BaseModel):
     zero-based, half-open, Unicode code point-spaced string indexing), indices may
     need to be translated accordingly (for example, JavaScript slices into UTF-16
     code units instead of Unicode code points).
-    """
-
-
-class CrossreferenceSpan(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -423,7 +238,7 @@ class Crossreference(BaseModel):
     will be identical.
     """
 
-    span: CrossreferenceSpan
+    span: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -440,52 +255,6 @@ class Crossreference(BaseModel):
     """
 
 
-class LocationName(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class LocationMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
 class Location(BaseModel):
     """A location identified within a document."""
 
@@ -495,7 +264,7 @@ class Location(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    name: LocationName
+    name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -523,56 +292,10 @@ class Location(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[LocationMention]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the location is
     mentioned.
-    """
-
-
-class PersonName(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class PersonMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -585,7 +308,7 @@ class Person(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    name: PersonName
+    name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -755,33 +478,10 @@ class Person(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[PersonMention]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the person is
     mentioned.
-    """
-
-
-class EmailMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -797,33 +497,10 @@ class Email(BaseModel):
     person: str
     """The unique identifier of the person that this email address belongs to."""
 
-    mentions: List[EmailMention]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the email address
     is mentioned.
-    """
-
-
-class WebsiteMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -839,34 +516,11 @@ class Website(BaseModel):
     person: str
     """The unique identifier of the person that this website belongs to."""
 
-    mentions: List[WebsiteMention]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the website is
     mentioned (including paths and slugs which are not part of the website's
     normalized URL).
-    """
-
-
-class PhoneNumberMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -885,33 +539,10 @@ class PhoneNumber(BaseModel):
     person: str
     """The unique identifier of the person that this phone number belongs to."""
 
-    mentions: List[PhoneNumberMention]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the phone number
     is mentioned.
-    """
-
-
-class IDNumberMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -927,79 +558,10 @@ class IDNumber(BaseModel):
     person: str
     """The unique identifier of the person that this identification number belongs to."""
 
-    mentions: List[IDNumberMention]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the
     identification number is mentioned.
-    """
-
-
-class TermName(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class TermMeaning(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class TermMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -1012,7 +574,7 @@ class Term(BaseModel):
     is a non-negative incrementing integer starting from zero.
     """
 
-    name: TermName
+    name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -1028,7 +590,7 @@ class Term(BaseModel):
     code units instead of Unicode code points).
     """
 
-    meaning: TermMeaning
+    meaning: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -1044,82 +606,13 @@ class Term(BaseModel):
     code units instead of Unicode code points).
     """
 
-    mentions: List[TermMention]
+    mentions: List[ILGSv1Span]
     """
     An array of spans within the document's text where the term is mentioned outside
     of its definition.
 
     It is possible for the term to have no mentions if, outside of its definition,
     it is never referred to in the document.
-    """
-
-
-class ExternalDocumentName(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class ExternalDocumentMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class ExternalDocumentPinpoint(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -1132,7 +625,7 @@ class ExternalDocument(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    name: ExternalDocumentName
+    name: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -1200,41 +693,18 @@ class ExternalDocument(BaseModel):
     expressing any particular sentiment towards it.
     """
 
-    mentions: List[ExternalDocumentMention]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the external
     document is mentioned by name, for example, 'the US Constitution' in 'the Second
     Amendment to the US Constitution protects freedom of speech'.
     """
 
-    pinpoints: List[ExternalDocumentPinpoint]
+    pinpoints: List[ILGSv1Span]
     """
     An array of spans within the document's text where specific parts of the
     external document are referenced, for example, 'Section 2' in 'as defined in
     Section 2 of the US Constitution'.
-    """
-
-
-class QuoteSpan(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -1265,7 +735,7 @@ class Quote(BaseModel):
     documents.
     """
 
-    span: QuoteSpan
+    span: ILGSv1Span
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -1279,29 +749,6 @@ class Quote(BaseModel):
     zero-based, half-open, Unicode code point-spaced string indexing), indices may
     need to be translated accordingly (for example, JavaScript slices into UTF-16
     code units instead of Unicode code points).
-    """
-
-
-class DateMention(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
     """
 
 
@@ -1359,63 +806,17 @@ class Date(BaseModel):
     `{index}` is a non-negative incrementing integer starting from zero.
     """
 
-    mentions: List[DateMention]
+    mentions: List[ILGSv1Span]
     """
     An array of one or more spans within the document's text where the date is
     mentioned.
     """
 
 
-class Heading(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
-class Junk(BaseModel):
-    """A zero-based, half-open span into the Unicode code point space of input text.
-
-    All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
-
-    A span cannot be empty and will never start or end at whitespace.
-
-    Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
-    """
-
-    start: int
-    """
-    The zero-based start index of the half-open span of Unicode code points in the
-    input text.
-    """
-
-    end: int
-    """
-    The zero-based end index of the half-open span (i.e., the end is exclusive) of
-    Unicode code points in the input text.
-    """
-
-
 class ILGSv1Document(BaseModel):
     """The enriched document."""
 
-    title: Optional[Title] = None
+    title: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -1431,7 +832,7 @@ class ILGSv1Document(BaseModel):
     code units instead of Unicode code points).
     """
 
-    subtitle: Optional[Subtitle] = None
+    subtitle: Optional[ILGSv1Span] = None
     """A zero-based, half-open span into the Unicode code point space of input text.
 
     All spans are globally laminar and well-nested similar to XML—it is impossible
@@ -1550,10 +951,10 @@ class ILGSv1Document(BaseModel):
     one of the supported date types are extractable.
     """
 
-    headings: List[Heading]
+    headings: List[ILGSv1Span]
     """An array of spans within the document's text constituting headings."""
 
-    junk: List[Junk]
+    junk: List[ILGSv1Span]
     """
     An array of spans within the document's text constituting non-operative,
     non-substantive 'junk' content such as headers, footers, page numbers, and OCR
