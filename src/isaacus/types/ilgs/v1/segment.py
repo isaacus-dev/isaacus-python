@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Literal
 
 from .span import Span
@@ -186,6 +186,12 @@ class Segment(BaseModel):
     """
     A unique identifier for a segment in the format `seg:{index}` where `{index}` is
     a non-negative incrementing integer starting from zero.
+    """
+
+    children: List[str]
+    """
+    The unique identifiers of any segments having this segment as their immediate
+    parent.
     """
 
     level: int
