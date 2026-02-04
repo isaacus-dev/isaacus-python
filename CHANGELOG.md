@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.0 (2026-02-04)
+
+Full Changelog: [v0.14.0...v0.15.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.14.0...v0.15.0)
+
+### Features
+
+* **sdk:** add `decode` method to `Span`s ([bc41468](https://github.com/isaacus-dev/isaacus-python/commit/bc4146813a1b236b0740f2a74bab11311b5ef99d))
+
 ## 0.14.0 (2026-02-04)
 
 Full Changelog: [v0.13.0...v0.14.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.13.0...v0.14.0)
