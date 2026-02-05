@@ -9,7 +9,7 @@ import pytest
 
 from isaacus import Isaacus, AsyncIsaacus
 from tests.utils import assert_matches_type
-from isaacus.types.classifications import UniversalClassificationResponse
+from isaacus.types.classifications.universal import UniversalClassificationResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

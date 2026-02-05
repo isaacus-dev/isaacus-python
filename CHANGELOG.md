@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.17.0 (2026-02-05)
+
+Full Changelog: [v0.16.0...v0.17.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.16.0...v0.17.0)
+
+### Features
+
+* **sdk:** make qa, universal, ilgs standalone apis ([12b6674](https://github.com/isaacus-dev/isaacus-python/commit/12b6674c5e050a83614c4f50fd0a6f848747aa94))
+
 ## 0.16.0 (2026-02-04)
 
 Full Changelog: [v0.15.0...v0.16.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.15.0...v0.16.0)
