@@ -18,8 +18,8 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ..._base_client import make_request_options
-from ...types.extractions import qa_create_params
-from ...types.extractions.answer_extraction_response import AnswerExtractionResponse
+from ...types.extractions.qa import qa_create_params
+from ...types.extractions.qa.answer_extraction_response import AnswerExtractionResponse
 
 __all__ = ["QAResource", "AsyncQAResource"]
 

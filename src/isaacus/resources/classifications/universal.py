@@ -18,8 +18,8 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ..._base_client import make_request_options
-from ...types.classifications import universal_create_params
-from ...types.classifications.universal_classification_response import UniversalClassificationResponse
+from ...types.classifications.universal import universal_create_params
+from ...types.classifications.universal.universal_classification_response import UniversalClassificationResponse
 
 __all__ = ["UniversalResource", "AsyncUniversalResource"]
 
