@@ -22,7 +22,9 @@ __all__ = ["Document"]
 
 
 class Document(BaseModel):
-    """The enriched document."""
+    """
+    The document enriched into version 1.0.0 of the Isaacus Legal Graph Schema (ILGS).
+    """
 
     text: str
     """The text of the document."""
