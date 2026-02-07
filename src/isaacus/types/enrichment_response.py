@@ -20,26 +20,10 @@ class Result(BaseModel):
     document: Document
     """
     The document enriched into version 1.0.0 of the Isaacus Legal Graph Schema
-    (ILGS).
-    """
-
-
-class Usage(BaseModel):
-    """Statistics about the usage of resources in the process of enriching the input."""
-
-    input_tokens: int
-    """The total number of tokens inputted to the model."""
-
-
-class EnrichmentResponse(BaseModel):
-    results: List[Result]
-    """
-    The input documents enriched into version 1.0.0 of the Isaacus Legal Graph
-    Schema (IGLS).
+    (IGLS).
 
     All spans in an enriched document graph are indexed into the Unicode code point
-    space of a source document. Access to source documents is thus required to
-    resolve spans into text.
+    space of a source document.
 
     The start and end indices of spans are zero-based (i.e., the first Unicode code
     point in the document is at index 0) and half-open (i.e., the end index is
@@ -57,6 +41,21 @@ class EnrichmentResponse(BaseModel):
     half-open, Unicode code point-spaced string indexing), indices may need to be
     translated accordingly (for example, JavaScript slices into UTF-16 code units
     instead of Unicode code points).
+    """
+
+
+class Usage(BaseModel):
+    """Statistics about the usage of resources in the process of enriching the input."""
+
+    input_tokens: int
+    """The total number of tokens inputted to the model."""
+
+
+class EnrichmentResponse(BaseModel):
+    results: List[Result]
+    """
+    The enriched documents alongside, and in order of, their indices in the input
+    array of texts.
     """
 
     usage: Usage
