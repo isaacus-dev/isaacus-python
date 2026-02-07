@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.17.1 (2026-02-07)
+
+Full Changelog: [v0.17.0...v0.17.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.17.0...v0.17.1)
+
+### Documentation
+
+* **api:** alter def of politic person type ([92e2ee6](https://github.com/isaacus-dev/isaacus-python/commit/92e2ee6510a765a774fab72b2481b9aeb5b69ba0))
+* **api:** documented ILGS `contract` type ([5c31f2a](https://github.com/isaacus-dev/isaacus-python/commit/5c31f2a090879eceef8d808c5d9684d6452289ef))
+* **api:** move around attribute comments ([7c959e9](https://github.com/isaacus-dev/isaacus-python/commit/7c959e9c159cd22ccfbd7d608428ef2c0c9df921))
+* **api:** note docs are enriched into ilgs v1 ([27a7ced](https://github.com/isaacus-dev/isaacus-python/commit/27a7ced29864194a693b7ae3e72f75e77ebe55ee))
+
 ## 0.17.0 (2026-02-05)
 
 Full Changelog: [v0.16.0...v0.17.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.16.0...v0.17.0)
