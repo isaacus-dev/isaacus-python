@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.18.0 (2026-02-11)
+
+Full Changelog: [v0.17.1...v0.18.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.17.1...v0.18.0)
+
+### Features
+
+* **api:** add chunking mode to enrichment ([20a3231](https://github.com/isaacus-dev/isaacus-python/commit/20a3231576f04f67e35db65de497ea89fccafdb0))
+
+
+### Chores
+
+* **internal:** bump dependencies ([233ae5c](https://github.com/isaacus-dev/isaacus-python/commit/233ae5cb808d97971cfffb68d2b5191c2a4d7cfa))
+
+
+### Documentation
+
+* **api:** update `creation` date type definition ([66db3ea](https://github.com/isaacus-dev/isaacus-python/commit/66db3eac21d416b05e0da12e4f22871a03ef3ebc))
+
 ## 0.17.1 (2026-02-07)
 
 Full Changelog: [v0.17.0...v0.17.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.17.0...v0.17.1)
