@@ -49,7 +49,7 @@ class EnrichmentsResource(SyncAPIResource):
         *,
         model: Literal["kanon-2-enricher"],
         texts: Union[SequenceNotStr[str], str],
-        overflow_strategy: Optional[Literal["auto", "drop_end"]] | Omit = omit,
+        overflow_strategy: Optional[Literal["auto", "drop_end", "chunk"]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -71,9 +71,15 @@ class EnrichmentsResource(SyncAPIResource):
 
           overflow_strategy: The strategy for handling content exceeding the model's maximum input length.
 
-              `auto` currently behaves the same as `drop_end`, dropping excess tokens from the
-              end of input. In the future, `auto` may implement more sophisticated strategies
-              such as chunking and context-aware stitching.
+              `auto`, which is the default and recommended setting, currently behaves the same
+              as `chunk`, which intelligently breaks the input up into smaller chunks and then
+              stitches the results back together into a single prediction. In the future
+              `auto` may implement even more sophisticated strategies for handling long
+              contexts such as leveraging chunk overlap and/or a specialized stitching model.
+
+              `chunk` breaks the input up into smaller chunks that fit within the model's
+              context window and then intelligently merges the results into a single
+              prediction at the cost of a minor accuracy drop.
 
               `drop_end` drops tokens from the end of input exceeding the model's maximum
               input length.
@@ -131,7 +137,7 @@ class AsyncEnrichmentsResource(AsyncAPIResource):
         *,
         model: Literal["kanon-2-enricher"],
         texts: Union[SequenceNotStr[str], str],
-        overflow_strategy: Optional[Literal["auto", "drop_end"]] | Omit = omit,
+        overflow_strategy: Optional[Literal["auto", "drop_end", "chunk"]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -153,9 +159,15 @@ class AsyncEnrichmentsResource(AsyncAPIResource):
 
           overflow_strategy: The strategy for handling content exceeding the model's maximum input length.
 
-              `auto` currently behaves the same as `drop_end`, dropping excess tokens from the
-              end of input. In the future, `auto` may implement more sophisticated strategies
-              such as chunking and context-aware stitching.
+              `auto`, which is the default and recommended setting, currently behaves the same
+              as `chunk`, which intelligently breaks the input up into smaller chunks and then
+              stitches the results back together into a single prediction. In the future
+              `auto` may implement even more sophisticated strategies for handling long
+              contexts such as leveraging chunk overlap and/or a specialized stitching model.
+
+              `chunk` breaks the input up into smaller chunks that fit within the model's
+              context window and then intelligently merges the results into a single
+              prediction at the cost of a minor accuracy drop.
 
               `drop_end` drops tokens from the end of input exceeding the model's maximum
               input length.
