@@ -32,7 +32,7 @@ class TestEnrichments:
         enrichment = client.enrichments.create(
             model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
-            overflow_strategy="auto",
+            overflow_strategy=None,
         )
         assert_matches_type(EnrichmentResponse, enrichment, path=["response"])
 
@@ -85,7 +85,7 @@ class TestAsyncEnrichments:
         enrichment = await async_client.enrichments.create(
             model="kanon-2-enricher",
             texts=['1.5 You (the "User") agree to be bound by these Terms.'],
-            overflow_strategy="auto",
+            overflow_strategy=None,
         )
         assert_matches_type(EnrichmentResponse, enrichment, path=["response"])
 
