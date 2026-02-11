@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.18.1 (2026-02-11)
+
+Full Changelog: [v0.18.0...v0.18.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.18.0...v0.18.1)
+
+### Documentation
+
+* **api:** minor description correction ([d8d08e7](https://github.com/isaacus-dev/isaacus-python/commit/d8d08e7a7cef2e4f0915f345a1ace15bf62605c8))
+* **api:** update example overflow strategy for enrichment ([8e2ee9e](https://github.com/isaacus-dev/isaacus-python/commit/8e2ee9e9d8cabd2a57917d698b2a01083c244efa))
+
 ## 0.18.0 (2026-02-11)
 
 Full Changelog: [v0.17.1...v0.18.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.17.1...v0.18.0)

@@ -28,11 +28,11 @@ class EnrichmentCreateParams(TypedDict, total=False):
     overflow_strategy: Optional[Literal["auto", "drop_end", "chunk"]]
     """The strategy for handling content exceeding the model's maximum input length.
 
-    `auto`, which is the default and recommended setting, currently behaves the same
-    as `chunk`, which intelligently breaks the input up into smaller chunks and then
-    stitches the results back together into a single prediction. In the future
-    `auto` may implement even more sophisticated strategies for handling long
-    contexts such as leveraging chunk overlap and/or a specialized stitching model.
+    `auto`, which is the recommended setting, currently behaves the same as `chunk`,
+    which intelligently breaks the input up into smaller chunks and then stitches
+    the results back together into a single prediction. In the future `auto` may
+    implement even more sophisticated strategies for handling long contexts such as
+    leveraging chunk overlap and/or a specialized stitching model.
 
     `chunk` breaks the input up into smaller chunks that fit within the model's
     context window and then intelligently merges the results into a single
