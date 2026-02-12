@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.19.0 (2026-02-12)
+
+Full Changelog: [v0.18.1...v0.19.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.18.1...v0.19.0)
+
+### Features
+
+* **api:** revoke ILGS ID consecutive integer promise ([2e34941](https://github.com/isaacus-dev/isaacus-python/commit/2e34941b8dfcf1397f94e20a7a52b92f6a0ed35f))
+
+
+### Bug Fixes
+
+* **api:** typo in docs ([1dfc52c](https://github.com/isaacus-dev/isaacus-python/commit/1dfc52c3c6c495de8969f37f42ad6010e7bea03e))
+* **api:** typo in docs ([93a15f9](https://github.com/isaacus-dev/isaacus-python/commit/93a15f90ac7512bce7c78109d9c350af61f20c63))
+
 ## 0.18.1 (2026-02-11)
 
 Full Changelog: [v0.18.0...v0.18.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.18.0...v0.18.1)
