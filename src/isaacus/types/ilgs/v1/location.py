@@ -13,10 +13,7 @@ class Location(BaseModel):
     """A location identified within a document."""
 
     id: str
-    """
-    The unique identifier of the location in the format `loc:{index}` where
-    `{index}` is a non-negative incrementing integer starting from zero.
-    """
+    """The unique identifier of the location in the format `loc:{identifier}`."""
 
     name: Span
     """A zero-based, half-open span into the Unicode code point space of input text.
@@ -41,10 +38,7 @@ class Location(BaseModel):
     """
 
     parent: Optional[str] = None
-    """
-    A unique identifier for a location in the format `loc:{index}` where `{index}`
-    is a non-negative incrementing integer starting from zero.
-    """
+    """A unique identifier for a location in the format `loc:{identifier}`."""
 
     children: List[str]
     """

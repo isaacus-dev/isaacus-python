@@ -12,10 +12,7 @@ class Term(BaseModel):
     """A term assigned a definite meaning within a document."""
 
     id: str
-    """
-    The unique identifier of the term in the format `term:{index}` where `{index}`
-    is a non-negative incrementing integer starting from zero.
-    """
+    """The unique identifier of the term in the format `term:{identifier}`."""
 
     name: Span
     """A zero-based, half-open span into the Unicode code point space of input text.

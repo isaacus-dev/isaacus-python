@@ -13,10 +13,7 @@ class Person(BaseModel):
     """A legal person identified in a document."""
 
     id: str
-    """
-    The unique identifier of the person in the format `per:{index}` where `{index}`
-    is a non-negative incrementing integer starting from zero.
-    """
+    """The unique identifier of the person in the format `per:{identifier}`."""
 
     name: Span
     """A zero-based, half-open span into the Unicode code point space of input text.
@@ -177,10 +174,7 @@ class Person(BaseModel):
     """
 
     parent: Optional[str] = None
-    """
-    A unique identifier for a legal person in the format `per:{index}` where
-    `{index}` is a non-negative incrementing integer starting from zero.
-    """
+    """A unique identifier for a legal person in the format `per:{identifier}`."""
 
     children: List[str]
     """
@@ -189,10 +183,7 @@ class Person(BaseModel):
     """
 
     residence: Optional[str] = None
-    """
-    A unique identifier for a location in the format `loc:{index}` where `{index}`
-    is a non-negative incrementing integer starting from zero.
-    """
+    """A unique identifier for a location in the format `loc:{identifier}`."""
 
     mentions: List[Span]
     """
