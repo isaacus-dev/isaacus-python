@@ -15,10 +15,7 @@ class Segment(BaseModel):
     """
 
     id: str
-    """
-    The unique identifier of the segment in the format `seg:{index}` where `{index}`
-    is a non-negative incrementing integer starting from zero.
-    """
+    """The unique identifier of the segment in the format `seg:{identifier}`."""
 
     kind: Literal["container", "unit", "item", "figure"]
     """
@@ -183,10 +180,7 @@ class Segment(BaseModel):
     """
 
     parent: Optional[str] = None
-    """
-    A unique identifier for a segment in the format `seg:{index}` where `{index}` is
-    a non-negative incrementing integer starting from zero.
-    """
+    """A unique identifier for a segment in the format `seg:{identifier}`."""
 
     children: List[str]
     """

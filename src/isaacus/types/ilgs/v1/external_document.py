@@ -14,8 +14,7 @@ class ExternalDocument(BaseModel):
 
     id: str
     """
-    The unique identifier of the external document in the format `exd:{index}` where
-    `{index}` is a non-negative incrementing integer starting from zero.
+    The unique identifier of the external document in the format `exd:{identifier}`.
     """
 
     name: Span

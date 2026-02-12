@@ -58,10 +58,7 @@ class Date(BaseModel):
     """
 
     person: Optional[str] = None
-    """
-    A unique identifier for a legal person in the format `per:{index}` where
-    `{index}` is a non-negative incrementing integer starting from zero.
-    """
+    """A unique identifier for a legal person in the format `per:{identifier}`."""
 
     mentions: List[Span]
     """
