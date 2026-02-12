@@ -12,22 +12,13 @@ class Quote(BaseModel):
     """A quotation within a document."""
 
     source_segment: Optional[str] = None
-    """
-    A unique identifier for a segment in the format `seg:{index}` where `{index}` is
-    a non-negative incrementing integer starting from zero.
-    """
+    """A unique identifier for a segment in the format `seg:{identifier}`."""
 
     source_document: Optional[str] = None
-    """
-    A unique identifier for an external document in the format `exd:{index}` where
-    `{index}` is a non-negative incrementing integer starting from zero.
-    """
+    """A unique identifier for an external document in the format `exd:{identifier}`."""
 
     source_person: Optional[str] = None
-    """
-    A unique identifier for a legal person in the format `per:{index}` where
-    `{index}` is a non-negative incrementing integer starting from zero.
-    """
+    """A unique identifier for a legal person in the format `per:{identifier}`."""
 
     amending: bool
     """
