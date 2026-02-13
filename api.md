@@ -12,17 +12,7 @@ Methods:
 
 # Classifications
 
-## Universal
-
-Types:
-
-```python
-from isaacus.types.classifications.universal import UniversalClassificationResponse
-```
-
-Methods:
-
-- <code title="post /classifications/universal">client.classifications.universal.<a href="./src/isaacus/resources/classifications/universal.py">create</a>(\*\*<a href="src/isaacus/types/classifications/universal/universal_create_params.py">params</a>) -> <a href="./src/isaacus/types/classifications/universal/universal_classification_response.py">UniversalClassificationResponse</a></code>
+## [Universal](src/isaacus/resources/classifications/api.md)
 
 # Rerankings
 
@@ -38,17 +28,7 @@ Methods:
 
 # Extractions
 
-## QA
-
-Types:
-
-```python
-from isaacus.types.extractions.qa import AnswerExtractionResponse
-```
-
-Methods:
-
-- <code title="post /extractions/qa">client.extractions.qa.<a href="./src/isaacus/resources/extractions/qa.py">create</a>(\*\*<a href="src/isaacus/types/extractions/qa/qa_create_params.py">params</a>) -> <a href="./src/isaacus/types/extractions/qa/answer_extraction_response.py">AnswerExtractionResponse</a></code>
+## [QA](src/isaacus/resources/extractions/api.md)
 
 # Enrichments
 
@@ -64,25 +44,4 @@ Methods:
 
 # ILGS
 
-## v1
-
-Types:
-
-```python
-from isaacus.types.ilgs.v1 import (
-    Crossreference,
-    Date,
-    Document,
-    Email,
-    ExternalDocument,
-    IDNumber,
-    Location,
-    Person,
-    PhoneNumber,
-    Quote,
-    Segment,
-    Span,
-    Term,
-    Website,
-)
-```
+## [v1](src/isaacus/resources/api.md)
