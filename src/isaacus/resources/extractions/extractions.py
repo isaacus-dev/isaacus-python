@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from .qa import (
+from .qa.qa import (
     QAResource,
     AsyncQAResource,
     QAResourceWithRawResponse,
