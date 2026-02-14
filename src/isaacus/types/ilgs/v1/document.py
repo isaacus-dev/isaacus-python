@@ -174,8 +174,9 @@ class Document(BaseModel):
     types: `creation`, `signature`, `effective`, `expiry`, `delivery`, `renewal`,
     `payment`, `birth`, or `death`.
 
-    Only Gregorian dates between the years 1000 and 9999 (inclusive) fitting into
-    one of the supported date types are extractable.
+    Only full Gregorian dates (i.e., including a day, month, and year) between the
+    years 1000 and 9999 (inclusive) fitting into one of the supported date types are
+    extractable.
     """
 
     headings: List[Span]
