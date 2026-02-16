@@ -10,7 +10,7 @@ class Span(BaseModel):
 
     All spans are globally laminar and well-nested similar to XML—it is impossible for any two spans to partially overlap; they can only be disjoint, adjacent, or wholly nested. Spans of the exact same type (e.g., segments) will never be duplicated.
 
-    A span cannot be empty and will never start or end at whitespace.
+    A span cannot be empty and will never start or end at whitespace (though a span's `end` index, being an exclusive index, may obviosuly land on a whitespace character).
 
     Note that, when using programming languages other than Python (which uses zero-based, half-open, Unicode code point-spaced string indexing), indices may need to be translated accordingly (for example, JavaScript slices into UTF-16 code units instead of Unicode code points).
     """
