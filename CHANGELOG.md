@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.19.1 (2026-02-16)
+
+Full Changelog: [v0.19.0...v0.19.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.0...v0.19.1)
+
+### Chores
+
+* format all `api.md` files ([df775e3](https://github.com/isaacus-dev/isaacus-python/commit/df775e3230586fbb1dacec902a3fc40c181e7c9b))
+* **internal:** fix lint error on Python 3.14 ([59cc825](https://github.com/isaacus-dev/isaacus-python/commit/59cc825b036e5b7ad55b029d4027eb65563a3aa2))
+
+
+### Documentation
+
+* **api:** clarify ilgs span whitespace coverage ([75d28d4](https://github.com/isaacus-dev/isaacus-python/commit/75d28d4abeec47cb0340380e26828857e88f59fb))
+* **api:** improve explanation of extractable dates ([2b81647](https://github.com/isaacus-dev/isaacus-python/commit/2b81647df748c71543b60fa94d579fff0b38a4e6))
+
 ## 0.19.0 (2026-02-12)
 
 Full Changelog: [v0.18.1...v0.19.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.18.1...v0.19.0)
