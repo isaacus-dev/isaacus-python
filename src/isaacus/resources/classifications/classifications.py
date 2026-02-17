@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 from ..._compat import cached_property
-from .universal import (
+from ..._resource import SyncAPIResource, AsyncAPIResource
+from .universal.universal import (
     UniversalResource,
     AsyncUniversalResource,
     UniversalResourceWithRawResponse,
@@ -11,7 +12,6 @@ from .universal import (
     UniversalResourceWithStreamingResponse,
     AsyncUniversalResourceWithStreamingResponse,
 )
-from ..._resource import SyncAPIResource, AsyncAPIResource
 
 __all__ = ["ClassificationsResource", "AsyncClassificationsResource"]
 
