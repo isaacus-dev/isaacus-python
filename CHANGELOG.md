@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.19.2 (2026-02-18)
+
+Full Changelog: [v0.19.1...v0.19.2](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.1...v0.19.2)
+
+### Documentation
+
+* **api:** link to ilgs schema ([c4cf2b7](https://github.com/isaacus-dev/isaacus-python/commit/c4cf2b7a80090604e229ed3219d3d8ad73cdabf9))
+
 ## 0.19.1 (2026-02-16)
 
 Full Changelog: [v0.19.0...v0.19.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.0...v0.19.1)
