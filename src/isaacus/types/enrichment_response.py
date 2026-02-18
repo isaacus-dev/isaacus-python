@@ -19,8 +19,8 @@ class Result(BaseModel):
 
     document: Document
     """
-    The document enriched into version 1.0.0 of the Isaacus Legal Graph Schema
-    (ILGS).
+    The document enriched into version 1.0.0 of the
+    [Isaacus Legal Graph Schema (ILGS)](https://docs.isaacus.com/ilgs).
 
     All spans in an enriched document graph are indexed into the Unicode code point
     space of a source document.
