@@ -25,6 +25,8 @@ __all__ = ["UniversalResource", "AsyncUniversalResource"]
 
 
 class UniversalResource(SyncAPIResource):
+    """Classify legal documents with Isaacus legal AI classifiers."""
+
     @cached_property
     def with_raw_response(self) -> UniversalResourceWithRawResponse:
         """
@@ -126,6 +128,8 @@ class UniversalResource(SyncAPIResource):
 
 
 class AsyncUniversalResource(AsyncAPIResource):
+    """Classify legal documents with Isaacus legal AI classifiers."""
+
     @cached_property
     def with_raw_response(self) -> AsyncUniversalResourceWithRawResponse:
         """

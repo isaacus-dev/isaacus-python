@@ -25,6 +25,8 @@ __all__ = ["QAResource", "AsyncQAResource"]
 
 
 class QAResource(SyncAPIResource):
+    """Extract information from legal documents with Isaacus legal AI extractors."""
+
     @cached_property
     def with_raw_response(self) -> QAResourceWithRawResponse:
         """
@@ -125,6 +127,8 @@ class QAResource(SyncAPIResource):
 
 
 class AsyncQAResource(AsyncAPIResource):
+    """Extract information from legal documents with Isaacus legal AI extractors."""
+
     @cached_property
     def with_raw_response(self) -> AsyncQAResourceWithRawResponse:
         """

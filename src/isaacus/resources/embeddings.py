@@ -25,6 +25,8 @@ __all__ = ["EmbeddingsResource", "AsyncEmbeddingsResource"]
 
 
 class EmbeddingsResource(SyncAPIResource):
+    """Embed legal texts with Isaacus legal AI embedders."""
+
     @cached_property
     def with_raw_response(self) -> EmbeddingsResourceWithRawResponse:
         """
@@ -118,6 +120,8 @@ class EmbeddingsResource(SyncAPIResource):
 
 
 class AsyncEmbeddingsResource(AsyncAPIResource):
+    """Embed legal texts with Isaacus legal AI embedders."""
+
     @cached_property
     def with_raw_response(self) -> AsyncEmbeddingsResourceWithRawResponse:
         """
