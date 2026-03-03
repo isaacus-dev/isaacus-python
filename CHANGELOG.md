@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.19.3 (2026-03-03)
+
+Full Changelog: [v0.19.2...v0.19.3](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.2...v0.19.3)
+
+### Chores
+
+* **internal:** add request options to SSE classes ([c17f87b](https://github.com/isaacus-dev/isaacus-python/commit/c17f87bb554fb2f897d8aff7d871ba4710f144dd))
+* **internal:** make `test_proxy_environment_variables` more resilient ([6f2864d](https://github.com/isaacus-dev/isaacus-python/commit/6f2864d438b493b7fa5e78c7f3aac1066ac2b19c))
+* **internal:** make `test_proxy_environment_variables` more resilient to env ([6af2338](https://github.com/isaacus-dev/isaacus-python/commit/6af233851808d5c3995063047a369588a7b7749c))
+* **internal:** remove mock server code ([e586a7f](https://github.com/isaacus-dev/isaacus-python/commit/e586a7f29f0fb1ed92f593da9a3fd6086b074004))
+* update mock server docs ([4bd2467](https://github.com/isaacus-dev/isaacus-python/commit/4bd2467c4ba212c2661dc4b0fab8a17fbea7a431))
+
 ## 0.19.2 (2026-02-18)
 
 Full Changelog: [v0.19.1...v0.19.2](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.1...v0.19.2)
