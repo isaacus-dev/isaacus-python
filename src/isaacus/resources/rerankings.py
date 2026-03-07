@@ -25,6 +25,10 @@ __all__ = ["RerankingsResource", "AsyncRerankingsResource"]
 
 
 class RerankingsResource(SyncAPIResource):
+    """
+    Rerank legal documents by their relevance to queries with Isaacus legal AI rerankers.
+    """
+
     @cached_property
     def with_raw_response(self) -> RerankingsResourceWithRawResponse:
         """
@@ -136,6 +140,10 @@ class RerankingsResource(SyncAPIResource):
 
 
 class AsyncRerankingsResource(AsyncAPIResource):
+    """
+    Rerank legal documents by their relevance to queries with Isaacus legal AI rerankers.
+    """
+
     @cached_property
     def with_raw_response(self) -> AsyncRerankingsResourceWithRawResponse:
         """

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.19.4 (2026-03-07)
+
+Full Changelog: [v0.19.3...v0.19.4](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.3...v0.19.4)
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([54b727d](https://github.com/isaacus-dev/isaacus-python/commit/54b727d4799d95bce4143399039538f3c30c744f))
+* **internal:** codegen related update ([025587b](https://github.com/isaacus-dev/isaacus-python/commit/025587b946c3ece7a34a346280dbd688880a7276))
+
 ## 0.19.3 (2026-03-03)
 
 Full Changelog: [v0.19.2...v0.19.3](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.2...v0.19.3)
