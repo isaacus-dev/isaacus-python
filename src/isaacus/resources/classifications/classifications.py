@@ -19,7 +19,7 @@ __all__ = ["ClassificationsResource", "AsyncClassificationsResource"]
 class ClassificationsResource(SyncAPIResource):
     @cached_property
     def universal(self) -> UniversalResource:
-        """Classify legal documents with Isaacus legal AI classifiers."""
+        """Classify documents with an Isaacus classification model."""
         return UniversalResource(self._client)
 
     @cached_property
@@ -45,7 +45,7 @@ class ClassificationsResource(SyncAPIResource):
 class AsyncClassificationsResource(AsyncAPIResource):
     @cached_property
     def universal(self) -> AsyncUniversalResource:
-        """Classify legal documents with Isaacus legal AI classifiers."""
+        """Classify documents with an Isaacus classification model."""
         return AsyncUniversalResource(self._client)
 
     @cached_property
@@ -74,7 +74,7 @@ class ClassificationsResourceWithRawResponse:
 
     @cached_property
     def universal(self) -> UniversalResourceWithRawResponse:
-        """Classify legal documents with Isaacus legal AI classifiers."""
+        """Classify documents with an Isaacus classification model."""
         return UniversalResourceWithRawResponse(self._classifications.universal)
 
 
@@ -84,7 +84,7 @@ class AsyncClassificationsResourceWithRawResponse:
 
     @cached_property
     def universal(self) -> AsyncUniversalResourceWithRawResponse:
-        """Classify legal documents with Isaacus legal AI classifiers."""
+        """Classify documents with an Isaacus classification model."""
         return AsyncUniversalResourceWithRawResponse(self._classifications.universal)
 
 
@@ -94,7 +94,7 @@ class ClassificationsResourceWithStreamingResponse:
 
     @cached_property
     def universal(self) -> UniversalResourceWithStreamingResponse:
-        """Classify legal documents with Isaacus legal AI classifiers."""
+        """Classify documents with an Isaacus classification model."""
         return UniversalResourceWithStreamingResponse(self._classifications.universal)
 
 
@@ -104,5 +104,5 @@ class AsyncClassificationsResourceWithStreamingResponse:
 
     @cached_property
     def universal(self) -> AsyncUniversalResourceWithStreamingResponse:
-        """Classify legal documents with Isaacus legal AI classifiers."""
+        """Classify documents with an Isaacus classification model."""
         return AsyncUniversalResourceWithStreamingResponse(self._classifications.universal)
