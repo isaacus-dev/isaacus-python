@@ -11,10 +11,11 @@ __all__ = ["RerankingCreateParams", "ChunkingOptions"]
 
 
 class RerankingCreateParams(TypedDict, total=False):
-    model: Required[Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"]]
+    model: Required[Literal["kanon-2-reranker", "kanon-universal-classifier", "kanon-universal-classifier-mini"]]
     """
-    The ID of the [model](https://docs.isaacus.com/models#reranking) to use for
-    reranking.
+    The ID of the model to use for reranking, being either a
+    [reranking model](https://docs.isaacus.com/models/introduction#reranking) or
+    [universal classification model](https://docs.isaacus.com/models/introduction#universal-classification).
     """
 
     query: Required[str]
@@ -49,7 +50,10 @@ class RerankingCreateParams(TypedDict, total=False):
     """
 
     scoring_method: Literal["auto", "chunk_max", "chunk_avg", "chunk_min"]
-    """The method to use for producing an overall relevance score for a text.
+    """
+    The method to use for producing an overall relevance score for a text that
+    exceeds the model's local context window and has, therefore, been split into
+    multiple chunks.
 
     `auto` is the default scoring method and is recommended for most use cases.
     Currently, it is equivalent to `chunk_max`. In the future, it will automatically
