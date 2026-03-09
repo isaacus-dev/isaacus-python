@@ -51,7 +51,7 @@ class RerankingsResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
+        model: Literal["kanon-2-reranker", "kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         texts: SequenceNotStr[str],
         top_n: Optional[int] | Omit = omit,
@@ -70,8 +70,9 @@ class RerankingsResource(SyncAPIResource):
         reranker.
 
         Args:
-          model: The ID of the [model](https://docs.isaacus.com/models#reranking) to use for
-              reranking.
+          model: The ID of the model to use for reranking, being either a
+              [reranking model](https://docs.isaacus.com/models/introduction#reranking) or
+              [universal classification model](https://docs.isaacus.com/models/introduction#universal-classification).
 
           query: The query to evaluate the relevance of the texts to.
 
@@ -96,7 +97,9 @@ class RerankingsResource(SyncAPIResource):
               before enabling IQL since queries can be crafted to consume an excessively large
               amount of tokens.
 
-          scoring_method: The method to use for producing an overall relevance score for a text.
+          scoring_method: The method to use for producing an overall relevance score for a text that
+              exceeds the model's local context window and has, therefore, been split into
+              multiple chunks.
 
               `auto` is the default scoring method and is recommended for most use cases.
               Currently, it is equivalent to `chunk_max`. In the future, it will automatically
@@ -166,7 +169,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
+        model: Literal["kanon-2-reranker", "kanon-universal-classifier", "kanon-universal-classifier-mini"],
         query: str,
         texts: SequenceNotStr[str],
         top_n: Optional[int] | Omit = omit,
@@ -185,8 +188,9 @@ class AsyncRerankingsResource(AsyncAPIResource):
         reranker.
 
         Args:
-          model: The ID of the [model](https://docs.isaacus.com/models#reranking) to use for
-              reranking.
+          model: The ID of the model to use for reranking, being either a
+              [reranking model](https://docs.isaacus.com/models/introduction#reranking) or
+              [universal classification model](https://docs.isaacus.com/models/introduction#universal-classification).
 
           query: The query to evaluate the relevance of the texts to.
 
@@ -211,7 +215,9 @@ class AsyncRerankingsResource(AsyncAPIResource):
               before enabling IQL since queries can be crafted to consume an excessively large
               amount of tokens.
 
-          scoring_method: The method to use for producing an overall relevance score for a text.
+          scoring_method: The method to use for producing an overall relevance score for a text that
+              exceeds the model's local context window and has, therefore, been split into
+              multiple chunks.
 
               `auto` is the default scoring method and is recommended for most use cases.
               Currently, it is equivalent to `chunk_max`. In the future, it will automatically
