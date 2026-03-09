@@ -25,7 +25,7 @@ __all__ = ["EmbeddingsResource", "AsyncEmbeddingsResource"]
 
 
 class EmbeddingsResource(SyncAPIResource):
-    """Embed legal texts with Isaacus legal AI embedders."""
+    """Vectorize content with an Isaacus embedding model."""
 
     @cached_property
     def with_raw_response(self) -> EmbeddingsResourceWithRawResponse:
@@ -62,7 +62,7 @@ class EmbeddingsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EmbeddingResponse:
         """
-        Embed legal texts with an Isaacus legal AI embedder.
+        Vectorize content with an Isaacus embedding model.
 
         Args:
           model: The ID of the [model](https://docs.isaacus.com/models#embedding) to use for
@@ -120,7 +120,7 @@ class EmbeddingsResource(SyncAPIResource):
 
 
 class AsyncEmbeddingsResource(AsyncAPIResource):
-    """Embed legal texts with Isaacus legal AI embedders."""
+    """Vectorize content with an Isaacus embedding model."""
 
     @cached_property
     def with_raw_response(self) -> AsyncEmbeddingsResourceWithRawResponse:
@@ -157,7 +157,7 @@ class AsyncEmbeddingsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EmbeddingResponse:
         """
-        Embed legal texts with an Isaacus legal AI embedder.
+        Vectorize content with an Isaacus embedding model.
 
         Args:
           model: The ID of the [model](https://docs.isaacus.com/models#embedding) to use for

@@ -25,7 +25,7 @@ __all__ = ["UniversalResource", "AsyncUniversalResource"]
 
 
 class UniversalResource(SyncAPIResource):
-    """Classify legal documents with Isaacus legal AI classifiers."""
+    """Classify documents with an Isaacus classification model."""
 
     @cached_property
     def with_raw_response(self) -> UniversalResourceWithRawResponse:
@@ -63,8 +63,7 @@ class UniversalResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UniversalClassificationResponse:
         """
-        Classify the relevance of legal documents to a query with an Isaacus universal
-        legal AI classifier.
+        Classify documents with an Isaacus universal classification model.
 
         Args:
           model: The ID of the [model](https://docs.isaacus.com/models#universal-classification)
@@ -128,7 +127,7 @@ class UniversalResource(SyncAPIResource):
 
 
 class AsyncUniversalResource(AsyncAPIResource):
-    """Classify legal documents with Isaacus legal AI classifiers."""
+    """Classify documents with an Isaacus classification model."""
 
     @cached_property
     def with_raw_response(self) -> AsyncUniversalResourceWithRawResponse:
@@ -166,8 +165,7 @@ class AsyncUniversalResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UniversalClassificationResponse:
         """
-        Classify the relevance of legal documents to a query with an Isaacus universal
-        legal AI classifier.
+        Classify documents with an Isaacus universal classification model.
 
         Args:
           model: The ID of the [model](https://docs.isaacus.com/models#universal-classification)

@@ -26,7 +26,7 @@ __all__ = ["RerankingsResource", "AsyncRerankingsResource"]
 
 class RerankingsResource(SyncAPIResource):
     """
-    Rerank legal documents by their relevance to queries with Isaacus legal AI rerankers.
+    Score and rank documents by their relevance to queries with an Isaacus reranker.
     """
 
     @cached_property
@@ -66,8 +66,7 @@ class RerankingsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RerankingResponse:
         """
-        Rank legal documents by their relevance to a query with an Isaacus legal AI
-        reranker.
+        Score and rank documents by their relevance to queries with an Isaacus reranker.
 
         Args:
           model: The ID of the model to use for reranking, being either a
@@ -144,7 +143,7 @@ class RerankingsResource(SyncAPIResource):
 
 class AsyncRerankingsResource(AsyncAPIResource):
     """
-    Rerank legal documents by their relevance to queries with Isaacus legal AI rerankers.
+    Score and rank documents by their relevance to queries with an Isaacus reranker.
     """
 
     @cached_property
@@ -184,8 +183,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RerankingResponse:
         """
-        Rank legal documents by their relevance to a query with an Isaacus legal AI
-        reranker.
+        Score and rank documents by their relevance to queries with an Isaacus reranker.
 
         Args:
           model: The ID of the model to use for reranking, being either a

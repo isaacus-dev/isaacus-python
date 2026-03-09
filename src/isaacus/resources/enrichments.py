@@ -25,6 +25,8 @@ __all__ = ["EnrichmentsResource", "AsyncEnrichmentsResource"]
 
 
 class EnrichmentsResource(SyncAPIResource):
+    """Enrich documents with an Isaacus enrichment model."""
+
     @cached_property
     def with_raw_response(self) -> EnrichmentsResourceWithRawResponse:
         """
@@ -58,7 +60,7 @@ class EnrichmentsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EnrichmentResponse:
         """
-        Enrich documents with an Isaacus enricher model.
+        Enrich documents with an Isaacus enrichment model.
 
         Args:
           model: The ID of the [model](https://docs.isaacus.com/models#enrichment) to use for
@@ -113,6 +115,8 @@ class EnrichmentsResource(SyncAPIResource):
 
 
 class AsyncEnrichmentsResource(AsyncAPIResource):
+    """Enrich documents with an Isaacus enrichment model."""
+
     @cached_property
     def with_raw_response(self) -> AsyncEnrichmentsResourceWithRawResponse:
         """
@@ -146,7 +150,7 @@ class AsyncEnrichmentsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EnrichmentResponse:
         """
-        Enrich documents with an Isaacus enricher model.
+        Enrich documents with an Isaacus enrichment model.
 
         Args:
           model: The ID of the [model](https://docs.isaacus.com/models#enrichment) to use for
