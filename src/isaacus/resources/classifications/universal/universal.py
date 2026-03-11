@@ -25,6 +25,8 @@ __all__ = ["UniversalResource", "AsyncUniversalResource"]
 
 
 class UniversalResource(SyncAPIResource):
+    """Classify documents with an Isaacus classification model."""
+
     @cached_property
     def with_raw_response(self) -> UniversalResourceWithRawResponse:
         """
@@ -47,7 +49,7 @@ class UniversalResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
+        model: Literal["kanon-universal-classifier"],
         query: str,
         texts: SequenceNotStr[str],
         is_iql: bool | Omit = omit,
@@ -61,8 +63,7 @@ class UniversalResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UniversalClassificationResponse:
         """
-        Classify the relevance of legal documents to a query with an Isaacus universal
-        legal AI classifier.
+        Classify documents with an Isaacus universal classification model.
 
         Args:
           model: The ID of the [model](https://docs.isaacus.com/models#universal-classification)
@@ -126,6 +127,8 @@ class UniversalResource(SyncAPIResource):
 
 
 class AsyncUniversalResource(AsyncAPIResource):
+    """Classify documents with an Isaacus classification model."""
+
     @cached_property
     def with_raw_response(self) -> AsyncUniversalResourceWithRawResponse:
         """
@@ -148,7 +151,7 @@ class AsyncUniversalResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
+        model: Literal["kanon-universal-classifier"],
         query: str,
         texts: SequenceNotStr[str],
         is_iql: bool | Omit = omit,
@@ -162,8 +165,7 @@ class AsyncUniversalResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UniversalClassificationResponse:
         """
-        Classify the relevance of legal documents to a query with an Isaacus universal
-        legal AI classifier.
+        Classify documents with an Isaacus universal classification model.
 
         Args:
           model: The ID of the [model](https://docs.isaacus.com/models#universal-classification)

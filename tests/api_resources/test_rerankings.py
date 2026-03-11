@@ -21,7 +21,7 @@ class TestRerankings:
     @parametrize
     def test_method_create(self, client: Isaacus) -> None:
         reranking = client.rerankings.create(
-            model="kanon-universal-classifier",
+            model="kanon-2-reranker",
             query="What are the essential elements required to establish a negligence claim?",
             texts=[
                 "To form a contract, there must be an offer, acceptance, consideration, and mutual intent to be bound.",
@@ -37,7 +37,7 @@ class TestRerankings:
     @parametrize
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         reranking = client.rerankings.create(
-            model="kanon-universal-classifier",
+            model="kanon-2-reranker",
             query="What are the essential elements required to establish a negligence claim?",
             texts=[
                 "To form a contract, there must be an offer, acceptance, consideration, and mutual intent to be bound.",
@@ -61,7 +61,7 @@ class TestRerankings:
     @parametrize
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.rerankings.with_raw_response.create(
-            model="kanon-universal-classifier",
+            model="kanon-2-reranker",
             query="What are the essential elements required to establish a negligence claim?",
             texts=[
                 "To form a contract, there must be an offer, acceptance, consideration, and mutual intent to be bound.",
@@ -81,7 +81,7 @@ class TestRerankings:
     @parametrize
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.rerankings.with_streaming_response.create(
-            model="kanon-universal-classifier",
+            model="kanon-2-reranker",
             query="What are the essential elements required to establish a negligence claim?",
             texts=[
                 "To form a contract, there must be an offer, acceptance, consideration, and mutual intent to be bound.",
@@ -109,7 +109,7 @@ class TestAsyncRerankings:
     @parametrize
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         reranking = await async_client.rerankings.create(
-            model="kanon-universal-classifier",
+            model="kanon-2-reranker",
             query="What are the essential elements required to establish a negligence claim?",
             texts=[
                 "To form a contract, there must be an offer, acceptance, consideration, and mutual intent to be bound.",
@@ -125,7 +125,7 @@ class TestAsyncRerankings:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         reranking = await async_client.rerankings.create(
-            model="kanon-universal-classifier",
+            model="kanon-2-reranker",
             query="What are the essential elements required to establish a negligence claim?",
             texts=[
                 "To form a contract, there must be an offer, acceptance, consideration, and mutual intent to be bound.",
@@ -149,7 +149,7 @@ class TestAsyncRerankings:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.rerankings.with_raw_response.create(
-            model="kanon-universal-classifier",
+            model="kanon-2-reranker",
             query="What are the essential elements required to establish a negligence claim?",
             texts=[
                 "To form a contract, there must be an offer, acceptance, consideration, and mutual intent to be bound.",
@@ -169,7 +169,7 @@ class TestAsyncRerankings:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.rerankings.with_streaming_response.create(
-            model="kanon-universal-classifier",
+            model="kanon-2-reranker",
             query="What are the essential elements required to establish a negligence claim?",
             texts=[
                 "To form a contract, there must be an offer, acceptance, consideration, and mutual intent to be bound.",

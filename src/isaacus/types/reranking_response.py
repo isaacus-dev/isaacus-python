@@ -31,8 +31,8 @@ class Usage(BaseModel):
 class RerankingResponse(BaseModel):
     results: List[Result]
     """
-    The rerankings of the texts, by relevance to the query, in order from highest to
-    lowest relevance score.
+    The texts reranked by relevance to the query, in order from highest to lowest
+    relevance score.
     """
 
     usage: Usage

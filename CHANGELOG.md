@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.20.0 (2026-03-11)
+
+Full Changelog: [v0.19.3...v0.20.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.3...v0.20.0)
+
+### Features
+
+* **api:** add kanon-2-reranker ([e3f7e03](https://github.com/isaacus-dev/isaacus-python/commit/e3f7e03cac7b73838a31bec0e1d0507a67a41f13))
+* **api:** drop mini models ([0031fe3](https://github.com/isaacus-dev/isaacus-python/commit/0031fe3c4a60500981031dd78fa4fd010fac7eec))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([54b727d](https://github.com/isaacus-dev/isaacus-python/commit/54b727d4799d95bce4143399039538f3c30c744f))
+* **internal:** codegen related update ([025587b](https://github.com/isaacus-dev/isaacus-python/commit/025587b946c3ece7a34a346280dbd688880a7276))
+
+
+### Documentation
+
+* **api:** reworded descriptions ([dd1a29d](https://github.com/isaacus-dev/isaacus-python/commit/dd1a29da595815016f988cf5e6a03cc6b160daf8))
+
 ## 0.19.3 (2026-03-03)
 
 Full Changelog: [v0.19.2...v0.19.3](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.2...v0.19.3)

@@ -78,7 +78,7 @@ class UniversalClassificationResponse(BaseModel):
     classifications: List[Classification]
     """
     The classifications of the texts, by relevance to the query, in order from
-    highest to lowest relevance score.
+    highest to lowest confidence score.
     """
 
     usage: Usage

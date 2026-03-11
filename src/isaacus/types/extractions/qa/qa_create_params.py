@@ -11,7 +11,7 @@ __all__ = ["QACreateParams", "ChunkingOptions"]
 
 
 class QACreateParams(TypedDict, total=False):
-    model: Required[Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"]]
+    model: Required[Literal["kanon-answer-extractor"]]
     """
     The ID of the
     [model](https://docs.isaacus.com/models#extractive-question-answering) to use

@@ -25,6 +25,8 @@ __all__ = ["QAResource", "AsyncQAResource"]
 
 
 class QAResource(SyncAPIResource):
+    """Extract information from documents with an Isaacus extraction model."""
+
     @cached_property
     def with_raw_response(self) -> QAResourceWithRawResponse:
         """
@@ -47,7 +49,7 @@ class QAResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
+        model: Literal["kanon-answer-extractor"],
         query: str,
         texts: SequenceNotStr[str],
         ignore_inextractability: bool | Omit = omit,
@@ -61,8 +63,8 @@ class QAResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AnswerExtractionResponse:
         """
-        Extract answers to questions from legal documents with an Isaacus legal AI
-        answer extractor.
+        Extract information from documents with an Isaacus extractive question answering
+        model.
 
         Args:
           model: The ID of the
@@ -125,6 +127,8 @@ class QAResource(SyncAPIResource):
 
 
 class AsyncQAResource(AsyncAPIResource):
+    """Extract information from documents with an Isaacus extraction model."""
+
     @cached_property
     def with_raw_response(self) -> AsyncQAResourceWithRawResponse:
         """
@@ -147,7 +151,7 @@ class AsyncQAResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
+        model: Literal["kanon-answer-extractor"],
         query: str,
         texts: SequenceNotStr[str],
         ignore_inextractability: bool | Omit = omit,
@@ -161,8 +165,8 @@ class AsyncQAResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AnswerExtractionResponse:
         """
-        Extract answers to questions from legal documents with an Isaacus legal AI
-        answer extractor.
+        Extract information from documents with an Isaacus extractive question answering
+        model.
 
         Args:
           model: The ID of the

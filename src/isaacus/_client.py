@@ -98,6 +98,7 @@ class Isaacus(SyncAPIClient):
 
     @cached_property
     def embeddings(self) -> EmbeddingsResource:
+        """Vectorize content with an Isaacus embedding model."""
         from .resources.embeddings import EmbeddingsResource
 
         return EmbeddingsResource(self)
@@ -110,6 +111,9 @@ class Isaacus(SyncAPIClient):
 
     @cached_property
     def rerankings(self) -> RerankingsResource:
+        """
+        Score and rank documents by their relevance to queries with an Isaacus reranker.
+        """
         from .resources.rerankings import RerankingsResource
 
         return RerankingsResource(self)
@@ -122,6 +126,7 @@ class Isaacus(SyncAPIClient):
 
     @cached_property
     def enrichments(self) -> EnrichmentsResource:
+        """Enrich documents with an Isaacus enrichment model."""
         from .resources.enrichments import EnrichmentsResource
 
         return EnrichmentsResource(self)
@@ -296,6 +301,7 @@ class AsyncIsaacus(AsyncAPIClient):
 
     @cached_property
     def embeddings(self) -> AsyncEmbeddingsResource:
+        """Vectorize content with an Isaacus embedding model."""
         from .resources.embeddings import AsyncEmbeddingsResource
 
         return AsyncEmbeddingsResource(self)
@@ -308,6 +314,9 @@ class AsyncIsaacus(AsyncAPIClient):
 
     @cached_property
     def rerankings(self) -> AsyncRerankingsResource:
+        """
+        Score and rank documents by their relevance to queries with an Isaacus reranker.
+        """
         from .resources.rerankings import AsyncRerankingsResource
 
         return AsyncRerankingsResource(self)
@@ -320,6 +329,7 @@ class AsyncIsaacus(AsyncAPIClient):
 
     @cached_property
     def enrichments(self) -> AsyncEnrichmentsResource:
+        """Enrich documents with an Isaacus enrichment model."""
         from .resources.enrichments import AsyncEnrichmentsResource
 
         return AsyncEnrichmentsResource(self)
@@ -445,6 +455,7 @@ class IsaacusWithRawResponse:
 
     @cached_property
     def embeddings(self) -> embeddings.EmbeddingsResourceWithRawResponse:
+        """Vectorize content with an Isaacus embedding model."""
         from .resources.embeddings import EmbeddingsResourceWithRawResponse
 
         return EmbeddingsResourceWithRawResponse(self._client.embeddings)
@@ -457,6 +468,9 @@ class IsaacusWithRawResponse:
 
     @cached_property
     def rerankings(self) -> rerankings.RerankingsResourceWithRawResponse:
+        """
+        Score and rank documents by their relevance to queries with an Isaacus reranker.
+        """
         from .resources.rerankings import RerankingsResourceWithRawResponse
 
         return RerankingsResourceWithRawResponse(self._client.rerankings)
@@ -469,6 +483,7 @@ class IsaacusWithRawResponse:
 
     @cached_property
     def enrichments(self) -> enrichments.EnrichmentsResourceWithRawResponse:
+        """Enrich documents with an Isaacus enrichment model."""
         from .resources.enrichments import EnrichmentsResourceWithRawResponse
 
         return EnrichmentsResourceWithRawResponse(self._client.enrichments)
@@ -482,6 +497,7 @@ class AsyncIsaacusWithRawResponse:
 
     @cached_property
     def embeddings(self) -> embeddings.AsyncEmbeddingsResourceWithRawResponse:
+        """Vectorize content with an Isaacus embedding model."""
         from .resources.embeddings import AsyncEmbeddingsResourceWithRawResponse
 
         return AsyncEmbeddingsResourceWithRawResponse(self._client.embeddings)
@@ -494,6 +510,9 @@ class AsyncIsaacusWithRawResponse:
 
     @cached_property
     def rerankings(self) -> rerankings.AsyncRerankingsResourceWithRawResponse:
+        """
+        Score and rank documents by their relevance to queries with an Isaacus reranker.
+        """
         from .resources.rerankings import AsyncRerankingsResourceWithRawResponse
 
         return AsyncRerankingsResourceWithRawResponse(self._client.rerankings)
@@ -506,6 +525,7 @@ class AsyncIsaacusWithRawResponse:
 
     @cached_property
     def enrichments(self) -> enrichments.AsyncEnrichmentsResourceWithRawResponse:
+        """Enrich documents with an Isaacus enrichment model."""
         from .resources.enrichments import AsyncEnrichmentsResourceWithRawResponse
 
         return AsyncEnrichmentsResourceWithRawResponse(self._client.enrichments)
@@ -519,6 +539,7 @@ class IsaacusWithStreamedResponse:
 
     @cached_property
     def embeddings(self) -> embeddings.EmbeddingsResourceWithStreamingResponse:
+        """Vectorize content with an Isaacus embedding model."""
         from .resources.embeddings import EmbeddingsResourceWithStreamingResponse
 
         return EmbeddingsResourceWithStreamingResponse(self._client.embeddings)
@@ -531,6 +552,9 @@ class IsaacusWithStreamedResponse:
 
     @cached_property
     def rerankings(self) -> rerankings.RerankingsResourceWithStreamingResponse:
+        """
+        Score and rank documents by their relevance to queries with an Isaacus reranker.
+        """
         from .resources.rerankings import RerankingsResourceWithStreamingResponse
 
         return RerankingsResourceWithStreamingResponse(self._client.rerankings)
@@ -543,6 +567,7 @@ class IsaacusWithStreamedResponse:
 
     @cached_property
     def enrichments(self) -> enrichments.EnrichmentsResourceWithStreamingResponse:
+        """Enrich documents with an Isaacus enrichment model."""
         from .resources.enrichments import EnrichmentsResourceWithStreamingResponse
 
         return EnrichmentsResourceWithStreamingResponse(self._client.enrichments)
@@ -556,6 +581,7 @@ class AsyncIsaacusWithStreamedResponse:
 
     @cached_property
     def embeddings(self) -> embeddings.AsyncEmbeddingsResourceWithStreamingResponse:
+        """Vectorize content with an Isaacus embedding model."""
         from .resources.embeddings import AsyncEmbeddingsResourceWithStreamingResponse
 
         return AsyncEmbeddingsResourceWithStreamingResponse(self._client.embeddings)
@@ -568,6 +594,9 @@ class AsyncIsaacusWithStreamedResponse:
 
     @cached_property
     def rerankings(self) -> rerankings.AsyncRerankingsResourceWithStreamingResponse:
+        """
+        Score and rank documents by their relevance to queries with an Isaacus reranker.
+        """
         from .resources.rerankings import AsyncRerankingsResourceWithStreamingResponse
 
         return AsyncRerankingsResourceWithStreamingResponse(self._client.rerankings)
@@ -580,6 +609,7 @@ class AsyncIsaacusWithStreamedResponse:
 
     @cached_property
     def enrichments(self) -> enrichments.AsyncEnrichmentsResourceWithStreamingResponse:
+        """Enrich documents with an Isaacus enrichment model."""
         from .resources.enrichments import AsyncEnrichmentsResourceWithStreamingResponse
 
         return AsyncEnrichmentsResourceWithStreamingResponse(self._client.enrichments)

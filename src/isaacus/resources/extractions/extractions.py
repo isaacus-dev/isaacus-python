@@ -19,6 +19,7 @@ __all__ = ["ExtractionsResource", "AsyncExtractionsResource"]
 class ExtractionsResource(SyncAPIResource):
     @cached_property
     def qa(self) -> QAResource:
+        """Extract information from documents with an Isaacus extraction model."""
         return QAResource(self._client)
 
     @cached_property
@@ -44,6 +45,7 @@ class ExtractionsResource(SyncAPIResource):
 class AsyncExtractionsResource(AsyncAPIResource):
     @cached_property
     def qa(self) -> AsyncQAResource:
+        """Extract information from documents with an Isaacus extraction model."""
         return AsyncQAResource(self._client)
 
     @cached_property
@@ -72,6 +74,7 @@ class ExtractionsResourceWithRawResponse:
 
     @cached_property
     def qa(self) -> QAResourceWithRawResponse:
+        """Extract information from documents with an Isaacus extraction model."""
         return QAResourceWithRawResponse(self._extractions.qa)
 
 
@@ -81,6 +84,7 @@ class AsyncExtractionsResourceWithRawResponse:
 
     @cached_property
     def qa(self) -> AsyncQAResourceWithRawResponse:
+        """Extract information from documents with an Isaacus extraction model."""
         return AsyncQAResourceWithRawResponse(self._extractions.qa)
 
 
@@ -90,6 +94,7 @@ class ExtractionsResourceWithStreamingResponse:
 
     @cached_property
     def qa(self) -> QAResourceWithStreamingResponse:
+        """Extract information from documents with an Isaacus extraction model."""
         return QAResourceWithStreamingResponse(self._extractions.qa)
 
 
@@ -99,4 +104,5 @@ class AsyncExtractionsResourceWithStreamingResponse:
 
     @cached_property
     def qa(self) -> AsyncQAResourceWithStreamingResponse:
+        """Extract information from documents with an Isaacus extraction model."""
         return AsyncQAResourceWithStreamingResponse(self._extractions.qa)
