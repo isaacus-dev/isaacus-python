@@ -11,7 +11,7 @@ __all__ = ["RerankingCreateParams", "ChunkingOptions"]
 
 
 class RerankingCreateParams(TypedDict, total=False):
-    model: Required[Literal["kanon-2-reranker", "kanon-universal-classifier", "kanon-universal-classifier-mini"]]
+    model: Required[Literal["kanon-2-reranker", "kanon-universal-classifier"]]
     """
     The ID of the model to use for reranking, being either a
     [reranking model](https://docs.isaacus.com/models/introduction#reranking) or

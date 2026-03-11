@@ -49,7 +49,7 @@ class UniversalResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
+        model: Literal["kanon-universal-classifier"],
         query: str,
         texts: SequenceNotStr[str],
         is_iql: bool | Omit = omit,
@@ -151,7 +151,7 @@ class AsyncUniversalResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"],
+        model: Literal["kanon-universal-classifier"],
         query: str,
         texts: SequenceNotStr[str],
         is_iql: bool | Omit = omit,
