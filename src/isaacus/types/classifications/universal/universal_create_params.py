@@ -11,7 +11,7 @@ __all__ = ["UniversalCreateParams", "ChunkingOptions"]
 
 
 class UniversalCreateParams(TypedDict, total=False):
-    model: Required[Literal["kanon-universal-classifier", "kanon-universal-classifier-mini"]]
+    model: Required[Literal["kanon-universal-classifier"]]
     """
     The ID of the [model](https://docs.isaacus.com/models#universal-classification)
     to use for universal classification.

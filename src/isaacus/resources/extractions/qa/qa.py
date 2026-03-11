@@ -49,7 +49,7 @@ class QAResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
+        model: Literal["kanon-answer-extractor"],
         query: str,
         texts: SequenceNotStr[str],
         ignore_inextractability: bool | Omit = omit,
@@ -151,7 +151,7 @@ class AsyncQAResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-answer-extractor", "kanon-answer-extractor-mini"],
+        model: Literal["kanon-answer-extractor"],
         query: str,
         texts: SequenceNotStr[str],
         ignore_inextractability: bool | Omit = omit,

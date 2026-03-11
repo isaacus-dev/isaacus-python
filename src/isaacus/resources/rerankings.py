@@ -51,7 +51,7 @@ class RerankingsResource(SyncAPIResource):
     def create(
         self,
         *,
-        model: Literal["kanon-2-reranker", "kanon-universal-classifier", "kanon-universal-classifier-mini"],
+        model: Literal["kanon-2-reranker", "kanon-universal-classifier"],
         query: str,
         texts: SequenceNotStr[str],
         top_n: Optional[int] | Omit = omit,
@@ -168,7 +168,7 @@ class AsyncRerankingsResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        model: Literal["kanon-2-reranker", "kanon-universal-classifier", "kanon-universal-classifier-mini"],
+        model: Literal["kanon-2-reranker", "kanon-universal-classifier"],
         query: str,
         texts: SequenceNotStr[str],
         top_n: Optional[int] | Omit = omit,
