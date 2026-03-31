@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.21.0 (2026-03-27)
+
+Full Changelog: [v0.20.0...v0.21.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.20.0...v0.21.0)
+
+### Features
+
+* **internal:** implement indices array format for query and form serialization ([e9eae58](https://github.com/isaacus-dev/isaacus-python/commit/e9eae5878550b24c314d74b12234afe130581f10))
+
+
+### Bug Fixes
+
+* **deps:** bump minimum typing-extensions version ([394751d](https://github.com/isaacus-dev/isaacus-python/commit/394751d769909d21410f96e62e93bb312d94c3e2))
+* **pydantic:** do not pass `by_alias` unless set ([7f72945](https://github.com/isaacus-dev/isaacus-python/commit/7f729458707c86cc6f6fa1a9d02089d37438ab49))
+* sanitize endpoint path params ([0d18b42](https://github.com/isaacus-dev/isaacus-python/commit/0d18b42ebef0a59339ebae15f27c92ea4b8c4d34))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([4e7a621](https://github.com/isaacus-dev/isaacus-python/commit/4e7a6215f40a0a3af7830f5a59ad394d3f648451))
+* **internal:** tweak CI branches ([6fa92c9](https://github.com/isaacus-dev/isaacus-python/commit/6fa92c9234a575001af5511e372acccce4cc201c))
+* **internal:** update gitignore ([114e851](https://github.com/isaacus-dev/isaacus-python/commit/114e8516f3ffeb667704b74b2b962f748ccb998b))
+
 ## 0.20.0 (2026-03-11)
 
 Full Changelog: [v0.19.3...v0.20.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.19.3...v0.20.0)
