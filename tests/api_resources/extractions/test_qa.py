@@ -41,9 +41,9 @@ class TestQA:
             ignore_inextractability=False,
             top_k=1,
             chunking_options={
-                "size": 512,
-                "overlap_ratio": 0.1,
-                "overlap_tokens": 10,
+                "size": None,
+                "overlap_ratio": None,
+                "overlap_tokens": None,
             },
         )
         assert_matches_type(AnswerExtractionResponse, qa, path=["response"])
@@ -112,9 +112,9 @@ class TestAsyncQA:
             ignore_inextractability=False,
             top_k=1,
             chunking_options={
-                "size": 512,
-                "overlap_ratio": 0.1,
-                "overlap_tokens": 10,
+                "size": None,
+                "overlap_ratio": None,
+                "overlap_tokens": None,
             },
         )
         assert_matches_type(AnswerExtractionResponse, qa, path=["response"])

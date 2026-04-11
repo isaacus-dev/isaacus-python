@@ -22,7 +22,9 @@ class TestEnrichments:
     def test_method_create(self, client: Isaacus) -> None:
         enrichment = client.enrichments.create(
             model="kanon-2-enricher",
-            texts=['1.5 You (the "User") agree to be bound by these Terms.'],
+            texts=[
+                '[42] The U.S. Attorney General, Mr. McGill, argued at ¶ 21 of the Filing that "§ 206 of Title 29 of the U.S. Code (the "Labor Title") does not apply to the plaintiff, Ms. Moody, given the definition of an "employee" at §203(e)(4) of the Labor Title does not include volunteers, and, regardless, she lives in Austria."'
+            ],
         )
         assert_matches_type(EnrichmentResponse, enrichment, path=["response"])
 
@@ -31,7 +33,9 @@ class TestEnrichments:
     def test_method_create_with_all_params(self, client: Isaacus) -> None:
         enrichment = client.enrichments.create(
             model="kanon-2-enricher",
-            texts=['1.5 You (the "User") agree to be bound by these Terms.'],
+            texts=[
+                '[42] The U.S. Attorney General, Mr. McGill, argued at ¶ 21 of the Filing that "§ 206 of Title 29 of the U.S. Code (the "Labor Title") does not apply to the plaintiff, Ms. Moody, given the definition of an "employee" at §203(e)(4) of the Labor Title does not include volunteers, and, regardless, she lives in Austria."'
+            ],
             overflow_strategy="auto",
         )
         assert_matches_type(EnrichmentResponse, enrichment, path=["response"])
@@ -41,7 +45,9 @@ class TestEnrichments:
     def test_raw_response_create(self, client: Isaacus) -> None:
         response = client.enrichments.with_raw_response.create(
             model="kanon-2-enricher",
-            texts=['1.5 You (the "User") agree to be bound by these Terms.'],
+            texts=[
+                '[42] The U.S. Attorney General, Mr. McGill, argued at ¶ 21 of the Filing that "§ 206 of Title 29 of the U.S. Code (the "Labor Title") does not apply to the plaintiff, Ms. Moody, given the definition of an "employee" at §203(e)(4) of the Labor Title does not include volunteers, and, regardless, she lives in Austria."'
+            ],
         )
 
         assert response.is_closed is True
@@ -54,7 +60,9 @@ class TestEnrichments:
     def test_streaming_response_create(self, client: Isaacus) -> None:
         with client.enrichments.with_streaming_response.create(
             model="kanon-2-enricher",
-            texts=['1.5 You (the "User") agree to be bound by these Terms.'],
+            texts=[
+                '[42] The U.S. Attorney General, Mr. McGill, argued at ¶ 21 of the Filing that "§ 206 of Title 29 of the U.S. Code (the "Labor Title") does not apply to the plaintiff, Ms. Moody, given the definition of an "employee" at §203(e)(4) of the Labor Title does not include volunteers, and, regardless, she lives in Austria."'
+            ],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -75,7 +83,9 @@ class TestAsyncEnrichments:
     async def test_method_create(self, async_client: AsyncIsaacus) -> None:
         enrichment = await async_client.enrichments.create(
             model="kanon-2-enricher",
-            texts=['1.5 You (the "User") agree to be bound by these Terms.'],
+            texts=[
+                '[42] The U.S. Attorney General, Mr. McGill, argued at ¶ 21 of the Filing that "§ 206 of Title 29 of the U.S. Code (the "Labor Title") does not apply to the plaintiff, Ms. Moody, given the definition of an "employee" at §203(e)(4) of the Labor Title does not include volunteers, and, regardless, she lives in Austria."'
+            ],
         )
         assert_matches_type(EnrichmentResponse, enrichment, path=["response"])
 
@@ -84,7 +94,9 @@ class TestAsyncEnrichments:
     async def test_method_create_with_all_params(self, async_client: AsyncIsaacus) -> None:
         enrichment = await async_client.enrichments.create(
             model="kanon-2-enricher",
-            texts=['1.5 You (the "User") agree to be bound by these Terms.'],
+            texts=[
+                '[42] The U.S. Attorney General, Mr. McGill, argued at ¶ 21 of the Filing that "§ 206 of Title 29 of the U.S. Code (the "Labor Title") does not apply to the plaintiff, Ms. Moody, given the definition of an "employee" at §203(e)(4) of the Labor Title does not include volunteers, and, regardless, she lives in Austria."'
+            ],
             overflow_strategy="auto",
         )
         assert_matches_type(EnrichmentResponse, enrichment, path=["response"])
@@ -94,7 +106,9 @@ class TestAsyncEnrichments:
     async def test_raw_response_create(self, async_client: AsyncIsaacus) -> None:
         response = await async_client.enrichments.with_raw_response.create(
             model="kanon-2-enricher",
-            texts=['1.5 You (the "User") agree to be bound by these Terms.'],
+            texts=[
+                '[42] The U.S. Attorney General, Mr. McGill, argued at ¶ 21 of the Filing that "§ 206 of Title 29 of the U.S. Code (the "Labor Title") does not apply to the plaintiff, Ms. Moody, given the definition of an "employee" at §203(e)(4) of the Labor Title does not include volunteers, and, regardless, she lives in Austria."'
+            ],
         )
 
         assert response.is_closed is True
@@ -107,7 +121,9 @@ class TestAsyncEnrichments:
     async def test_streaming_response_create(self, async_client: AsyncIsaacus) -> None:
         async with async_client.enrichments.with_streaming_response.create(
             model="kanon-2-enricher",
-            texts=['1.5 You (the "User") agree to be bound by these Terms.'],
+            texts=[
+                '[42] The U.S. Attorney General, Mr. McGill, argued at ¶ 21 of the Filing that "§ 206 of Title 29 of the U.S. Code (the "Labor Title") does not apply to the plaintiff, Ms. Moody, given the definition of an "employee" at §203(e)(4) of the Labor Title does not include volunteers, and, regardless, she lives in Austria."'
+            ],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

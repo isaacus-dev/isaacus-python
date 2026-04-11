@@ -38,8 +38,8 @@ class TestUniversal:
             scoring_method="auto",
             chunking_options={
                 "size": 512,
-                "overlap_ratio": 0.1,
-                "overlap_tokens": 10,
+                "overlap_ratio": None,
+                "overlap_tokens": None,
             },
         )
         assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
@@ -101,8 +101,8 @@ class TestAsyncUniversal:
             scoring_method="auto",
             chunking_options={
                 "size": 512,
-                "overlap_ratio": 0.1,
-                "overlap_tokens": 10,
+                "overlap_ratio": None,
+                "overlap_tokens": None,
             },
         )
         assert_matches_type(UniversalClassificationResponse, universal, path=["response"])
