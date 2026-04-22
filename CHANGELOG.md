@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.21.1 (2026-04-22)
+
+Full Changelog: [v0.21.0...v0.21.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.21.0...v0.21.1)
+
+### Bug Fixes
+
+* **client:** preserve hardcoded query params when merging with user params ([1e99aa4](https://github.com/isaacus-dev/isaacus-python/commit/1e99aa438e488d81e2e37ad5ea41a48e7b60f1eb))
+* ensure file data are only sent as 1 parameter ([32dab0e](https://github.com/isaacus-dev/isaacus-python/commit/32dab0e1abc9f4f5ea0446cb8bb17c9ee2b55b7a))
+
+
+### Performance Improvements
+
+* **client:** optimize file structure copying in multipart requests ([3f32843](https://github.com/isaacus-dev/isaacus-python/commit/3f32843f81d5115e1c495cc42fdd095ff99f3822))
+
+
+### Documentation
+
+* update examples ([4186943](https://github.com/isaacus-dev/isaacus-python/commit/4186943a4a7c4571c7ee2a097bd1715ec074e5dd))
+
 ## 0.21.0 (2026-03-27)
 
 Full Changelog: [v0.20.0...v0.21.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.20.0...v0.21.0)
