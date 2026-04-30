@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.22.0 (2026-04-30)
+
+Full Changelog: [v0.21.1...v0.22.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.21.1...v0.22.0)
+
+### Features
+
+* support setting headers via env ([4c60e18](https://github.com/isaacus-dev/isaacus-python/commit/4c60e181945f54bba2d2efda81824d7cddd04e93))
+
+
+### Bug Fixes
+
+* use correct field name format for multipart file arrays ([3d484c1](https://github.com/isaacus-dev/isaacus-python/commit/3d484c1fe82f0f0714a0d2411c34e115eeb49193))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([9f76d7a](https://github.com/isaacus-dev/isaacus-python/commit/9f76d7a5e5514e93c9dd9c499d7a4333a59b117c))
+
 ## 0.21.1 (2026-04-22)
 
 Full Changelog: [v0.21.0...v0.21.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.21.0...v0.21.1)
