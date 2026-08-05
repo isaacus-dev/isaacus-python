@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.22.0 (2026-06-01)
+
+Full Changelog: [v0.21.1...v0.22.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.21.1...v0.22.0)
+
+### Features
+
+* **internal/types:** support eagerly validating pydantic iterators ([f4aedaf](https://github.com/isaacus-dev/isaacus-python/commit/f4aedafe0b10f15d86c2c065290a995734f85684))
+* support setting headers via env ([4c60e18](https://github.com/isaacus-dev/isaacus-python/commit/4c60e181945f54bba2d2efda81824d7cddd04e93))
+
+
+### Bug Fixes
+
+* **client:** add missing f-string prefix in file type error message ([9d9892e](https://github.com/isaacus-dev/isaacus-python/commit/9d9892ebda7feb1107f18993f8a45b2f6f3a8742))
+* use correct field name format for multipart file arrays ([3d484c1](https://github.com/isaacus-dev/isaacus-python/commit/3d484c1fe82f0f0714a0d2411c34e115eeb49193))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([9f76d7a](https://github.com/isaacus-dev/isaacus-python/commit/9f76d7a5e5514e93c9dd9c499d7a4333a59b117c))
+* **internal:** reformat pyproject.toml ([5d17213](https://github.com/isaacus-dev/isaacus-python/commit/5d172137de4c9d6a70e09f92a8e93925c7a375d0))
+
+
+### Documentation
+
+* **api:** rename ILGS to ILDGS in description without breaking API ([da9de4d](https://github.com/isaacus-dev/isaacus-python/commit/da9de4d05d7dfbe7e25ad1ae7e881f4310c60eb4))
+
 ## 0.21.1 (2026-04-22)
 
 Full Changelog: [v0.21.0...v0.21.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.21.0...v0.21.1)
