@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.22.1 (2026-08-23)
+
+Full Changelog: [v0.22.0...v0.22.1](https://github.com/isaacus-dev/isaacus-python/compare/v0.22.0...v0.22.1)
+
+### Chores
+
+* migrate to stlc ([e43440f](https://github.com/isaacus-dev/isaacus-python/commit/e43440f9896ae8b2d8ea9aeaba5fc8cd2d9d5be1))
+
 ## 0.22.0 (2026-06-01)
 
 Full Changelog: [v0.21.1...v0.22.0](https://github.com/isaacus-dev/isaacus-python/compare/v0.21.1...v0.22.0)
