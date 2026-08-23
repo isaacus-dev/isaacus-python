@@ -1,0 +1,50 @@
+name: Promote SDKs
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  promote:
+    runs-on: ${{ vars.STLC_RUNNER || 'ubuntu-latest' }}
+    if: github.repository == 'isaacus-dev/isaacus-python-staging'
+    environment: production
+    env:
+      PRODUCTION_REPO: isaacus-dev/isaacus-python
+      GH_TOKEN: ${{ secrets.PRODUCTION_REPO_TOKEN }}
+    steps:
+      - name: Check out staging
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Fetch production main
+        run: |
+          git remote add production \
+            "https://x-access-token:${GH_TOKEN}@github.com/${PRODUCTION_REPO}.git"
+          git fetch production main
+
+      - name: Check whether production already has staging's content
+        id: diff
+        run: |
+          MERGED=$(git merge-tree --write-tree production/main origin/main) || MERGED=conflict
+          PRODUCTION_TREE=$(git rev-parse 'production/main^{tree}')
+          if [ "$MERGED" = "$PRODUCTION_TREE" ]; then
+            echo "Production already contains staging's content. Nothing to promote."
+            echo "synced=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "synced=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Promote staging to production (fast-forward)
+        if: steps.diff.outputs.synced == 'false'
+        run: |
+          if ! git merge-base --is-ancestor production/main origin/main; then
+            echo "::error title=Promote blocked::production/main is not an ancestor of staging main. Back-sync production into staging first."
+            exit 1
+          fi
+          git push production origin/main:refs/heads/main
+          echo "Fast-forwarded production/main to staging/main."
